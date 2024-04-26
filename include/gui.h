@@ -4,7 +4,7 @@
 
 #include		"vector.h"
 #include		"div.h"
-
+#include                "dlfcn.h"
 #include		<lapin.h>
 
 typedef	enum		e_type
@@ -45,9 +45,8 @@ void			efrefresh_gui(t_gui			*gui);
 void			efdisplay_gui(t_gui			*ck,
 				      t_bunny_pixelarray	*px);
 void			efadd_button_gui(t_gui			*gui,
-					 t_div                  *divname,
 					 const char		*name,
-					 t_bunny_position	pos,
+					 t_zposition	        pos,
 					 t_bunny_size		size,
 					 const char		*text,
 					 t_bunny_color		*font_color,

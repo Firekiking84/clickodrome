@@ -53,8 +53,7 @@ t_vector                *efvector_view(t_vector         *vec,
                                        size_t           len);
 
 #define                 efvector_at(vector, position, type) \
-  (position < vector->array_capacity ?			    \
-   ((type*)vector->data_array)[position] : NULL)
+  (((type*)vector->data_array)[position])
 
 #define                 efvector_funcptr_at(vector, position, type) \
   (position < vector->array_capacity ?				    \

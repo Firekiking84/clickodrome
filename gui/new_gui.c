@@ -1,5 +1,4 @@
 #include "gui.h"
-
 t_gui *efnew_gui(const char *file)
 {
   t_bunny_configuration *cnf;

@@ -7,18 +7,20 @@ void efadd_button_cnf(t_bunny_configuration *cnf,t_gui *gui)
   i = 0;
   void *link;
   t_button *button;
-  t_bunny_position pos;
+  t_zposition pos;
   t_bunny_size size;
-  char *name;
-  char *text;
-  char *lib;
+  const char *name;
+  const char *text;
+  const char *lib;
   t_bunny_color color;
   t_bunny_color bg;
   t_bunny_color hover_color;
-  t_component comp;
+  t_component *comp;
   t_vector *function;
+  void *func_ptr;
+  const char *func;
 
-  pos = efget_pos_cnf(cnf);
+  pos = efget_posz_cnf(cnf);
   size = efget_size_cnf(cnf);
   bunny_configuration_getf(cnf,&name,"components.name");
   bunny_configuration_getf(cnf,&text,"components.text");
@@ -32,21 +34,18 @@ void efadd_button_cnf(t_bunny_configuration *cnf,t_gui *gui)
       bunny_configuration_getf(cnf,&lib,"components.functions[0]");
       link = dlopen(lib, RTLD_NOW); // lib needs to contain path to the library
     }
-  function = efnew_vector(void (*func_ptr)(void),j);
+  function = efvector_new(func_ptr,j);
   while (i <  j)
     {
       bunny_configuration_getf(cnf,&func,"components.functions[%d]",i);
       func_ptr = dlsym(link,func);
-      efpush_vector(function,func_ptr);
+      efvector_push(function,func_ptr);
       i++;
     }
 
-  button = efnew_button(pos,size,name,text,font_color,bg,function);
-  if (button == NULL)
-    return(NULL);
-  comp.component = &gui->div->buttons;
-  comp.type = 0;
-  efvector_push(gui->div->buttons,button);
+  efadd_button_gui(gui,name,pos,size,text,&color,&hover_color,&bg,function);
+  comp->component = efvector_at(gui->divs,gui->divs->data_count,t_div).buttons;
+  comp->type = 0;
   efvector_push(gui->components,comp);
   efvector_push(gui->libs,link);
 }

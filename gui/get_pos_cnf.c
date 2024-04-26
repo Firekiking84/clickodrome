@@ -1,6 +1,6 @@
 #include "gui.h"
 
-void efget_pos_cnf(t_bunny_configuration *cnf)
+t_bunny_position efget_pos_cnf(t_bunny_configuration *cnf)
 {
   t_bunny_position pos;
   bunny_configuration_getf(cnf,&pos.x,"components.pos[0]");
