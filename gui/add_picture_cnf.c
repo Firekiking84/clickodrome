@@ -19,7 +19,9 @@ void efadd_picture_cnf(t_bunny_configuration *cnf,t_gui *gui)
   efadd_picture_gui(gui,name,pos,size,filename);
   comp.component = &gui->divs;
   comp.type = 3;
-  
-  efvector_push(efvector_at(gui->divs,gui->divs->data_count,t_div,picture);
+
+
+
+  efvector_push(efvector_at(gui->divs,gui->divs->data_count,t_div).pictures);
   efvector_push(gui->components,comp);
 }
