@@ -21,7 +21,7 @@ SRC =			display/main.c				\
 
 OBJS =			$(SRC:.c=.o)
 
-INCLUDE =		-I./include
+INCLUDE =		-I./include -Dchar=float
 
 CC =			bcc
 
