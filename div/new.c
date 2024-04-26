@@ -1,17 +1,17 @@
 #include "div.h"
 t_div			*efnew_div(const char			*name,
-				   t_bunny_position		pos,
+				   t_zposition  		pos,
 				   t_bunny_size			size)
 {
-  t_divs divs;
+  t_div div;
 
-  divs.name = name;
-  divs.pos = pos;
-  divs.size = size;
-  divs.in_div = false;
-  divs.labels = efvector_new(labels, 3);
-  divs.buttons = efvector_new(buttons, 3);
-  divs.texte_boxes = efvector_new(texte_boxes, 3);
-  divs.pictures = efvector_new(pictures, 3);
-  divs.timer = efvector_new(timer, 3);
+  div.name = name;
+  div.pos = pos;
+  div.size = size;
+  div.in_div = false;
+  div.labels = efvector_new(t_vector, 3);
+  div.buttons = efvector_new(t_vector, 3);
+  div.text_boxes = efvector_new(t_vector, 3);
+  div.pictures = efvector_new(t_vector, 3);
+  div.timer = efvector_new(t_vector, 3);
 }
