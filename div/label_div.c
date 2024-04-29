@@ -1,6 +1,6 @@
 #include "div.h"
 void			efadd_label(t_div			*div,
-				    t_zposition		pos,
+				    t_zposition		        pos,
 				    const char			*name,
 				    t_bunny_size		size,
 				    const char			*text,
