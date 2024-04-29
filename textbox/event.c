@@ -1,5 +1,7 @@
 #include		"text_box.h"
 
+#include		<stdio.h>
+
 static bool		check_mouse_button(t_text_box			*text_box,
 					   t_bunny_mouse_button_event	mouse_button)
 {
@@ -50,17 +52,24 @@ void			efevent_text_box(t_text_box			*text_box,
 		  i = 0;
 		  while (i < text_box->functions->data_count)
 		    {
-		      func_ptr = efvector_at(text_box->functions, i, void*);
+		      func_ptr = (void *)efvector_at(text_box->functions, i, size_t);
 		      func_ptr(string_get_content(text_box->text));
 		      i += 1;
 		    }
 		  string_clear(text_box->text);
+		  text_box->cursor_pos = 0;
 		}
-	      if (event->key.sym == BKS_BACKSPACE)
+	      else if (event->key.sym == BKS_BACKSPACE && text_box->cursor_pos > 0)
 		{
 		  text_box->cursor_pos -= 1;
 		  string_erase(text_box->text, text_box->cursor_pos);
 		}
+	      else if (event->key.sym == BKS_DELETE)
+		string_erase(text_box->text, text_box->cursor_pos);
+	      else if (event->key.sym == BKS_LEFT && text_box->cursor_pos > 0)
+		text_box->cursor_pos -= 1;
+	      else if (event->key.sym == BKS_RIGHT && text_box->cursor_pos < text_box->text->str_len)
+		text_box->cursor_pos += 1;
 	    }
 	}
     }

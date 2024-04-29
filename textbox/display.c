@@ -20,12 +20,21 @@ static void		draw_cursor(t_text_box			*text_box,
 {
   t_bunny_color		cursor_color;
   t_zposition		end_pos;
+  double		cur_time;
+  double		diff_time;
 
-  end_pos.z = draw_pos.z;
-  end_pos.x = draw_pos.x + 1;
-  end_pos.y = draw_pos.y + text_box->size_font.y;
-  cursor_color.full = 0;
-  draw_rectangle(px, &draw_pos, &end_pos, &cursor_color);
+  cur_time = bunny_get_current_time();
+  diff_time = cur_time - text_box->time_cursor_blink;
+  if (diff_time > 1)
+    text_box->time_cursor_blink = cur_time;
+  else if  (diff_time < 0.75)
+    {
+      end_pos.z = draw_pos.z;
+      end_pos.x = draw_pos.x + 1;
+      end_pos.y = draw_pos.y + text_box->size_font.y;
+      cursor_color.full = text_box->font_color.full;
+      draw_rectangle(px, &draw_pos, &end_pos, &cursor_color);
+    }
 }
 
 static void		increment_draw_values(t_text_box	*text_box,
@@ -62,12 +71,22 @@ void			efdisplay_text_box(t_text_box		*text_box,
   i = start;
   while (i < text_box->text->str_len)
     {
-      draw_pos.x = text_box->pos.x + 1 + (n_letter * text_box->size_font.x);
+      draw_pos.x = text_box->pos.x + (n_letter * (text_box->size_font.x + 2));
       draw_pos.y = text_box->pos.y + 1 + (n_line * text_box->size_font.y);
-      if (i == text_box->cursor_pos)
-	draw_cursor(text_box, draw_pos, px);
       text_box->font->clipable.clip_x_position = string_get_char(text_box->text, i) * text_box->size_font.x;
       blit(px, text_box->font, &draw_pos, &text_box->font_color);
+      if (i == text_box->cursor_pos)
+	{
+	  draw_pos.x = text_box->pos.x + (n_letter * (text_box->size_font.x + 2));
+	  draw_pos.y = text_box->pos.y + 1 + (n_line * text_box->size_font.y);
+	  draw_cursor(text_box, draw_pos, px);
+	}
       increment_draw_values(text_box, &i, &n_line, &n_letter);
+    }
+  if (i == text_box->cursor_pos)
+    {
+      draw_pos.x = text_box->pos.x + (n_letter * (text_box->size_font.x + 2));
+      draw_pos.y = text_box->pos.y + 1 + (n_line * text_box->size_font.y);
+      draw_cursor(text_box, draw_pos, px);
     }
 }

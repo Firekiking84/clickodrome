@@ -52,9 +52,9 @@ LDFLAGS =		-L./
 all:$(NAME)
 
 $(NAME):$(OBJS)
-			$(CC) $(OBJS) -O0 --coverage $(LDFLAGS) -o $(NAME)
+			$(CC) $(OBJS) $(LDFLAGS) -o $(NAME)
 .c.o:
-			$(CC) $(FLAGS) -O0 --coverage $(INCLUDE) -c $< -o $@
+			$(CC) $(FLAGS) $(INCLUDE) -c $< -o $@
 ar:$(OBJS)
 			ar rc $(NAME).a $(OBJS)
 g:

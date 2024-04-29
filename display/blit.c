@@ -86,6 +86,7 @@ void                    blit(t_bunny_zpixelarray		*target,
   bool                  y_is_end;
   bool                  x_is_end;
   t_bunny_color		col;
+  t_bunny_color		tmp_col;
   t_zposition		zpos;
 
   init_struct(pos, &blit, src);
@@ -112,8 +113,9 @@ void                    blit(t_bunny_zpixelarray		*target,
 	  col.full = tab[npos];
 	  if (forcedCol != NULL)
 	    {
-	      forcedCol->argb[ALPHA_CMP] = col.argb[ALPHA_CMP];
-	      col.full = forcedCol->full;
+	      tmp_col = *forcedCol;
+	      tmp_col.argb[ALPHA_CMP] = col.argb[ALPHA_CMP];
+	      col = tmp_col;
 	    }
 	  zpos.x = blit.final_pos.x;
 	  zpos.y = blit.final_pos.y;

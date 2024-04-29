@@ -30,9 +30,18 @@ t_bunny_response	eventResponse(t_bunny_event const	*event,
 t_bunny_response	loop(void			*data2)
 {
   t_data		*data;
+  int			i;
 
   data = (t_data *)data2;
+  i = 0;
+  while (i < (500 * 500))
+    {
+      data->px.z[i] = 10000000;
+      i += 1;
+    }
   efdisplay_text_box(data->box, &data->px);
+  printf("Len : %d Cursor_pos : %d, String : %s                                  \r",
+	 data->box->text->str_len, data->box->cursor_pos, data->box->text->str);
   bunny_blit(&data->win->buffer, &data->px.px->clipable, &data->origin);
   bunny_display(data->win);
   return(GO_ON);
@@ -47,19 +56,22 @@ int			main(void)
   t_bunny_color		bg;
   t_zposition		pos;
 
-  pos.z = 0;
+  pos.z = 1;
   pos.x = 0;
   pos.y = 0;
   data.origin.x = 0;
   data.origin.y = 0;
   size.x = 100;
-  size.x = 100;
+  size.y = 100;
   data.win = bunny_start(500, 500, false, "Test texbox");
   data.px.px = bunny_new_pixelarray(500, 500);
-  functions = efvector_new(void *, 1);
-  efvector_push(functions, print_result);
+  data.px.z = malloc(sizeof(double) * (500 * 500));
+  functions = efvector_new(size_t, 1);
+  size_t tmp = (size_t)(void*)print_result;
+
+  efvector_push(functions, &tmp);
   col.full = WHITE;
-  bg.full = 0;
+  bg.full = BLACK;
   data.box = efnew_text_box(pos, size, "test", col, &bg, functions);
   bunny_set_event_response(eventResponse);
   bunny_set_loop_main_function(loop);

@@ -26,6 +26,7 @@ typedef struct	        s_text_box
   t_bunny_color		font_color;
   t_bunny_color		*bg;
   t_vector		*functions;
+  double		time_cursor_blink;
 }			t_text_box;
 
 t_text_box		*efnew_text_box(t_zposition		pos,
