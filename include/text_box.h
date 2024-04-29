@@ -40,6 +40,9 @@ void			efdisplay_text_box(t_text_box		*text_box,
 					   t_bunny_zpixelarray	*px);
 void			efevent_text_box(t_text_box		*text_box,
 					 const t_bunny_event	*event);
+int			mult_arrondi(int			x,
+				     int			mult,
+				     int			mode); // -1 inférieur 0 au plus proche 1 au supérieur
 
 
 #endif	//		__TEXT_BOX_H__

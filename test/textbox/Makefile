@@ -8,6 +8,7 @@ SRC =			main.c				\
 			../../display/get_value.c	\
 			../../display/set_pixel.c	\
 			../../display/set_zpixel.c	\
+			../../src/mult_arrondi.c	\
 			../../textbox/delete_text_box.c	\
 			../../textbox/display.c		\
 			../../textbox/event.c		\
@@ -22,6 +23,7 @@ SRC =			main.c				\
 			../../string/get_char.c		\
 			../../string/get_content.c	\
 			../../string/get_len.c		\
+			../../string/insert.c		\
 			../../string/new.c		\
 			../../string/new_str.c		\
 			../../string/new_string.c	\

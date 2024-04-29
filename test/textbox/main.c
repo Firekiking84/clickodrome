@@ -40,10 +40,12 @@ t_bunny_response	loop(void			*data2)
       i += 1;
     }
   efdisplay_text_box(data->box, &data->px);
-  printf("Len : %d Cursor_pos : %d, String : %s                                  \r",
-	 data->box->text->str_len, data->box->cursor_pos, data->box->text->str);
   bunny_blit(&data->win->buffer, &data->px.px->clipable, &data->origin);
   bunny_display(data->win);
+  /*
+  ** printf("Len str : %d ; cursor_pos : %d ; str : %s \r",
+  ** 	 data->box->text->str_len, data->box->cursor_pos, data->box->text->str);
+   */
   return(GO_ON);
 }
 

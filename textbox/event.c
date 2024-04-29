@@ -28,8 +28,19 @@ void			efevent_text_box(t_text_box			*text_box,
     text_box->pressed_in = check_mouse_button(text_box, event->mouse_button);
   else if (event->type == BET_MOUSE_BUTTON_RELEASED)
     {
-      if (text_box->pressed_in == true && check_mouse_button(text_box, event->mouse_button) == true)
+      if (!text_box->has_focus && text_box->pressed_in == true
+	  && check_mouse_button(text_box, event->mouse_button) == true)
 	text_box->has_focus = true;
+      else if (text_box->has_focus)
+	{
+	  text_box->cursor_pos = mult_arrondi(event->mouse_button.y,
+					      text_box->size_font.y, -1) / text_box->size_font.y;
+	  text_box->cursor_pos *= text_box->max_letter_on_line;
+	  text_box->cursor_pos += mult_arrondi(event->mouse_button.x,
+					       text_box->size_font.x, 0) / text_box->size_font.x;
+	  if (text_box->cursor_pos > text_box->text->str_len)
+	    text_box->cursor_pos = text_box->text->str_len;
+	}
     }
   else if (text_box->has_focus)
     {
@@ -39,7 +50,7 @@ void			efevent_text_box(t_text_box			*text_box,
 	  check = byte >> 7;
 	  if (!check & 0b1 && byte >= 32 && byte <= 126)
 	    {
-	      string_push_back(text_box->text, (char)event->text.unicode);
+	      string_insert(text_box->text, text_box->cursor_pos, (char)event->text.unicode);
 	      text_box->cursor_pos += 1;
 	    }
 	}
@@ -70,6 +81,18 @@ void			efevent_text_box(t_text_box			*text_box,
 		text_box->cursor_pos -= 1;
 	      else if (event->key.sym == BKS_RIGHT && text_box->cursor_pos < text_box->text->str_len)
 		text_box->cursor_pos += 1;
+	      else if (event->key.sym == BKS_DOWN)
+		{
+		  text_box->cursor_pos += text_box->max_letter_on_line;
+		  if (text_box->cursor_pos > text_box->text->str_len)
+		    text_box->cursor_pos = text_box->text->str_len;
+		}
+	      else if (event->key.sym == BKS_UP)
+		{
+		  text_box->cursor_pos -= text_box->max_letter_on_line;
+		  if (text_box->cursor_pos < 0)
+		    text_box->cursor_pos = 0;
+		}
 	    }
 	}
     }

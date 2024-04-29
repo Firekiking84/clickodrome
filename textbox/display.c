@@ -65,11 +65,15 @@ void			efdisplay_text_box(t_text_box		*text_box,
   if (text_box->text->str_len < text_box->max_letter)
     start = 0;
   else
-    start = text_box->text->str_len - text_box->max_letter;
+    {
+      start = text_box->text->str_len - text_box->max_letter;
+      if (start > text_box->cursor_pos)
+	start = text_box->cursor_pos;
+    }
   n_line = 0;
   n_letter = 0;
   i = start;
-  while (i < text_box->text->str_len)
+  while (i < text_box->text->str_len && (i - start) < text_box->max_letter)
     {
       draw_pos.x = text_box->pos.x + (n_letter * (text_box->size_font.x + 2));
       draw_pos.y = text_box->pos.y + 1 + (n_line * text_box->size_font.y);
