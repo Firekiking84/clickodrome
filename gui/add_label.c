@@ -11,7 +11,7 @@
   count = 0;
   while(count < gui->divs->data_count)
     {
-      add_button_div(efvector_at(gui->divs, count, t_div),name,pos ,size ,text ,font_color ,bg);
+      add_label_div(efvector_at(gui->divs, count, t_div),name,pos ,size ,text ,font_color ,bg);
       count++;
     }
 }
