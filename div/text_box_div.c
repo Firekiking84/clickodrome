@@ -1,13 +1,13 @@
 #include "div.h"
 void			efadd_text_box_div(t_div			*div,
-				       const char		*name,
-				       t_bunny_position		pos,
-				       t_bunny_size		size,
-				       const char		*text,
-				       t_bunny_color		*font_color,
-				       t_bunny_color		*bg,
-				       t_vector			*functions)
-  {
+					   const char			*name,
+					   t_Zposition			pos,
+					   t_bunny_size			size,
+					   const char			*text,
+					   t_bunny_color		*font_color,
+					   t_bunny_color		*bg,
+					   t_vector			*functions)
+{
   div->text_box->name = name;
   div->text_box->pos = pos;
   div->text_box->size = size;

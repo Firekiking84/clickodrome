@@ -1,6 +1,6 @@
 #include		"draw.h"
 
-static void             init_struct(const t_bunny_position      *pos,
+static void             init_struct(const t_zposition		*pos,
                                     t_blit			*blit,
                                     const t_bunny_pixelarray    *src)
 {

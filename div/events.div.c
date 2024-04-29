@@ -7,8 +7,10 @@ void efevents_div(t_div *div,
 
   if ( event->type == BET_MOUSE_MOVED)
     {
-      if (event->mouse_moved.x > div->pos.x && event->mouse_moved.x < div->pos.x + div->size.x &&
-	  event->mouse_moved.y < div->pos.y && event->mouse_moved.y > div->pos.y + div->size.y);
+      if (event->mouse_moved.x > div->pos.x &&
+	  event->mouse_moved.x < div->pos.x + div->size.x &&
+	  event->mouse_moved.y < div->pos.y &&
+	  event->mouse_moved.y > div->pos.y + div->size.y)
 	div->in_div = false ;
       else
 	div->in_div = true ;

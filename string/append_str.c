@@ -9,7 +9,7 @@ int			string_append_str(t_string		*string,
   int			len_str;
 
   len_str = strlen(str);
-  if ((string->str_len + len_str) < string->size_alloc)
+  if ((string->str_len + len_str) > string->size_alloc)
     {
       string->size_alloc += sizeof(char) * (string->str_len + len_str + 1);
       string->str = realloc(string->str, string->size_alloc);

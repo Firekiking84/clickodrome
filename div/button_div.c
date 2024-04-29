@@ -1,7 +1,7 @@
 #include "div.h"
 void			efadd_button_div(t_div				*div,
 					 const char			*name,
-					 t_bunny_position		pos,
+					 t_zposition		pos,
 					 t_bunny_size			size,
 					 const char			*text,
 					 t_bunny_color			*font_color,
