@@ -9,7 +9,7 @@ void			efadd_timer_gui(t_gui			*gui,
   count = 0;
   while(count < gui->divs->data_count)
     {
-      efadd_button_div(efvecteur_at(gui->divs, count, t_div),name ,functions);
+      efadd_timer_div(efvecteur_at(gui->divs, count, t_div),name ,functions);
       count++;
     }
 }
