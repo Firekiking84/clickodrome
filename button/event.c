@@ -15,14 +15,14 @@ void efevents_button(t_button	       	 *button,
 		     t_bunny_event	 *event)
 {
   size_t count;
-  void (*func_ptr)(void);
+  void* (*func_ptr)(void);
 
   count = 0;
   if (button->focus  == true && event->key.sym == BKS_RETURN )
     {
       while (count = button->functions->data_count)
 	{
-	  func_ptr = efvector_funcptr_at(button->functions, count ,void);
+	  func_ptr =(void*)efvector_at(button->functions, count ,size_t );
 	  func_ptr();
 	  count++;
 	}
@@ -37,7 +37,7 @@ void efevents_button(t_button	       	 *button,
       if (button->in_button == true)
 	while (count = button->functions->data_count)
 	  {
-	    func_ptr = efvector_funcptr_at(button->functions ,count ,void*);
+	    func_ptr = (void*)efvector_at(button->functions ,count ,size_t);
 	    func_ptr();
 	    count++;
 	  }
