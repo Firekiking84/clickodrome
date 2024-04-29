@@ -2,27 +2,43 @@
 
 #define			__TEXT_BOX_H__
 
+#include		"efstring.h"
+#include		"vector.h"
+#include		"draw.h"
+
+#include		<stddef.h>
+#include		<lapin.h>
+
 typedef struct	        s_text_box
 {
-  t_bunny_position	pos;
+  t_zposition		pos;
   t_bunny_size		size;
-  const char		*name;
-  const char		*text;
-  t_bunny_color		*font_color;
+  char			*name;
+  t_string		*text;
+  bool			has_focus;
+  bool			pressed_in;
+  int			cursor_pos;
+  t_bunny_size		size_font;
+  int			max_letter_on_line;
+  int			max_nb_lines;
+  int			max_letter;
+  t_bunny_pixelarray	*font;
+  t_bunny_color		font_color;
   t_bunny_color		*bg;
   t_vector		*functions;
 }			t_text_box;
 
-t_text_box		*efnew_text_box(t_bunny_position	pos,
+t_text_box		*efnew_text_box(t_zposition		pos,
 					t_bunny_size		size,
 					const char		*name,
-					const char		*text,
-					t_bunny_color		*font_color,
+					t_bunny_color		font_color,
 					t_bunny_color		*bg,
 					t_vector		*functions);
 void			efdelete_text_box(t_text_box		*text_box);
-void			efdisplay_txt_boxe(t_text_box		*text_box,
-					   t_bunny_pixelarray	*px);
+void			efdisplay_text_box(t_text_box		*text_box,
+					   t_bunny_zpixelarray	*px);
+void			efevent_text_box(t_text_box		*text_box,
+					 const t_bunny_event	*event);
 
 
 #endif	//		__TEXT_BOX_H__
