@@ -12,7 +12,7 @@ void			efadd_picture_gui(t_gui			*gui,
   count = 0;
   while(count < gui->divs->data_count)
     {
-      efadd_picture(efvector_at(gui->divs, count, t_div),pos
+      efadd_picture_div(efvector_at(gui->divs, count, t_div),pos
 		       ,name ,size ,filename);
       count++;
     }

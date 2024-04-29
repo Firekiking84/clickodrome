@@ -1,6 +1,6 @@
-void			efadd_label_gui(t_gui			*gui,
-				    t_bunny_position		pos,
+*void			efadd_label_gui(t_gui			*gui,
 				    const char			*name,
+				    t_bunny_position		pos,
 				    t_bunny_size		size,
 				    const char			*text,
 				    t_bunny_color		*font_color,
@@ -11,8 +11,7 @@ void			efadd_label_gui(t_gui			*gui,
   count = 0;
   while(count < gui->divs->data_count)
     {
-      add_button_div(efvector_at(gui->divs, count, t_div),pos
-		     ,name ,size ,text ,font_color ,bg);
+      add_button_div(efvector_at(gui->divs, count, t_div),name,pos ,size ,text ,font_color ,bg);
       count++;
     }
 }
