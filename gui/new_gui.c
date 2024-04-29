@@ -1,4 +1,5 @@
 #include "gui.h"
+
 t_gui *efnew_gui(const char *file)
 {
   t_bunny_configuration *cnf;
@@ -10,6 +11,7 @@ t_gui *efnew_gui(const char *file)
   t_zposition pos;
   t_bunny_size size;
   const char *type;
+  int tenum;
   int i;
   int j;
   int nbr_divs;
@@ -39,21 +41,26 @@ t_gui *efnew_gui(const char *file)
       while (bunny_configuration_getf(div, &components, "components[%d]", i))
 	{
 	  bunny_configuration_getf(cnf,&type,"components[%d].type",i);
-	  if(type == "button")
+	  tenum = efcomp_type(type);
+	  if(tenum == 0)
 	    {
 	      efadd_button_cnf(components,gui);
 	    }
-	  if(type == "label")
+	  if(tenum == 1)
 	    {
 	      efadd_label_cnf(components,gui);
 	    }
-	  if(type == "text_box)")
+	  if(tenum == 2)
 	    {
 	      efadd_text_box_cnf(components,gui);
 	    }
-	  if(type == "picture")
+	  if(tenum == 3)
 	    {
 	      efadd_picture_cnf(components,gui);
+	    }
+	  if(tenum == 4)
+	    {
+	      efadd_timer_cnf(components,gui);
 	    }
 	  i = i + 1;
 	}

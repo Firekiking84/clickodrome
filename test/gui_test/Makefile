@@ -1,11 +1,7 @@
-NAME =			test_vector
+NAME =			gui_test
 
 SRC =			main.c				\
-			../../gui/new_gui.c		\
-			../../gui/add_picture_cnf.c		\
-			../../gui/add_label_cnf.c		\
-			../../gui/add_text_box_cnf.c	\
-			../../gui/add_button_cnf.c		\
+			../../gui/*.c		\
 
 OBJS =			$(SRC:.c=.o)
 

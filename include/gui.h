@@ -93,5 +93,6 @@ t_bunny_color          efget_color_cnf(t_bunny_configuration    *cnf,
 				       char                     *name);
 t_bunny_position       efget_pos_cnf(t_bunny_configuration      *cnf);
 t_bunny_size           efget_size_cnf(t_bunny_configuration     *cnf);
+t_type                 efcomp_type(const char*                  str);
 
 #endif //		__GUI_H__
