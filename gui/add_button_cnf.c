@@ -4,7 +4,7 @@ void efadd_button_cnf(t_bunny_configuration *cnf,t_gui *gui)
 {
   int i;
   int j;
-  i = 0;
+  i = 1;
   void *link;
   t_button *button;
   t_zposition pos;
@@ -20,6 +20,7 @@ void efadd_button_cnf(t_bunny_configuration *cnf,t_gui *gui)
   void *func_ptr;
   const char *func;
 
+  comp = bunny_malloc(sizeof(t_component));
   pos = efget_posz_cnf(cnf);
   size = efget_size_cnf(cnf);
   bunny_configuration_getf(cnf,&name,"components.name");
@@ -43,7 +44,10 @@ void efadd_button_cnf(t_bunny_configuration *cnf,t_gui *gui)
       i++;
     }
 
-  efadd_button_gui(gui,name,pos,size,text,&color,&hover_color,&bg,function);
+  button = efnew_button(&pos,size,name,text,&color,&bg,&hover_color,function);
+
+  //efadd_button_gui(gui,name,pos,size,text,&color,&hover_color,&bg,function);
+  efvector_push(efvector_at(gui->divs,gui->divs->data_count,t_div).buttons,button);
   comp->component = efvector_at(gui->divs,gui->divs->data_count,t_div).buttons;
   comp->type = 0;
   efvector_push(gui->components,comp);
