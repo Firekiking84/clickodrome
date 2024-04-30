@@ -3,13 +3,12 @@
 t_bunny_color efget_color_cnf(t_bunny_configuration *cnf,char *name)
 {
   t_bunny_color color;
-  bunny_configuration_getf(cnf,&color.ARGB[1],"components.%s[0]",name);
-  bunny_configuration_getf(cnf,&color.ARGB[2],"components.%s[1]",name);
-  bunny_configuration_getf(cnf,&color.ARGB[3],"components.%s[2]",name);
-  if (color == NULL)
-    {
-      color.full = PINK;
-      return (color);
-    }
+  int col1;
+  int col2;
+  int col3;
+  bunny_configuration_getf(cnf,&col1,"components.%s[0]",name);
+  bunny_configuration_getf(cnf,&col2,"components.%s[1]",name);
+  bunny_configuration_getf(cnf,&col3,"components.%s[2]",name);
+  color.full = col1*col2*col3;
   return (color);
 }

@@ -41,16 +41,15 @@ void			efadd_button_div(t_div			*div,
 				     t_vector		        *functions);
 void			efadd_label_div(t_div	 		*div,
 				    t_zposition	        	pos,
-				    const char			*name,
 				    t_bunny_size		size,
+				    const char			*name,
 				    const char			*text,
-				    t_bunny_color		*font_color,
+				    t_bunny_color		*font_scolor,
 				    t_bunny_color		*bg);
 void			efadd_text_box_div(t_div		*div,
-				       const char		*name,
 				       t_zposition		pos,
 				       t_bunny_size		size,
-				       const char		*text,
+				       const char		*name,
 				       t_bunny_color		*font_color,
 				       t_bunny_color		*bg,
 				       t_vector			*functions);
@@ -65,5 +64,5 @@ void			efadd_timer_div(t_div			*div,
 				    t_vector			*functions);
 void                    efevents_div(t_div                      *div,
 				     const t_bunny_event        *event);
-
+void			efrefresh_div(t_div			*div);
 #endif //	__DIV_H__

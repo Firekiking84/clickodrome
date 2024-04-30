@@ -1,4 +1,5 @@
 #include "div.h"
+
 void			efrefresh_div(t_div			*div)
 {
   size_t i;
