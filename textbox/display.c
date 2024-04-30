@@ -51,6 +51,36 @@ static void		increment_draw_values(t_text_box	*text_box,
   *i += 1;
 }
 
+static bool		is_selected_area(t_text_box		*text_box,
+					 int			i)
+{
+  if (!text_box->selection_active)
+    return(false);
+  if (text_box->selected_area.start > text_box->selected_area.end)
+    {
+      if (i < text_box->selected_area.start && i >= text_box->selected_area.end)
+	return(true);
+    }
+  else
+    if (i >= text_box->selected_area.start && i < text_box->selected_area.end)
+      return(true);
+  return(false);
+}
+
+static void		draw_selected_area(t_text_box		*text_box,
+					   t_zposition		pos_start,
+					   t_bunny_zpixelarray	*px)
+{
+  t_zposition		end;
+  t_bunny_color		selected_col;
+
+  end.z = pos_start.z;
+  end.x = pos_start.x + text_box->size_font.x;
+  end.y = pos_start.y + text_box->size_font.y;
+  selected_col.full = BLUE;
+  draw_rectangle(px, &pos_start, &end, &selected_col);
+}
+
 void			efdisplay_text_box(t_text_box		*text_box,
 					   t_bunny_zpixelarray	*px)
 {
@@ -77,6 +107,8 @@ void			efdisplay_text_box(t_text_box		*text_box,
     {
       draw_pos.x = text_box->pos.x + (n_letter * (text_box->size_font.x + 2));
       draw_pos.y = text_box->pos.y + 1 + (n_line * text_box->size_font.y);
+      if (is_selected_area(text_box, i))
+	draw_selected_area(text_box, draw_pos, px);
       text_box->font->clipable.clip_x_position = string_get_char(text_box->text, i) * text_box->size_font.x;
       blit(px, text_box->font, &draw_pos, &text_box->font_color);
       if (i == text_box->cursor_pos)

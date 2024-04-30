@@ -13,6 +13,10 @@ SRC =			main.c				\
 			../../textbox/display.c		\
 			../../textbox/event.c		\
 			../../textbox/new.c		\
+			../../textbox/erase_selection.c	\
+			../../textbox/copy_selection.c	\
+			../../textbox/paste.c		\
+			../../textbox/cut_selection.c	\
 			../../string/append_str.c	\
 			../../string/append_string.c	\
 			../../string/clear.c		\

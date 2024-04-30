@@ -9,6 +9,12 @@
 #include		<stddef.h>
 #include		<lapin.h>
 
+typedef struct		s_area
+{
+  int			start;
+  int			end;
+}			t_area;
+
 typedef struct	        s_text_box
 {
   t_zposition		pos;
@@ -18,6 +24,9 @@ typedef struct	        s_text_box
   bool			has_focus;
   bool			pressed_in;
   int			cursor_pos;
+  bool			selection_active;
+  t_area		selected_area;
+  t_string		*copy;
   t_bunny_size		size_font;
   int			max_letter_on_line;
   int			max_nb_lines;
@@ -43,6 +52,9 @@ void			efevent_text_box(t_text_box		*text_box,
 int			mult_arrondi(int			x,
 				     int			mult,
 				     int			mode); // -1 inférieur 0 au plus proche 1 au supérieur
-
+void			erase_selection(t_text_box		*box);
+void			copy_selection(t_text_box		*box);
+void			paste(t_text_box			*box);
+void			cut_selection(t_text_box		*box);
 
 #endif	//		__TEXT_BOX_H__

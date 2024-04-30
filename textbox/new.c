@@ -22,6 +22,8 @@ t_text_box		*efnew_text_box(t_zposition		pos,
   new_text_box->has_focus = false;
   new_text_box->pressed_in = false;
   new_text_box->cursor_pos = 0;
+  new_text_box->selection_active = false;
+  new_text_box->copy = string_new();
   new_text_box->size_font.x = 10;
   new_text_box->size_font.y = 14;
   new_text_box->max_letter_on_line = new_text_box->size.x / (new_text_box->size_font.x + 2);
