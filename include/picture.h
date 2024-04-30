@@ -6,13 +6,13 @@
 
 typedef struct	        s_picture
 {
-  t_bunny_position		pos;
+  t_zposition		pos;
   t_bunny_size		size;
   char			*name;
   t_bunny_pixelarray	*img;
 }			t_picture;
 
-t_picture		*efnew_picture(t_bunny_position		pos,
+t_picture		*efnew_picture(t_zposition		*pos,
 				       t_bunny_size		size,
 				       const char		*name,
 				       const char		*filename);

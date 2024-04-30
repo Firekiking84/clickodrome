@@ -17,6 +17,9 @@ typedef struct		s_zposition
   double		z;
 }			t_zposition;
 
+void			efclear_pixelarray(t_bunny_zpixelarray	*zpx,
+					   unsigned int		col);
+
 void			set_pixel(t_bunny_pixelarray		*px,
 				  t_bunny_position	        pos,
 				  t_bunny_color			*col);

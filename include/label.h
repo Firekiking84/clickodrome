@@ -6,10 +6,10 @@
 
 typedef struct	        s_label
 {
-  t_zposition		pos;
+  t_zposition	*pos;
   t_bunny_size		size;
-  char			*name;
-  char			*text;
+  const char		*name;
+  const char		*text;
   t_bunny_color		*font_color;
   t_bunny_color		*bg;
 }			t_label;

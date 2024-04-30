@@ -1,9 +1,9 @@
 #include "gui.h"
 
 void			efadd_picture_gui(t_gui			*gui,
-				      const char		*name,
-				      t_bunny_position		pos,
+  				      t_zposition		pos,
 				      t_bunny_size		size,
+				      const char		*name,
 				      const char		*filename)
 {
 
@@ -12,8 +12,8 @@ void			efadd_picture_gui(t_gui			*gui,
   count = 0;
   while(count < gui->divs->data_count)
     {
-      efadd_picture(efvector_at(gui->divs, count, t_div),pos
-		       ,name ,size ,filename);
+      efadd_picture_div(&efvector_at(gui->divs, count, t_div),pos
+		       ,size ,name ,filename);
       count++;
     }
 }

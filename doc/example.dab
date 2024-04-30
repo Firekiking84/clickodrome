@@ -35,7 +35,6 @@
       pos = 50, 50
       size = 10, 20
       name = "text_box1"
-      text = "Write here to comment !"
       font_color = 255, 255, 255
       bg = 0, 0, 0
       functions = "comment.so","nomdefonction"
