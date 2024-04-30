@@ -63,7 +63,7 @@ void			efadd_timer_div(t_div			*div,
 				    const char			*name,
 				    int                         delay,
 				    t_vector			*functions);
-void                    efevent_div(t_div                       *div,
-                         	     const t_bunny_event        *event)
+void                    efevents_div(t_div                      *div,
+				     const t_bunny_event        *event);
 
 #endif //	__DIV_H__
