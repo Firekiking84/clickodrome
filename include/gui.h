@@ -63,7 +63,7 @@ void			efadd_label_gui(t_gui			*gui,
 					t_bunny_color		*bg);
 void			efadd_text_box_gui(t_gui		*gui,
 					   const char		*name,
-					   t_zposition	pos,
+					   t_zposition	        pos,
 					   t_bunny_size		size,
 					   t_bunny_color	*font_color,
 					   t_bunny_color	*bg,
