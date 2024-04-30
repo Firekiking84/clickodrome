@@ -18,7 +18,6 @@ void efadd_button_cnf(t_bunny_configuration *cnf,t_gui *gui)
   t_component *comp;
   t_vector *function;
   void *func_ptr;
-  size_t tptr;
   const char *func;
 
   comp = bunny_malloc(sizeof(t_component));

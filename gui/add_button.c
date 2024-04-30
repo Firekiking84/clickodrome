@@ -14,7 +14,7 @@ void			efadd_button_gui(t_gui			*gui,
   count = 0;
   while(count < gui->divs->data_count)
     {
-      efadd_button_div(&efvector_at(gui->divs, count, t_div),name, pos ,size,text ,font_color,hover_color ,bg ,functions);
+      efadd_button_div(&efvector_at(gui->divs, count, t_div), pos ,size,name,text ,font_color,hover_color ,bg ,functions);
       count++;
     }
 }
