@@ -1,3 +1,15 @@
+/*
+** *****     ***     ***     ***       **       ***      ********************
+** ****  ******  ******  **  *****  *******  *****  *************************
+** ***     ***     ***     ******  *******  *****      **********************
+** **  ******  ******  *** *****  *******  *********  ***********************
+** *     ***  ******  *** ***       ****  *****      ************************
+** 30/04/2024 15:59:35 ******************************************************
+** keryan.houssin <keryan.houssin@terechkova.efrits.fr>
+** - Clickodrome -
+** * *** * * ***  ** * ** ** ** ** * * * *** * **  **************************
+*/
+
 #include		"text_box.h"
 
 static void		draw_bg(t_text_box			*text_box,
@@ -20,12 +32,21 @@ static void		draw_cursor(t_text_box			*text_box,
 {
   t_bunny_color		cursor_color;
   t_zposition		end_pos;
+  double		cur_time;
+  double		diff_time;
 
-  end_pos.z = draw_pos.z;
-  end_pos.x = draw_pos.x + 1;
-  end_pos.y = draw_pos.y + text_box->size_font.y;
-  cursor_color.full = 0;
-  draw_rectangle(px, &draw_pos, &end_pos, &cursor_color);
+  cur_time = bunny_get_current_time();
+  diff_time = cur_time - text_box->time_cursor_blink;
+  if (diff_time > 1)
+    text_box->time_cursor_blink = cur_time;
+  else if  (diff_time < 0.75)
+    {
+      end_pos.z = draw_pos.z;
+      end_pos.x = draw_pos.x + 1;
+      end_pos.y = draw_pos.y + text_box->size_font.y;
+      cursor_color.full = text_box->font_color.full;
+      draw_rectangle(px, &draw_pos, &end_pos, &cursor_color);
+    }
 }
 
 static void		increment_draw_values(t_text_box	*text_box,
@@ -42,6 +63,36 @@ static void		increment_draw_values(t_text_box	*text_box,
   *i += 1;
 }
 
+static bool		is_selected_area(t_text_box		*text_box,
+					 int			i)
+{
+  if (!text_box->selection_active)
+    return(false);
+  if (text_box->selected_area.start > text_box->selected_area.end)
+    {
+      if (i < text_box->selected_area.start && i >= text_box->selected_area.end)
+	return(true);
+    }
+  else
+    if (i >= text_box->selected_area.start && i < text_box->selected_area.end)
+      return(true);
+  return(false);
+}
+
+static void		draw_selected_area(t_text_box		*text_box,
+					   t_zposition		pos_start,
+					   t_bunny_zpixelarray	*px)
+{
+  t_zposition		end;
+  t_bunny_color		selected_col;
+
+  end.z = pos_start.z;
+  end.x = pos_start.x + text_box->size_font.x;
+  end.y = pos_start.y + text_box->size_font.y;
+  selected_col.full = BLUE;
+  draw_rectangle(px, &pos_start, &end, &selected_col);
+}
+
 void			efdisplay_text_box(t_text_box		*text_box,
 					   t_bunny_zpixelarray	*px)
 {
@@ -56,18 +107,34 @@ void			efdisplay_text_box(t_text_box		*text_box,
   if (text_box->text->str_len < text_box->max_letter)
     start = 0;
   else
-    start = text_box->text->str_len - text_box->max_letter;
+    {
+      start = text_box->text->str_len - text_box->max_letter;
+      if (start > text_box->cursor_pos)
+	start = text_box->cursor_pos;
+    }
   n_line = 0;
   n_letter = 0;
   i = start;
-  while (i < text_box->text->str_len)
+  while (i < text_box->text->str_len && (i - start) < text_box->max_letter)
     {
-      draw_pos.x = text_box->pos.x + 1 + (n_letter * text_box->size_font.x);
+      draw_pos.x = text_box->pos.x + (n_letter * (text_box->size_font.x + 2));
       draw_pos.y = text_box->pos.y + 1 + (n_line * text_box->size_font.y);
-      if (i == text_box->cursor_pos)
-	draw_cursor(text_box, draw_pos, px);
+      if (is_selected_area(text_box, i))
+	draw_selected_area(text_box, draw_pos, px);
       text_box->font->clipable.clip_x_position = string_get_char(text_box->text, i) * text_box->size_font.x;
       blit(px, text_box->font, &draw_pos, &text_box->font_color);
+      if (i == text_box->cursor_pos)
+	{
+	  draw_pos.x = text_box->pos.x + (n_letter * (text_box->size_font.x + 2));
+	  draw_pos.y = text_box->pos.y + 1 + (n_line * text_box->size_font.y);
+	  draw_cursor(text_box, draw_pos, px);
+	}
       increment_draw_values(text_box, &i, &n_line, &n_letter);
+    }
+  if (i == text_box->cursor_pos)
+    {
+      draw_pos.x = text_box->pos.x + (n_letter * (text_box->size_font.x + 2));
+      draw_pos.y = text_box->pos.y + 1 + (n_line * text_box->size_font.y);
+      draw_cursor(text_box, draw_pos, px);
     }
 }

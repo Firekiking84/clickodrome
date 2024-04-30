@@ -8,10 +8,15 @@ SRC =			main.c				\
 			../../display/get_value.c	\
 			../../display/set_pixel.c	\
 			../../display/set_zpixel.c	\
+			../../src/mult_arrondi.c	\
 			../../textbox/delete_text_box.c	\
 			../../textbox/display.c		\
 			../../textbox/event.c		\
 			../../textbox/new.c		\
+			../../textbox/erase_selection.c	\
+			../../textbox/copy_selection.c	\
+			../../textbox/paste.c		\
+			../../textbox/cut_selection.c	\
 			../../string/append_str.c	\
 			../../string/append_string.c	\
 			../../string/clear.c		\
@@ -22,6 +27,7 @@ SRC =			main.c				\
 			../../string/get_char.c		\
 			../../string/get_content.c	\
 			../../string/get_len.c		\
+			../../string/insert.c		\
 			../../string/new.c		\
 			../../string/new_str.c		\
 			../../string/new_string.c	\
@@ -52,9 +58,9 @@ LDFLAGS =		-L./
 all:$(NAME)
 
 $(NAME):$(OBJS)
-			$(CC) $(OBJS) -O0 --coverage $(LDFLAGS) -o $(NAME)
+			$(CC) $(OBJS) $(LDFLAGS) -o $(NAME)
 .c.o:
-			$(CC) $(FLAGS) -O0 --coverage $(INCLUDE) -c $< -o $@
+			$(CC) $(FLAGS) $(INCLUDE) -c $< -o $@
 ar:$(OBJS)
 			ar rc $(NAME).a $(OBJS)
 g:
