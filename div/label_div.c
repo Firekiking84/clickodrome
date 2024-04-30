@@ -8,10 +8,5 @@ void			efadd_label_div(t_div			*div,
 					t_bunny_color		*font_color,
 					t_bunny_color		*bg)
 {
-  div->labels->name = name;
-  div->labels->pos = pos;
-  div->labels->size = size;
-  div->labels->text = text;
-  div->labels->font_color = font_color;
-  div->labels->bg = bg;
+  efnew_label(name ,pos ,size ,text ,font_color ,bg);
 }

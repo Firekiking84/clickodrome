@@ -32,6 +32,9 @@ int		string_compare(const t_string		*string,
 			       const t_string		*other);
 int		string_compare_str(const t_string	*string,
 				   const char		*str);
+int		string_insert(t_string			*string,
+			      int			index,
+			      char			c);
 
 
 #endif //	__EF_STRING_H__
