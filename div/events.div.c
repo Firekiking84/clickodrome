@@ -1,6 +1,6 @@
 #include "div.h"
 
-void efevents_div(t_div *div,
+void efevent_div(t_div *div,
 		  const t_bunny_event *event)
 {
   size_t count;

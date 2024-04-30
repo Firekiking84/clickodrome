@@ -2,7 +2,7 @@
 
 void			efadd_text_box_gui(t_gui		*gui,
 				       const char		*name,
-				       t_bunny_position		pos,
+				       t_zposition		pos,
 				       t_bunny_size		size,
 				       const char		*text,
 				       t_bunny_color		*font_color,

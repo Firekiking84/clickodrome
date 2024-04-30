@@ -3,19 +3,19 @@
 void efadd_picture_cnf(t_bunny_configuration *cnf,t_gui *gui)
 {
   t_picture *picture;
-  t_bunny_position pos;
+  t_zposition pos;
   t_bunny_size size;
   const char *name;
   const char *filename;
   t_component *comp;
 
   comp = bunny_malloc(sizeof(t_component));
-  pos = efget_pos_cnf(cnf);
+  pos = efget_posz_cnf(cnf);
   size = efget_size_cnf(cnf);
   bunny_configuration_getf(cnf,&name,"components.name");
   bunny_configuration_getf(cnf,&filename,"components.filename");
   picture = efnew_picture(&pos,size,name,filename);
-  efadd_picture_gui(gui,name,pos,size,filename);
+  efadd_picture_gui(gui,pos,size,name,filename);
 
 
   //efadd_picture_gui(gui,name,pos,size,filename);

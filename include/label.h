@@ -6,7 +6,7 @@
 
 typedef struct	        s_label
 {
-  t_bunny_position	*pos;
+  t_zposition	*pos;
   t_bunny_size		size;
   const char		*name;
   const char		*text;
@@ -14,7 +14,7 @@ typedef struct	        s_label
   t_bunny_color		*bg;
 }			t_label;
 
-t_label			*efnew_label(t_bunny_position		*pos,
+t_label			*efnew_label(t_zposition		*pos,
 				     t_bunny_size		size,
 				     const char			*name,
 				     const char			*text,

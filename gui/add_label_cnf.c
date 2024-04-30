@@ -3,7 +3,7 @@
 void efadd_label_cnf(t_bunny_configuration *cnf,t_gui *gui)
 {
   t_label *label;
-  t_bunny_position pos;
+  t_zposition pos;
   t_bunny_size size;
   const char *name;
   const char *text;
@@ -12,7 +12,7 @@ void efadd_label_cnf(t_bunny_configuration *cnf,t_gui *gui)
   t_component *comp;
 
   comp = bunny_malloc(sizeof(t_component));
-  pos = efget_pos_cnf(cnf);
+  pos = efget_posz_cnf(cnf);
   size = efget_size_cnf(cnf);
   bunny_configuration_getf(cnf,&name,"components.name");
   bunny_configuration_getf(cnf,&text,"components.text");
