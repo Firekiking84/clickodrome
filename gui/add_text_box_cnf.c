@@ -16,6 +16,7 @@ void efadd_text_box_cnf(t_bunny_configuration *cnf,t_gui *gui)
   t_component *comp;
   t_vector *function;
   void *func_ptr;
+  size_t tptr;
   const char *func;
 
   comp = bunny_malloc(sizeof(t_component));
@@ -24,7 +25,6 @@ void efadd_text_box_cnf(t_bunny_configuration *cnf,t_gui *gui)
   bunny_configuration_getf(cnf,&name,"components.name");
   color = efget_color_cnf(cnf,"font_color");
   bg = efget_color_cnf(cnf,"bg");
-
   j = bunny_configuration_casesf(cnf,"components.functions");
 
   if (j > 0)
@@ -32,12 +32,13 @@ void efadd_text_box_cnf(t_bunny_configuration *cnf,t_gui *gui)
       bunny_configuration_getf(cnf,&lib,"components.functions[0]");
       link = dlopen(lib, RTLD_NOW); // lib needs to contain path to the library
     }
-  function = efvector_new(func_ptr,j);
+  function = efvector_new(size_t,j);
   while (i <  j)
     {
       bunny_configuration_getf(cnf,&func,"components.functions[%d]",i);
       func_ptr = dlsym(link,func);
-      efvector_push(function,func_ptr);
+      tptr = (size_t)func_ptr;
+      efvector_push(function,&tptr);
       i++;
     }
 

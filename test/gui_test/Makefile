@@ -1,7 +1,7 @@
 NAME =			gui_test
 
 SRC =			main.c				\
-			../../gui/*.c		\
+			$(wildcard ../../gui/*.c)	\
 
 OBJS =			$(SRC:.c=.o)
 

@@ -35,48 +35,47 @@ t_gui			*efnew_gui(const char			*file);
 void			efdelete_gui(t_gui			*gui);
 
 void			efload_conf_gui(t_gui			*gui);
-void			efinteract_gui(t_gui			*ck,
-				       const char		*type,
-				       const char		*div_name,
-				       const char		*obj_name,
-				       ...);
+//void			efinteract_gui(t_gui			*ck,
+//				       const char		*type,
+//				       const char		*div_name,
+//				       const char		*obj_name,
+//				       ...);
 void			efevent_gui(t_bunny_event const		*event,
 				    void			*data);
 void			efrefresh_gui(t_gui			*gui);
 void			efdisplay_gui(t_gui			*ck,
 				      t_bunny_pixelarray	*px);
 void			efadd_button_gui(t_gui			*gui,
-					 const char		*name,
 					 t_zposition	        pos,
 					 t_bunny_size		size,
+					 const char		*name,
 					 const char		*text,
 					 t_bunny_color		*font_color,
 					 t_bunny_color		*hover_color,
 					 t_bunny_color		*bg,
 					 t_vector	        *functions);
 void			efadd_label_gui(t_gui			*gui,
-					t_bunny_position	pos,
-					const char		*name,
-					t_bunny_size		size,
 					const char		*text,
+					const char		*name,
+					t_zposition       	pos,
+					t_bunny_size		size,
 					t_bunny_color		*font_color,
 					t_bunny_color		*bg);
 void			efadd_text_box_gui(t_gui		*gui,
 					   const char		*name,
-					   t_bunny_position	pos,
+					   t_zposition	        pos,
 					   t_bunny_size		size,
-					   const char		*text,
 					   t_bunny_color	*font_color,
 					   t_bunny_color	*bg,
 					   t_vector		*functions);
 void			efadd_picture_gui(t_gui			*gui,
-					  const char		*name,
-					  t_bunny_position	pos,
-					  t_bunny_size		size,
-					  const char		*filename);
+  				      t_zposition		pos,
+				      t_bunny_size		size,
+				      const char		*name,
+				      const char		*filename);
 void			efadd_timer_gui(t_gui			*gui,
-					int                     delay,
 					const char		*name,
+					int                     delay,
 					t_vector		*functions);
 void                  efadd_button_cnf(t_bunny_configuration    *cnf,
 				       t_gui                    *gui);
