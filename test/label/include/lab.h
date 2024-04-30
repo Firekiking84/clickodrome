@@ -1,6 +1,6 @@
-#ifndef			__DRAW_H__
+#ifndef			__LAB_H__
 
-#define			__DRAW_H__
+#define			__LAB_H__
 
 #include		<lapin.h>
 
@@ -17,7 +17,40 @@ typedef struct		s_zposition
   double		z;
 }			t_zposition;
 
-void                    efclear_zbuffer(t_bunny_zpixelarray     *zpx)
+typedef struct	        s_label
+{
+  t_zposition		pos;
+  t_bunny_size		size;
+  char			*name;
+  char			*text;
+  t_bunny_color		*font_color;
+  t_bunny_color		*bg;
+}			t_label;
+
+typedef struct          s_program
+{
+  t_bunny_zpixelarray   *zpx;
+  t_bunny_pixelarray	*font;
+  t_bunny_window	*window;
+}			t_program;
+
+t_bunny_response        display_function(void                           *data);
+
+t_bunny_response        loop_function(void                              *data);
+
+t_label			*efnew_label(t_zposition		*pos,
+				     t_bunny_size		size,
+				     const char			*name,
+				     const char			*text,
+				     t_bunny_color		*font_color,
+				     t_bunny_color		*bg);
+void			efdisplay_label(t_label			*label,
+					t_bunny_zpixelarray	*px,
+					t_bunny_pixelarray	*font);
+void			efdelete_label(t_label			*label);
+
+
+void                    efclear_zbuffer(t_bunny_zpixelarray     *zpx);
 
 void			set_pixel(t_bunny_pixelarray		*px,
 				  t_bunny_position	        pos,
@@ -68,5 +101,4 @@ typedef struct		s_blit
   bool			is_y_reverse;
 }			t_blit;
 
-
-#endif //		__DRAW_H__
+#endif //		__LAB_H__
