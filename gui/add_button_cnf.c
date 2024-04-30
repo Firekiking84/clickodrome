@@ -46,7 +46,7 @@ void efadd_button_cnf(t_bunny_configuration *cnf,t_gui *gui)
       i++;
     }
 
-  button = efnew_button(&pos,size,name,text,&hover_color,&color,&bg,function);
+  button = efnew_button(pos,size,text,name,&hover_color,&color,&bg,function);
 
   //efadd_button_gui(gui,name,pos,size,text,&color,&hover_color,&bg,function);
   efvector_push(efvector_at(gui->divs,gui->divs->data_count,t_div).buttons,button);
