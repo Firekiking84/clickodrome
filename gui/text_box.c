@@ -1,10 +1,9 @@
 #include "gui.h"
 
 void			efadd_text_box_gui(t_gui		*gui,
-				       const char		*name,
 				       t_zposition		pos,
 				       t_bunny_size		size,
-				       const char		*text,
+				       const char		*name,
 				       t_bunny_color		*font_color,
 				       t_bunny_color		*bg,
 				       t_vector			*functions)
@@ -14,8 +13,8 @@ void			efadd_text_box_gui(t_gui		*gui,
   count = 0;
   while(count < gui->divs->data_count)
     {
-      efadd_button_div(efvecteur_at(gui->divs, count, t_div),pos
-		       ,name ,size ,text ,font_color,bg ,functions);
+      efadd_text_box_div(&efvector_at(gui->divs, count, t_div),pos
+			 ,size,name ,font_color,bg ,functions);
       count++;
     }
 }
