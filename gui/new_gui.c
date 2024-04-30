@@ -8,9 +8,9 @@ t_gui *efnew_gui(const char *file)
   t_gui *gui;
   t_div *tdiv;
   const char *divname;
+  const char *type;
   t_zposition pos;
   t_bunny_size size;
-  const char *type;
   int tenum;
   int i;
   int j;
@@ -25,7 +25,6 @@ t_gui *efnew_gui(const char *file)
   nbr_components = bunny_configuration_casesf(cnf,"components");
   nbr_divs = bunny_configuration_childrenf(cnf,"[]");
   gui = bunny_malloc(sizeof(t_gui));
-
   gui->components = _efvector_new(sizeof(t_vector),nbr_components);
   gui->components = efvector_new(div,nbr_divs);
   div = bunny_configuration_first(cnf);

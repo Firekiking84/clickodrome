@@ -13,7 +13,8 @@ typedef struct	        s_button
   t_vector		*functions;
 }			t_button;
 
-t_button		*efnew_button(t_zposition		*pos,
+t_button		*efnew_button(
+				      t_zposition		*pos,
 				      t_bunny_size		size,
 				      const char		*name,
 				      const char		*text,
