@@ -27,7 +27,7 @@ typedef struct		s_div
 t_div			*efnew_div(const char			*name,
 				   t_zposition		        pos,
 				   t_bunny_size			size);
-void			efdelete_div(t_div			*div);
+size_t			efdelete_div(t_div			*div);
 void			efdisplay_div(t_div			*div,
 				      t_bunny_pixelarray	*px);
 void			efadd_button_div(t_div			*div,
