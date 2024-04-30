@@ -9,12 +9,5 @@ void			efadd_button_div(t_div				*div,
 					 t_bunny_color			*bg,
 					 t_vector		        *functions)
 {
-  div->buttons->name = name;
-  div->buttons->pos = pos;
-  div->buttons->size = size;
-  div->buttons->texte = texte;
-  div->buttons->font_color = font_color;
-  div->buttons->hover_color = hover_color;
-  div->buttons->bg = bg;
-  div->buttons->functions= functions;
+  efnew_button( name ,pos ,size ,texte ,font_color ,hover_color ,bg ,functions) ;
 }
