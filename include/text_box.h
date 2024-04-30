@@ -1,3 +1,15 @@
+/*
+** *****     ***     ***     ***       **       ***      ********************
+** ****  ******  ******  **  *****  *******  *****  *************************
+** ***     ***     ***     ******  *******  *****      **********************
+** **  ******  ******  *** *****  *******  *********  ***********************
+** *     ***  ******  *** ***       ****  *****      ************************
+** 30/04/2024 16:35:40 ******************************************************
+** keryan.houssin <keryan.houssin@terechkova.efrits.fr>
+** - Clickodrome -
+** * *** * * ***  ** * ** ** ** ** * * * *** * **  **************************
+*/
+
 #ifndef			__TEXT_BOX_H__
 
 #define			__TEXT_BOX_H__
@@ -8,6 +20,14 @@
 
 #include		<stddef.h>
 #include		<lapin.h>
+
+typedef struct		s_display_values
+{
+  int			start;
+  int			i;
+  int			n_line;
+  int			n_letter;
+}			t_display_values;
 
 typedef struct		s_area
 {
@@ -56,5 +76,13 @@ void			erase_selection(t_text_box		*box);
 void			copy_selection(t_text_box		*box);
 void			paste(t_text_box			*box);
 void			cut_selection(t_text_box		*box);
+void			draw_cursor(t_text_box			*text_box,
+				    t_zposition			draw_pos,
+				    t_bunny_zpixelarray		*px);
+void			draw_bg(t_text_box			*text_box,
+				t_bunny_zpixelarray		*px);
+void			draw_selected_area(t_text_box		*text_box,
+					   t_zposition		pos_start,
+					   t_bunny_zpixelarray	*px);
 
 #endif	//		__TEXT_BOX_H__

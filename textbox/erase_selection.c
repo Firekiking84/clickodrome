@@ -26,6 +26,7 @@ void			erase_selection(t_text_box			*box)
     {
       start = box->selected_area.start;
       range = box->selected_area.end - start;
+      box->cursor_pos = box->selected_area.start;
     }
   else
     {
