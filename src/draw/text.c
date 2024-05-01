@@ -1,4 +1,4 @@
-#include            "label.h"
+#include            <lapin.h>
 
 void                eftext(t_bunny_zpixelarray		*pix,
                            t_bunny_pixelarray		*font,

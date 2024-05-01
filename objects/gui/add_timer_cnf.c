@@ -4,7 +4,6 @@ void efadd_timer_cnf(t_bunny_configuration *cnf,t_gui *gui)
 {
   int i;
   int j;
-  i = 1;
   void *link;
   t_timer *timer;
   const char* name;
@@ -16,6 +15,7 @@ void efadd_timer_cnf(t_bunny_configuration *cnf,t_gui *gui)
   size_t tptr;
   const char *func;
 
+  i = 1;
   comp = bunny_malloc(sizeof(t_component));
 
   bunny_configuration_getf(cnf,&name,"components.name");

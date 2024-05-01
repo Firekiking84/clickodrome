@@ -42,13 +42,11 @@ int			get_value(int				a,
 				  double			ratio);
 int			get_npos(int				width,
 				 t_bunny_position		pos);
-
 void			efletter(t_bunny_zpixelarray		*pix,
 				 t_bunny_pixelarray		*font,
 				 t_zposition			*pos,
 				 t_bunny_color                  *col,
 				 char				c);
-
 void			eftext(t_bunny_zpixelarray		*pix,
 			       t_bunny_pixelarray		*font,
 			       t_zposition			*pos,
