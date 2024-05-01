@@ -6,7 +6,7 @@ void			efrefresh_gui(t_gui			*gui)
   count = 0;
   while(count < gui->divs->data_count)
     {
-      efrefresh_div(efvector_at(gui->divs, count, t_div));
+      efrefresh_div(&efvector_at(gui->divs, count, t_div));
       count ++;
     }
 }

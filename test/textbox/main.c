@@ -48,30 +48,32 @@ t_bunny_response	loop(void			*data2)
 int			main(void)
 {
   t_data		data;
-  t_vector		*functions;
-  t_bunny_size		size;
-  t_bunny_color		col;
-  t_bunny_color		bg;
-  t_zposition		pos;
-
-  pos.z = 1;
-  pos.x = 0;
-  pos.y = 0;
+  t_textbox_settings	settings;
+  size_t tmp = (size_t)(void*)print_result;
+  
+  settings.pos.z = 1;
+  settings.pos.x = 0;
+  settings.pos.y = 0;
   data.origin.x = 0;
   data.origin.y = 0;
-  size.x = 100;
-  size.y = 100;
+  settings.size.x = 100;
+  settings.size.y = 100;
   data.win = bunny_start(500, 500, false, "Test texbox");
   data.px.px = bunny_new_pixelarray(500, 500);
   data.px.z = malloc(sizeof(double) * (500 * 500));
-  functions = efvector_new(size_t, 1);
-  size_t tmp = (size_t)(void*)print_result;
-
-  efvector_push(functions, &tmp);
-  col.full = WHITE;
-  bg.full = BLACK;
-  data.box = efnew_text_box(pos, size, "test", col, &bg, functions);
+  settings.functions = efvector_new(size_t, 1);
+  efvector_push(settings.functions, &tmp);
+  settings.font_color.full = WHITE;
+  settings.bg = malloc(sizeof(t_bunny_color));
+  if (!settings.bg)
+    return(1);
+  settings.bg->full = BLACK;
+  settings.name = strdup("test");
+  data.box = efnew_text_box(&settings);
+  if (!data.box)
+    return(1);
   bunny_set_event_response(eventResponse);
   bunny_set_loop_main_function(loop);
   bunny_loop(data.win, 60, &data);
+  return(0);
 }

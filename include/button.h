@@ -11,10 +11,9 @@
 
 typedef struct	        s_button
 {
+  t_bunny_size		size;
   const char		*text;
   const char		*name;
-  t_zposition	        *pos;
-  t_bunny_size		size;
   bool			in_button;
   bool			focus;
   t_bunny_color		*hover_color;

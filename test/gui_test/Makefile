@@ -2,6 +2,8 @@ NAME =			gui_test
 
 SRC =			main.c				\
 			$(wildcard ../../gui/*.c)	\
+			$(wildcard ../../vector/*.c)	\
+			$(wildcard ../../div/*.c)	\
 
 OBJS =			$(SRC:.c=.o)
 
