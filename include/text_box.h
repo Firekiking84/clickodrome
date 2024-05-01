@@ -30,7 +30,6 @@ typedef struct		s_textbox_settings
   t_bunny_color		*bg;
   t_vector		*functions;
 }			t_textbox_settings;
-    
 
 typedef struct		s_display_values
 {

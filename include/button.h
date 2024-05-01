@@ -26,7 +26,7 @@ typedef struct			s_button_settings
   t_vector		*function;
 }				t_button_settings;
 
-t_button		*efnew_button(t_button_settings set);
+t_button		*efnew_button(t_button_settings *set);
 size_t			efdelete_button(t_button		*button);
 void			efdisplay_button(t_button		*button,
 					 t_bunny_zpixelarray	*px);
