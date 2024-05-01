@@ -46,33 +46,13 @@ void			efrefresh_gui(t_gui			*gui);
 void			efdisplay_gui(t_gui			*ck,
 				      t_bunny_pixelarray	*px);
 void			efadd_button_gui(t_gui			*gui,
-					 t_zposition	        pos,
-					 t_bunny_size		size,
-					 const char		*name,
-					 const char		*text,
-					 t_bunny_color		*font_color,
-					 t_bunny_color		*hover_color,
-					 t_bunny_color		*bg,
-					 t_vector	        *functions);
+					 t_button_settings	*settings);
 void			efadd_label_gui(t_gui			*gui,
-					t_zposition       	pos,
-					t_bunny_size		size,
-					const char		*text,
-					const char		*name,
-					t_bunny_color		*font_color,
-					t_bunny_color		*bg);
+					t_label_settings	*settings);
 void			efadd_text_box_gui(t_gui		*gui,
-					   t_zposition	        pos,
-					   t_bunny_size		size,
-					   const char		*name,
-					   t_bunny_color	*font_color,
-					   t_bunny_color	*bg,
-					   t_vector		*functions);
+					   t_textbox_settings	*settings);
 void			efadd_picture_gui(t_gui			*gui,
-  				      t_zposition		pos,
-				      t_bunny_size		size,
-				      const char		*name,
-				      const char		*filename);
+					  t_picture_settings	*settings);
 void			efadd_timer_gui(t_gui			*gui,
 					const char		*name,
 					int                     delay,

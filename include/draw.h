@@ -72,6 +72,7 @@ int			get_value(int				a,
 				  double			ratio);
 int			get_npos(int				width,
 				 t_bunny_position		pos);
+
 void			efletter(t_letter_settings		*set);
 void			eftext(t_text_settings			*set);
 
