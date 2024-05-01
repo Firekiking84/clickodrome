@@ -58,31 +58,42 @@ typedef struct	        s_text_box
   double		time_cursor_blink;
 }			t_text_box;
 
-t_text_box		*efnew_text_box(t_zposition		pos,
-					t_bunny_size		size,
-					const char		*name,
-					t_bunny_color		font_color,
-					t_bunny_color		*bg,
-					t_vector		*functions);
-void			efdelete_text_box(t_text_box		*text_box);
-void			efdisplay_text_box(t_text_box		*text_box,
-					   t_bunny_zpixelarray	*px);
-void			efevent_text_box(t_text_box		*text_box,
-					 const t_bunny_event	*event);
-int			mult_arrondi(int			x,
-				     int			mult,
-				     int			mode); // -1 inférieur 0 au plus proche 1 au supérieur
-void			erase_selection(t_text_box		*box);
-void			copy_selection(t_text_box		*box);
-void			paste(t_text_box			*box);
-void			cut_selection(t_text_box		*box);
-void			draw_cursor(t_text_box			*text_box,
-				    t_zposition			draw_pos,
-				    t_bunny_zpixelarray		*px);
-void			draw_bg(t_text_box			*text_box,
-				t_bunny_zpixelarray		*px);
-void			draw_selected_area(t_text_box		*text_box,
-					   t_zposition		pos_start,
-					   t_bunny_zpixelarray	*px);
+t_text_box		*efnew_text_box(t_zposition			pos,
+					t_bunny_size			size,
+					const char			*name,
+					t_bunny_color			font_color,
+					t_bunny_color			*bg,
+					t_vector			*functions);
+void			efdelete_text_box(t_text_box			*text_box);
+void			efdisplay_text_box(t_text_box			*text_box,
+					   t_bunny_zpixelarray		*px);
+void			efevent_text_box(t_text_box			*text_box,
+					 const t_bunny_event		*event);
+int			mult_arrondi(int				x,
+				     int				mult,
+				     int				mode); // -1 inférieur 0 au plus proche 1 au supérieur
+void			erase_selection(t_text_box			*box);
+void			copy_selection(t_text_box			*box);
+void			paste(t_text_box				*box);
+void			cut_selection(t_text_box			*box);
+void			draw_cursor(t_text_box				*text_box,
+				    t_zposition				draw_pos,
+				    t_bunny_zpixelarray			*px);
+void			draw_bg(t_text_box				*text_box,
+				t_bunny_zpixelarray			*px);
+void			draw_selected_area(t_text_box			*text_box,
+					   t_zposition			pos_start,
+					   t_bunny_zpixelarray		*px);
+int			get_cursor_pos(int				x,
+				       int				y,
+				       t_text_box			*box);
+bool			check_mouse_button(t_text_box			*text_box,
+					   t_bunny_mouse_button_event	mouse);
+bool			manage_mouse_button_event(t_text_box		*text_box,
+						  const t_bunny_event	*event);
+bool			manage_text_event(t_text_box			*text_box,
+					  const t_bunny_event		*event);
+void			manage_key_event(t_text_box			*text_box,
+					 const t_bunny_event		*event);
 
 #endif	//		__TEXT_BOX_H__
