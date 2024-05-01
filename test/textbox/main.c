@@ -16,7 +16,6 @@ void			print_result(const char	*	str)
 {
   printf("J'ai reçu : %s\n", str);
 }
-
 t_bunny_response	eventResponse(t_bunny_event const	*event,
 				      void			*_data)
 {
@@ -61,6 +60,7 @@ int			main(void)
   data.win = bunny_start(500, 500, false, "Test texbox");
   data.px.px = bunny_new_pixelarray(500, 500);
   data.px.z = malloc(sizeof(double) * (500 * 500));
+<<<<<<< Updated upstream
   settings.functions = efvector_new(size_t, 1);
   efvector_push(settings.functions, &tmp);
   settings.font_color.full = WHITE;
@@ -72,6 +72,14 @@ int			main(void)
   data.box = efnew_text_box(&settings);
   if (!data.box)
     return(1);
+=======
+  functions = efvector_new(size_t, 1);
+  size_t tmp = (size_t)(void*)print_result;
+  efvector_push(functions, &tmp);
+  col.full = WHITE;
+  bg.full = BLACK;
+  data.box = efnew_text_box(pos, size, "test", col, &bg, functions);
+>>>>>>> Stashed changes
   bunny_set_event_response(eventResponse);
   bunny_set_loop_main_function(loop);
   bunny_loop(data.win, 60, &data);
