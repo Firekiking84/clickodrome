@@ -3,5 +3,5 @@ t_div		*efadd_timer_div(t_div				*div,
 				 const char				*text,
 				 t_vector				*functions)
 {
-    efnew_timer(name ,texte ,functions );
+  efvector_push(div->timer, efnew_timer(name ,texte ,functions));
 }
