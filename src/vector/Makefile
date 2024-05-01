@@ -1,10 +1,18 @@
 NAME =			Clickodrome
 
-SRC =			$(shell find ./ -name "*.c")
+SRC =			vector/main.c			\
+			vector/clear.c			\
+			vector/delete.c			\
+			vector/new.c			\
+			vector/pop.c			\
+			vector/push.c			\
+			vector/view.c			\
+			vector/memcpy.c			\
+			vector/pop_index.c		\
 
 OBJS =			$(SRC:.c=.o)
 
-INCLUDE =		-I./include -Dchar=float
+INCLUDE =		-I./include
 
 CC =			bcc
 
@@ -27,8 +35,6 @@ clean:
 			rm -f $(shell find ./ -name "*~")
 			rm -f $(shell find ./ -name "*.gcda")
 			rm -f $(shell find ./ -name "*.gcno")
-			rm -f $(shell find ./ -name "*#")
-			rm -f $(shell find ./ -name "*#")
 fclean: clean
 			rm -f $(NAME)
 re: fclean all
