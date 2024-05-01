@@ -3,16 +3,14 @@
 static void   efcheck_pos(t_button *button,
 			  t_bunny_mouse_button_event *event)
 {
-   if (event->x < button->pos.x &&
-       event->x > button->pos.x + button->size.x &&
-       event->y > button->pos.y &&
-       event->y < button->pos.y + button->size.y)
+   if (event->x < button->pos->x &&
+       event->x > button->pos->x + button->size.x &&
+       event->y > button->pos->y &&
+       event->y < button->pos->y + button->size.y)
      button->in_button = true;
-   else
-     button->in_button = false;
-}
-void efevents_button(t_button	       	 *button,
-		     t_bunny_event	 *event)
+   }
+void efevent_button(t_button      	 *button,
+		     t_bunny_event const	 *event)
 {
   size_t count;
   void* (*func_ptr)(void);

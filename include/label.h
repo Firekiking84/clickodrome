@@ -13,7 +13,15 @@ typedef struct	        s_label
   t_bunny_color		*font_color;
   t_bunny_color		*bg;
 }			t_label;
-
+typedef struct			s_label_settings
+{
+  t_zposition	        	pos;
+  const char			*name;
+  t_bunny_size			size;
+  const char			*text;
+  t_bunny_color			*font_color;
+  t_bunny_color			*bg;
+}				t_label_settings;
 t_label			*efnew_label(t_zposition		*pos,
 				     t_bunny_size		size,
 				     const char			*name,
