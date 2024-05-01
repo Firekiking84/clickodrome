@@ -9,5 +9,5 @@ void			efadd_button_div(t_div				*div,
 					 t_bunny_color			*bg,
 					 t_vector		        *functions)
 {
-  efnew_button(pos ,size ,name ,text ,font_color ,hover_color ,bg ,functions) ;
+  efvector_push(div->buttons, efnew_button( name ,pos ,size ,texte ,font_color ,hover_color ,bg ,functions));
 }

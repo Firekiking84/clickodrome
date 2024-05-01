@@ -8,5 +8,5 @@ void			efadd_label_div(t_div			*div,
 					t_bunny_color		*font_color,
 					t_bunny_color		*bg)
 {
-  efnew_label(name ,pos ,size ,text ,font_color ,bg);
+  efvector_push (div->labels, efnew_label(name ,pos ,size ,text ,font_color ,bg));
 }

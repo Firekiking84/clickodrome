@@ -7,5 +7,5 @@ void			efadd_text_box_div(t_div			*div,
 					   t_bunny_color		*bg,
 					   t_vector			*functions)
 {
-  efnew_text_box_div(name ,pos ,size ,text ,font_color ,bg ,functions);
+  efvector_push(div->text_boxes, efnew_text_box_div(name ,pos ,size ,text ,font_color ,bg ,functions));
 }

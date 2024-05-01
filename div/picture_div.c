@@ -5,6 +5,5 @@ void			efadd_picture(t_div			*div,
 				      const char		*name,
 				      const char		*filename)
 {
-  efnew_picture(name ,pos ,size ,filename);
-  
+  efvector_push (div->pictures, efnew_picture(name ,pos ,size ,filename));
 }

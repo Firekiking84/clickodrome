@@ -4,7 +4,9 @@ SRC =			main.c				\
 			../../button/new.c		\
 			../../button/delete.c   	\
 			../../button/event.c	        \
-			../../button/display.c
+			../../button/display.c		\
+			../../vector/new.c		\
+			../../vector/push.c		\
 OBJS =			$(SRC:.c=.o)
 
 INCLUDE =		-I./../../include
