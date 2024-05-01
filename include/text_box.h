@@ -21,6 +21,17 @@
 #include		<stddef.h>
 #include		<lapin.h>
 
+typedef struct		s_textbox_settings
+{
+  t_zposition		pos;
+  t_bunny_size		size;
+  const char		*name;
+  t_bunny_color		font_color;
+  t_bunny_color		*bg;
+  t_vector		*functions;
+}			t_textbox_settings;
+    
+
 typedef struct		s_display_values
 {
   int			start;
@@ -58,12 +69,7 @@ typedef struct	        s_text_box
   double		time_cursor_blink;
 }			t_text_box;
 
-t_text_box		*efnew_text_box(t_zposition			pos,
-					t_bunny_size			size,
-					const char			*name,
-					t_bunny_color			font_color,
-					t_bunny_color			*bg,
-					t_vector			*functions);
+t_text_box		*efnew_text_box(t_textbox_settings		*settings);
 void			efdelete_text_box(t_text_box			*text_box);
 void			efdisplay_text_box(t_text_box			*text_box,
 					   t_bunny_zpixelarray		*px);
@@ -94,6 +100,12 @@ bool			manage_mouse_button_event(t_text_box		*text_box,
 bool			manage_text_event(t_text_box			*text_box,
 					  const t_bunny_event		*event);
 void			manage_key_event(t_text_box			*text_box,
+					 const t_bunny_event		*event);
+void			manage_solo_key(t_text_box			*text_box,
+					const t_bunny_event		*event);
+void			manage_control_key(t_text_box			*text_box,
+					   const t_bunny_event		*event);
+void			manage_shift_key(t_text_box			*text_box,
 					 const t_bunny_event		*event);
 
 #endif	//		__TEXT_BOX_H__

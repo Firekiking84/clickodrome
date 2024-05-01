@@ -3,7 +3,7 @@
 static bool		manage_exec(t_text_box				*text_box,
 				    const t_bunny_event			*event)
 {
-  int			i;
+  size_t		i;
   void			(*func_ptr)(const char *);
 
   if (event->key.sym == BKS_RETURN)
