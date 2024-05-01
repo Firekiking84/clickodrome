@@ -25,7 +25,7 @@ static int		allocation_assign(t_text_box		*box,
     box->bg = NULL;
   else
     {
-      box->bg = malloc(sizeof(t_bunny_color));
+      box->bg =  bunny_malloc(sizeof(t_bunny_color));
       if (!box->bg)
 	{
 	  bunny_delete_clipable(&box->font->clipable);
@@ -81,7 +81,7 @@ t_text_box		*efnew_text_box(t_textbox_settings	*settings)
 {
   t_text_box		*new_text_box;
 
-  new_text_box = malloc(sizeof(t_text_box));
+  new_text_box =  bunny_malloc(sizeof(t_text_box));
   if (!new_text_box)
     return(NULL);
   if (assign_settings(new_text_box, settings) == -1)

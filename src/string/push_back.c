@@ -7,7 +7,7 @@ int			string_push_back(t_string	*string,
   if (!string->str)
     {
       string->size_alloc = 2;
-      string->str = malloc(sizeof(char) * 2);
+      string->str = bunny_malloc(sizeof(char) * 2);
       if (!string->str)
 	return(-1);
       string->str_len = 0;

@@ -6,14 +6,14 @@ t_timer         *efnew_timer(const char                         *name,
 {
   t_timer	*time;
 
-  if ((time = malloc(sizeof(t_timer))) == NULL)
+  if ((time =  bunny_malloc(sizeof(t_timer))) == NULL)
     {
-      perror("malloc new_timer");
+      perror(" bunny_malloc new_timer");
       return (NULL);
     }
-  if ((time->name = malloc(strlen(name))) == NULL)
+  if ((time->name =  bunny_malloc(strlen(name))) == NULL)
     {
-      perror("malloc new_timer_name");
+      perror(" bunny_malloc new_timer_name");
       return (NULL);
     }
   strcpy(time->name, name);

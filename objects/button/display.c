@@ -1,6 +1,5 @@
 
 #include "button.h"
-
 void			efdisplay_button(t_button		*button,
 					 t_bunny_zpixelarray	*px)
 {

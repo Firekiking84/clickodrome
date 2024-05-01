@@ -6,7 +6,7 @@ t_vector                *efvector_view(t_vector         *vec,
 {
     t_vector            *view_vect;
 
-    view_vect = malloc(sizeof(t_vector));
+    view_vect = bunny_malloc(sizeof(t_vector));
     if (view_vect == NULL)
       return (NULL);
     view_vect->sizeof_data = vec->sizeof_data;

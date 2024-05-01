@@ -5,10 +5,10 @@ t_vector                    *_efvector_new(size_t              elem_size,
 {
     t_vector                *new_vect;
 
-    new_vect = malloc(sizeof(t_vector));
+    new_vect = bunny_malloc(sizeof(t_vector));
     if (new_vect == NULL)
         return (NULL);
-    new_vect->data_array = malloc(initial_capacity * elem_size);
+    new_vect->data_array = bunny_malloc(initial_capacity * elem_size);
     if (new_vect->data_array == NULL)
         return (NULL);
     new_vect->sizeof_data = elem_size;

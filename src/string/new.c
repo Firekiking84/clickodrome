@@ -6,7 +6,7 @@ t_string		*string_new()
 {
   t_string		*new_string;
 
-  new_string = malloc(sizeof(*new_string));
+  new_string = bunny_malloc(sizeof(*new_string));
   if (!new_string)
     return(NULL);
   new_string->str = NULL;

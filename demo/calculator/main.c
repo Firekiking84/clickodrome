@@ -10,7 +10,7 @@ int			main(int		argc,
       perror("argument invalide");
       return (-1);
     }
-  prog = malloc(sizeof(prog));
+  prog =  bunny_malloc (sizeof(prog));
   prog->window = bunny_start(1920, 1080, false, "clickodrome");
   prog->font = bunny_load_pixelarray("../res/font.png");
   prog->zpx->px = bunny_new_pixelarray(1920, 1080);

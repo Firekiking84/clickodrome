@@ -59,12 +59,12 @@ int			main(void)
   settings.size.y = 100;
   data.win = bunny_start(500, 500, false, "Test texbox");
   data.px.px = bunny_new_pixelarray(500, 500);
-  data.px.z = malloc(sizeof(double) * (500 * 500));
+  data.px.z = bunny_malloc(sizeof(double) * (500 * 500));
 <<<<<<< Updated upstream
   settings.functions = efvector_new(size_t, 1);
   efvector_push(settings.functions, &tmp);
   settings.font_color.full = WHITE;
-  settings.bg = malloc(sizeof(t_bunny_color));
+  settings.bg = bunny_malloc(sizeof(t_bunny_color));
   if (!settings.bg)
     return(1);
   settings.bg->full = BLACK;
