@@ -15,7 +15,7 @@
 #define			__TEXT_BOX_H__
 
 #include		"efstring.h"
-#include		"vector.h"
+#include		"vector_ptr.h"
 #include		"draw.h"
 
 #include		<stddef.h>
@@ -26,9 +26,9 @@ typedef struct		s_textbox_settings
   t_zposition		pos;
   t_bunny_size		size;
   char			*name;
-  t_bunny_color		font_color;
+  t_bunny_color		*font_color;
   t_bunny_color		*bg;
-  t_vector		*functions;
+  t_vector_ptr		*functions;
 }			t_textbox_settings;
 
 typedef struct		s_display_values
@@ -51,20 +51,20 @@ typedef struct	        s_text_box
   t_bunny_size		size;
   char			*name;
   t_string		*text;
+  t_string		*copy;
   bool			has_focus;
   bool			pressed_in;
   int			cursor_pos;
   bool			selection_active;
   t_area		selected_area;
-  t_string		*copy;
   t_bunny_size		size_font;
   int			max_letter_on_line;
   int			max_nb_lines;
   int			max_letter;
   t_bunny_pixelarray	*font;
-  t_bunny_color		font_color;
+  t_bunny_color		*font_color;
   t_bunny_color		*bg;
-  t_vector		*functions;
+  t_vector_ptr		*functions;
   double		time_cursor_blink;
 }			t_text_box;
 

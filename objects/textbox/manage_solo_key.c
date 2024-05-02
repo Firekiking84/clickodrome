@@ -11,7 +11,7 @@ static bool		manage_exec(t_text_box				*text_box,
       i = 0;
       while (i < text_box->functions->data_count)
 	{
-	  func_ptr = (void *)efvector_at(text_box->functions, i, size_t);
+	  func_ptr = efvector_ptr_get(text_box->functions, i);
 	  func_ptr(string_get_content(text_box->text));
 	  i += 1;
 	}
