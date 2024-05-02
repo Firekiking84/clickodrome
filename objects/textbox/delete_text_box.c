@@ -19,6 +19,8 @@ void			efdelete_text_box(t_text_box	*text_box)
   string_delete(text_box->copy);
   if (text_box->bg)
     free(text_box->bg);
-  efvector_delete(text_box->functions);
+  if (text_box->font_color)
+    free(text_box->font_color);
+  efvector_ptr_delete(text_box->functions);
   free(text_box);
 }

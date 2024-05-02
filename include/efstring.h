@@ -2,6 +2,8 @@
 
 #define		__EF_STRING_H__
 
+#include        <lapin.h>
+
 typedef struct	s_string
 {
   char		*str;
@@ -35,6 +37,7 @@ int		string_compare_str(const t_string	*string,
 int		string_insert(t_string			*string,
 			      int			index,
 			      char			c);
-
+int		efstring_resize(t_string		*string,
+				int			new_size);
 
 #endif //	__EF_STRING_H__

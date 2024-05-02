@@ -33,13 +33,7 @@ static int		allocation_assign(t_text_box		*box,
 	}
       box->bg->full = settings->bg->full;
     }
-  box->functions = efvector_new_vector(settings->functions);
-  if (!box->functions)
-    {
-      bunny_delete_clipable(&box->font->clipable);
-      free(box->bg);
-      return(-1);
-    }
+  box->functions = settings->functions;
   return(0);
 }
 

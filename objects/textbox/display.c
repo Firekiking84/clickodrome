@@ -72,7 +72,7 @@ void			efdisplay_text_box(t_text_box		*text_box,
       if (is_selected_area(text_box, val.i))
 	draw_selected_area(text_box, draw_pos, px);
       text_box->font->clipable.clip_x_position = string_get_char(text_box->text, val.i) * text_box->size_font.x;
-      blit(px, text_box->font, &draw_pos, &text_box->font_color);
+      blit(px, text_box->font, &draw_pos, text_box->font_color);
       if (val.i == text_box->cursor_pos)
 	draw_cursor(text_box, draw_pos, px);
       increment_display_values(text_box, &val);

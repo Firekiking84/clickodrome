@@ -8,5 +8,5 @@ int			string_pop_back(t_string	*string)
       string->str[string->str_len] = '\0';
       return(1);
     }
-    return(0);
+  return(0);
 }
