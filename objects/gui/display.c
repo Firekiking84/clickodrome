@@ -1,4 +1,4 @@
-#include "gui.h"
+#include		"gui.h"
 
 void			efdisplay_gui(t_gui			*gui,
 				      t_bunny_pixelarray	*px)

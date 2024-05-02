@@ -1,7 +1,13 @@
 #include "div.h"
 
-void			efadd_text_box_div(t_div		*div,
-					   t_textbox_settings	*settings)
+t_text_box		*efadd_text_box_div(t_div		*div,
+					    t_textbox_settings	*settings)
 {
-  efvector_push(div->text_boxes, efnew_text_box_div(settings));
+  t_text_box		*new_textbox;
+
+  new_textbox = efnew_text_box(settings);
+  if (!new_textbox)
+    return(NULL);
+  efvector_push(div->text_boxes, new_textbox);
+  return(new_text_box
 }

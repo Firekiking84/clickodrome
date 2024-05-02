@@ -1,27 +1,24 @@
-#include "gui.h"
+#include		"gui.h"
 
-void efadd_picture_cnf(t_bunny_configuration *cnf,t_gui *gui)
+static void		init_picture_settings(t_bunny_configuration	*cnf,
+					      t_textbox_settings	*settings)
 {
-  t_picture *picture;
-  t_zposition pos;
-  t_bunny_size size;
-  const char *name;
-  const char *filename;
-  t_component *comp;
+  settings->pos = efget_posz_cnf(cnf);
+  settings->size = efget_size_cnf(cnf);
+  bunny_configuration_getf(cnf, &settings->name, "components.name");
+  bunny_configuration_getf(cnf, &settings->filename, "components.filename");
+}
 
+int			efadd_picture_cnf(t_bunny_configuration		*cnf,
+					  t_gui				*gui)
+{
+  t_component		*comp;
+
+  init_picture_settings(cnf, &settings);
   comp = bunny_malloc(sizeof(t_component));
-  pos = efget_posz_cnf(cnf);
-  size = efget_size_cnf(cnf);
-  bunny_configuration_getf(cnf,&name,"components.name");
-  bunny_configuration_getf(cnf,&filename,"components.filename");
-  picture = efnew_picture(&pos,size,name,filename);
-  efadd_picture_gui(gui,pos,size,name,filename);
-
-
-  //efadd_picture_gui(gui,name,pos,size,filename);
-
-  efvector_push(efvector_at(gui->divs,gui->divs->data_count,t_div).pictures,picture);
-  comp->component = efvector_at(gui->divs,gui->divs->data_count,t_div).pictures;
-  comp->type = 3;
-  efvector_push(gui->components,comp);
+  if (!comp)
+    return(-1);
+  comp->component = efadd_picture_div(efvector_at(gui->divs, gui->divs->data_count - 1, t_div), &settings);
+  comp->type = PICTURE;
+  efvector_push(gui->components, comp);
 }

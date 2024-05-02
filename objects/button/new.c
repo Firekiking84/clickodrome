@@ -6,8 +6,7 @@ t_button		*efnew_button(t_settings_button *set)
   t_button		*button;
 
   if ((button = bunny_malloc (sizeof(button))) == NULL)
-      return(NULL);
-
+    return(NULL);
   button->pos = set->pos;
   button->size = set->xosize;
   button->text = set->text;

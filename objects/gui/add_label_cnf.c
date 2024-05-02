@@ -1,28 +1,46 @@
-#include "gui.h"
+#include		"gui.h"
 
-void efadd_label_cnf(t_bunny_configuration *cnf,t_gui *gui)
+#include		<string.h>
+
+static int		init_label_settings(t_bunny_configuration	*cnf,
+					    t_label_settings		*settings)
 {
-  t_label *label;
-  t_zposition pos;
-  t_bunny_size size;
-  const char *name;
-  const char *text;
-  t_bunny_color color;
-  t_bunny_color bg;
-  t_component *comp;
+  const char		*tmp;
+
+  settings->pos = efget_posz_cnf(cnf);
+  settings->size = efget_size_cnf(cnf);
+  bunny_configuration_getf(cnf, &tmp, "components.name");
+  settings->name = strdup(tmp);
+  if (!settings->name)
+    return(-1);
+  bunny_configuration_getf(cnf, &tmp, "components.text");
+  settings->text = strdup(tmp);
+  if (!settings->text)
+    {
+      free(settings->name);
+      return(-1);
+    }
+  settings->bg = efget_color_cnf(cnf, "bg");
+  settings->color = efget_color_cnf(cnf, "font_color");
+  return(0);
+}
+
+void			efadd_label_cnf(t_bunny_configuration		*cnf,
+					t_gui				*gui)
+{
+  t_label_settings	settings;
+  t_component		*comp;
 
   comp = bunny_malloc(sizeof(t_component));
-  pos = efget_posz_cnf(cnf);
-  size = efget_size_cnf(cnf);
-  bunny_configuration_getf(cnf,&name,"components.name");
-  bunny_configuration_getf(cnf,&text,"components.text");
-  bg = efget_color_cnf(cnf,"bg");
-  color = efget_color_cnf(cnf,"font_color");
-  label = efnew_label(&pos,size,name,text,&color,&bg);
-
-  //efadd_label_gui(gui,name,pos,size,text,&color,&hover_color,&bg);
-  efvector_push(efvector_at(gui->divs,gui->divs->data_count,t_div).labels,label);
-  comp->component = efvector_at(gui->divs,gui->divs->data_count,t_div).labels;
-  comp->type = 2;
-  efvector_push(gui->components,comp);
+  if (!comp)
+    return(-1);
+  if (init_label_settings(cnf, &settings) == -1)
+    {
+      free(comp);
+      return(-1);
+    }
+  comp->component = efadd_label_div(efvector_ptr_get(gui->divs, gui->divs->data_count - 1), &settings);
+  comp->type = LABEL;
+  efvector_ptr_push(gui->components, comp);
+  return(0);
 }

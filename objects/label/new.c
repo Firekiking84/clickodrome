@@ -1,12 +1,7 @@
 #include		"label.h"
 #include		"draw.h"
 
-t_label			*efnew_label(t_zposition		*zpos,
-				     t_bunny_size		size,
-				     const char			*name,
-				     const char			*text,
-				     t_bunny_color		*font_color,
-				     t_bunny_color		*bg)
+t_label			*efnew_label(t_label_settings	*settings)
 {
   t_label		*label;
 
@@ -17,18 +12,8 @@ t_label			*efnew_label(t_zposition		*zpos,
     }
   label->pos = *zpos;
   label->size = size;
-  if ((label->name =  bunny_malloc(strlen(name))) == NULL)
-    {
-      perror(" bunny_malloc new_label_name");
-      return (NULL);
-    }
-  if ((label->text =  bunny_malloc(strlen(text))) == NULL)
-    {
-      perror(" bunny_malloc new_label_text");
-      return (NULL);
-    }
-  strcpy(label->name, name);
-  strcpy(label->text, text);
+  label->name = settings->name;
+  label->text = settings->text;
   label->font_color = font_color;
   label->bg = bg;
   return (label);

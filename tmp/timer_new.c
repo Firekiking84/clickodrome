@@ -1,10 +1,10 @@
-#include		"timer.h"
+#include       	"timer.h"
 
-t_timer         *efnew_timer(t_settings_timer	*settings)
+t_timer         *efnew_timer(t_timer_settings	*settings)
 {
   t_timer	*time;
 
-  if ((time =  bunny_malloc(sizeof(t_timer))) == NULL)
+  if ((time = bunny_malloc(sizeof(t_timer))) == NULL)
     {
       perror(" bunny_malloc new_timer");
       return (NULL);

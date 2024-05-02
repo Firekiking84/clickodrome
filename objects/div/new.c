@@ -1,9 +1,10 @@
-#include "div.h"
+#include		"div.h"
+
 t_div			*efnew_div(const char			*name,
 				   t_zposition  		pos,
 				   t_bunny_size			size)
 {
-  t_div div;
+  t_div			div;
 
   div.name = name;
   div.pos = pos;

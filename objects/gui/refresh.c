@@ -1,7 +1,8 @@
-#include "gui.h"
-void			efrefresh_gui(t_gui			*gui)
+#include	"gui.h"
+
+void		efrefresh_gui(t_gui			*gui)
 {
-  size_t count;
+  size_t	count;
 
   count = 0;
   while(count < gui->divs->data_count)

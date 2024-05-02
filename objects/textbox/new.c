@@ -50,7 +50,7 @@ static int		assign_settings(t_text_box		*box,
     return(-1);
   box->pos = settings->pos;
   box->size = settings->size;
-  box->name = strdup(settings->name);
+  box->name = settings->name;
   box->font_color = settings->font_color;
   box->size_font.x = 10;
   box->size_font.y = 14;

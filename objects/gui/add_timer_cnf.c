@@ -1,49 +1,50 @@
-#include "gui.h"
+#include	"gui.h"
 
-void efadd_timer_cnf(t_bunny_configuration *cnf,t_gui *gui)
+#include	<string.h>
+
+static int		init_timer_settings(t_bunny_configuration	*cnf,
+					    t_gui			*gui,
+					    t_timer_settings		*settings)
 {
-  int i;
-  int j;
-  void *link;
-  t_timer *timer;
-  const char* name;
-  const char *lib;
-  int delay;
-  t_component *comp;
-  t_vector *function;
-  void *func_ptr;
-  size_t tptr;
-  const char *func;
+  const char		*tmp;
 
-  i = 1;
+  bunny_configuration_getf(cnf, &tmp, "components.name");
+  settings->name = strdup(tmp);
+  if (!settings->name)
+    return(-1);
+  bunny_configuration_getf(cnf, &tmp, "components.delay");
+  settings->text = strdup(tmp);
+  if (!settings->text)
+    {
+      free(settings->name);
+      return(-1);
+    }
+  settings->functions = get_functions(cnf, gui);
+  if (!settings->functions)
+    {
+      free(settings->name);
+      free(settings->text);
+      return(-1);
+    }
+  return(0);
+}
+
+int			efadd_timer_cnf(t_bunny_configuration		*cnf,
+					t_gui				*gui)
+{
+  t_timer_settings	*settings;
+  t_component		*comp;
+
   comp = bunny_malloc(sizeof(t_component));
-
-  bunny_configuration_getf(cnf,&name,"components.name");
-  bunny_configuration_getf(cnf,&delay,"components.delay");
-
-  j = bunny_configuration_casesf(cnf,"components.functions");
-
-  if (j > 0)
+  if (!comp)
+    return(-1);
+  if (init_timer_settings(cnf, gui, &settings) == -1)
     {
-      bunny_configuration_getf(cnf,&lib,"components.functions[0]");
-      link = dlopen(lib, RTLD_NOW); // lib needs to contain path to the library
+      free(comp);
+      return(-1);
     }
-  function = efvector_new(func_ptr,j);
-  while (i <  j)
-    {
-      bunny_configuration_getf(cnf,&func,"components.functions[%d]",i);
-      func_ptr = dlsym(link,func);
-      tptr = (size_t)func_ptr;
-      efvector_push(function,&tptr);
-      i++;
-    }
-
-  timer = efnew_timer(name,delay,function);
-
-  //efadd_button_gui(gui,name,pos,size,text,&color,&hover_color,&bg,function);
-  efvector_push(efvector_at(gui->divs,gui->divs->data_count,t_div).timer,timer);
-  comp->component = efvector_at(gui->divs,gui->divs->data_count,t_div).timer;
-  comp->type = 1;
-  efvector_push(gui->components,comp);
-  efvector_push(gui->libs,link);
+  comp->component = efadd_timer_div(efvector_ptr_get(gui->divs, gui->divs->data_count - 1), &settings);
+  comp->type = TIMER;
+  efvector_ptr_push(gui->components, comp);
+  return(0);
 }

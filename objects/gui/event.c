@@ -1,5 +1,5 @@
-#include "gui.h"
-#include "clickodrome.h"
+#include		"gui.h"
+#include		"clickodrome.h"
 
 void			efevent_gui(t_bunny_event const		*event,
 				    void			*data)
