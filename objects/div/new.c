@@ -1,7 +1,7 @@
 #include		"div.h"
 
 t_div			*efnew_div(const char			*name,
-				   t_zposition  		pos,
+				   t_zposition  		*pos,
 				   t_bunny_size			size)
 {
   t_div			div;

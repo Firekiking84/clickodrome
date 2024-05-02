@@ -2,6 +2,11 @@
 
 #define			__VECTOR_PTR_H__
 
+#include                <stdio.h>
+#include                <stddef.h>
+#include                <stdbool.h>
+#include                <stdlib.h>
+
 typedef struct		s_vector_ptr
 {
   size_t		*data_array;
