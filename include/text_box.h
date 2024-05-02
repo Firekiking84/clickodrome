@@ -23,7 +23,7 @@
 
 typedef struct		s_textbox_settings
 {
-  t_zposition		pos;
+  t_zposition		*pos;
   t_bunny_size		size;
   char			*name;
   t_bunny_color		*font_color;
@@ -47,7 +47,7 @@ typedef struct		s_area
 
 typedef struct	        s_text_box
 {
-  t_zposition		pos;
+  t_zposition		*pos;
   t_bunny_size		size;
   char			*name;
   t_string		*text;

@@ -8,13 +8,13 @@ static int		init_textbox_settings(t_bunny_configuration	*cnf,
 
   settings->pos = efget_posz_cnf(cnf);
   settings->size = efget_size_cnf(cnf);
-  bunny_configuration_getf(cnf, tmp, "components.name");
+  bunny_configuration_getf(cnf, &tmp, "components.name");
   settings->name = strdup(tmp);
   if (!settings->name)
     return(-1);
-  settings->color = efget_color_cnf(cnf, "font_color");
+  settings->font_color = efget_color_cnf(cnf, "font_color");
   settings->bg = efget_color_cnf(cnf, "bg");
-  settings->functions = get_functions(cnf, gui);
+  settings->functions = efget_functions(cnf, gui);
   if (!settings->functions)
     {
       free(settings->name);

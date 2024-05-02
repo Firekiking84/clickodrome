@@ -3,13 +3,13 @@
 #define			__TIMER_H__
 
 #include		<stddef.h>
-#include		"vector.h"
+#include		"vector_ptr.h"
 
 typedef struct		s_timer_settings
 {
   char			*name;
   size_t		delay;
-  t_vector		*functions;
+  t_vector_ptr		*functions;
 }			t_timer_settings;
 
 typedef struct	        s_timer
@@ -17,7 +17,7 @@ typedef struct	        s_timer
   size_t		last_time;
   size_t		delay;
   char			*name;
-  t_vector		*functions;
+  t_vector_ptr		*functions;
 }			t_timer;
 
 t_timer		*efnew_timer(t_timer_settings			*settings);

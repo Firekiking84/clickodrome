@@ -2,7 +2,10 @@
 
 #define			__VECTOR_PTR_H__
 
-#include		<stddef.h>
+#include                <stdio.h>
+#include                <stddef.h>
+#include                <stdbool.h>
+#include                <stdlib.h>
 
 typedef struct		s_vector_ptr
 {
