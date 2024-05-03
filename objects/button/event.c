@@ -1,12 +1,12 @@
 #include "button.h"
 
 static void   efcheck_pos(t_button *button,
-			  t_bunny_mouse_button_event *event)
+			  t_bunny_mouse_button_event const *event)
 {
-   if (event->x < button->pos->x &&
-       event->x > button->pos->x + button->size.x &&
-       event->y > button->pos->y &&
-       event->y < button->pos->y + button->size.y)
+   if (event->x < button->pos.x &&
+       event->x > button->pos.x + button->size.x &&
+       event->y > button->pos.y &&
+       event->y < button->pos.y + button->size.y)
      button->in_button = true;
    }
 void efevent_button(t_button      	 *button,

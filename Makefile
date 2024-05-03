@@ -1,6 +1,7 @@
 NAME =			Clickodrome
 
-SRC =			$(shell find ./ -name "*.c")
+SRC =			$(shell find ./ -name "src/vector_ptr/*.c") \
+			$(shell find ./ -name "objects/div/*.c")
 
 OBJS =			$(SRC:.c=.o)
 
