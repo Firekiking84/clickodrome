@@ -1,7 +1,6 @@
 #ifndef			__VECTOR_PTR_H__
 
 #define			__VECTOR_PTR_H__
-
 #include                <stdio.h>
 #include                <stddef.h>
 #include                <stdbool.h>
