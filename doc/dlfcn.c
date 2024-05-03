@@ -1,20 +1,30 @@
-#include <dlfcn.h>
-#include <stdlib.h>
-#include <stdio.h>
+#include	<dlfcn.h>
+#include	<stdlib.h>
+#include	<stdio.h>
+#include	<string.h>
 
-int main()
+int		main()
 {
-  int resultat;
-  char *func_name;
-  func_name ="add"
+  int		resultat;
+  char		*func_name;
+
+  func_name = strdup("add");
+  if (!func_name)
+    return(-1);
+
   //create the link with the first argument which needs to be the path to the library use RTLD_LAZY Flag by default on the 2nd argument
   void *me = dlopen("libtest.a", RTLD_LAZY);
   int (*func_ptr) (int a);
+
   //linking the empty function pointer to func_name from "libtest" if func_name is not within the library it will return NULL
-  func_ptr = dlsym(me,func_name);
+  func_ptr = dlsym(me, func_name);
+
   // if the pointer is empty we return the cause of error with dlerror else return the name of the function called if dlerror returns NULL the error does not come from the lib dlfcn
-  puts((func_ptr == NULL)? dlerror(): func_name);
-  resultat = func_ptr(3,4);
+  puts((func_ptr == NULL) ? dlerror() : func_name);
+
+  resultat = func_ptr(3, 4);
+
+  free(func_name);
   return(resultat);
 }
 //gcc -c -fPIC *.c  will generate .o objects -fPIC make the code position independent

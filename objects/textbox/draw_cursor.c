@@ -18,7 +18,7 @@ void			draw_cursor(t_text_box			*text_box,
       end_pos.z = draw_pos.z;
       end_pos.x = draw_pos.x + 1;
       end_pos.y = draw_pos.y + text_box->size_font.y;
-      cursor_color.full = text_box->font_color.full;
+      cursor_color.full = text_box->font_color->full;
       draw_rectangle(px, &draw_pos, &end_pos, &cursor_color);
     }
 }

@@ -5,6 +5,6 @@
 void			string_delete(t_string	*string)
 {
   if (string->str)
-    free(string->str);
-  free(string);
+    bunny_free(string->str);
+  bunny_free(string);
 }

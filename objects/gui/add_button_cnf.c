@@ -3,13 +3,14 @@
 #include		<string.h>
 
 static int		init_button_settings(t_bunny_configuration	*cnf,
-					      t_button_settings		*settings)
+					     t_button_settings		*settings,
+					     t_gui *gui)
 {
   const char		*tmp;
 
   settings->pos = efget_posz_cnf(cnf);
   settings->size = efget_size_cnf(cnf);
-  bunny_configuration_getf(cnf, tmp, "components.name");
+  bunny_configuration_getf(cnf, &tmp, "components.name");
   if ((settings->name = strdup(tmp)) == NULL)
     return(-1);
   bunny_configuration_getf(cnf, &tmp, "components.text");
@@ -18,11 +19,21 @@ static int		init_button_settings(t_bunny_configuration	*cnf,
       free(settings->name);
       return(-1);
     }
-  settings->color = efget_color_cnf(cnf, "font_color");
+  bunny_configuration_getf(cnf, &tmp, "components.font");
+  settings->font = strdup(tmp);
+  if (!settings->font)
+    {
+      free(settings->name);
+      free(settings->text);
+      return(-1);
+    }
+  settings->font_size = efget_font_size_cnf(cnf);
+  settings->font_color = efget_color_cnf(cnf, "font_color");
   settings->bg = efget_color_cnf(cnf, "bg");
   settings->hover_color = efget_color_cnf(cnf, "hover_color");
-  if ((settings->functions = get_functions(cnf, gui)) == NULL)
+  if ((settings->function = efget_functions(cnf, gui)) == NULL)
     {
+      free(settings->font);
       free(settings->name);
       free(settings->text);
       return(-1);
@@ -41,7 +52,7 @@ int			efadd_button_cnf(t_bunny_configuration		*cnf,
   comp = bunny_malloc(sizeof(t_component));
   if (!comp)
     return(-1);
-  if (init_button_settings(cnf, &settings) == -1)
+  if (init_button_settings(cnf, &settings,gui) == -1)
     {
       free(comp);
       return(-1);
@@ -50,8 +61,8 @@ int			efadd_button_cnf(t_bunny_configuration		*cnf,
   if (!comp->component)
     {
       free(comp);
-      free(settings->name);
-      free(settings->text);
+      free(settings.name);
+      free(settings.text);
       return(-1);
     }
   comp->type = BUTTON;

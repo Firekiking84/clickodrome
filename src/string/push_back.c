@@ -7,7 +7,7 @@ int			string_push_back(t_string	*string,
   if (!string->str)
     {
       string->size_alloc = 2;
-      string->str = bunny_malloc(sizeof(char) * 2);
+      string->str = bunny_malloc(sizeof(char) * string->size_alloc);
       if (!string->str)
 	return(-1);
       string->str_len = 0;
@@ -15,9 +15,7 @@ int			string_push_back(t_string	*string,
   string->str_len += 1;
   if (string->str_len == string->size_alloc)
     {
-      string->size_alloc += sizeof(char) * 10;
-      string->str = realloc(string->str, string->size_alloc);
-      if (!string->str)
+      if (efstring_resize(string, string->size_alloc + 10) == -1)
 	return(-1);
     }
   string->str[string->str_len - 1] = c;

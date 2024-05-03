@@ -7,23 +7,24 @@ static int		init_timer_settings(t_bunny_configuration	*cnf,
 					    t_timer_settings		*settings)
 {
   const char		*tmp;
+  int			delay;
 
   bunny_configuration_getf(cnf, &tmp, "components.name");
   settings->name = strdup(tmp);
   if (!settings->name)
     return(-1);
-  bunny_configuration_getf(cnf, &tmp, "components.delay");
-  settings->text = strdup(tmp);
-  if (!settings->text)
+  bunny_configuration_getf_int(cnf, &delay, "components.delay");
+  settings->delay = (size_t)delay;
+  if (!settings->delay)
     {
-      free(settings->name);
+      free(settings->delay);
       return(-1);
     }
-  settings->functions = get_functions(cnf, gui);
+  settings->functions = efget_functions(cnf, gui);
   if (!settings->functions)
     {
       free(settings->name);
-      free(settings->text);
+      free(settings->delay);
       return(-1);
     }
   return(0);

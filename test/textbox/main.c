@@ -49,7 +49,7 @@ int			main(void)
   t_data		data;
   t_textbox_settings	settings;
   size_t tmp = (size_t)(void*)print_result;
-  
+
   settings.pos.z = 1;
   settings.pos.x = 0;
   settings.pos.y = 0;
@@ -60,10 +60,10 @@ int			main(void)
   data.win = bunny_start(500, 500, false, "Test texbox");
   data.px.px = bunny_new_pixelarray(500, 500);
   data.px.z = bunny_malloc(sizeof(double) * (500 * 500));
-<<<<<<< Updated upstream
-  settings.functions = efvector_new(size_t, 1);
-  efvector_push(settings.functions, &tmp);
-  settings.font_color.full = WHITE;
+  settings.functions = efvector_ptr_new(1);
+  efvector_ptr_push(settings.functions, &tmp);
+  settings.font_color = bunny_malloc(sizeof(t_bunny_color));
+  settings.font_color->full = WHITE;
   settings.bg = bunny_malloc(sizeof(t_bunny_color));
   if (!settings.bg)
     return(1);
@@ -72,14 +72,6 @@ int			main(void)
   data.box = efnew_text_box(&settings);
   if (!data.box)
     return(1);
-=======
-  functions = efvector_new(size_t, 1);
-  size_t tmp = (size_t)(void*)print_result;
-  efvector_push(functions, &tmp);
-  col.full = WHITE;
-  bg.full = BLACK;
-  data.box = efnew_text_box(pos, size, "test", col, &bg, functions);
->>>>>>> Stashed changes
   bunny_set_event_response(eventResponse);
   bunny_set_loop_main_function(loop);
   bunny_loop(data.win, 60, &data);

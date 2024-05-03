@@ -1,14 +1,15 @@
 #include		"gui.h"
 
-t_vector		*efget_functions(t_bunny_configuration		*cnf,
+t_vector_ptr		*efget_functions(t_bunny_configuration		*cnf,
 					 t_gui				*gui)
 {
   int			i;
   int			j;
   void			*link;
-  t_vector		*functions;
+  t_vector_ptr		*functions;
   void			*func_ptr;
   const char		*func;
+  const char		*lib;
 
   j = bunny_configuration_casesf(cnf, "components.functions");
   if (j > 0)
@@ -17,7 +18,7 @@ t_vector		*efget_functions(t_bunny_configuration		*cnf,
       link = dlopen(lib,  RTLD_NOW); // lib needs to contain path to the library
       efvector_ptr_push(gui->libs, link);
     }
-  if (!(functions = efvector_ptr_new(j))
+  if (!(functions = efvector_ptr_new(j)))
     return(NULL);
   i = 1;
   while (i < j)

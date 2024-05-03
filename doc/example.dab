@@ -1,3 +1,4 @@
+
 [div1
   pos = 0, 0, 0 ' x, y, z
   size = 100, 100 ' width, height
@@ -8,6 +9,8 @@
       size = 10, 10 ' width, height
       name = "button1" ' = id
       text = "Press ME !"
+      font = "Oxanium"
+      font_size = 10,10
       font_color = 255, 255, 255 ' red, blue, green
       bg = 0, 0, 0 ' can not exist
       hover_color = 255, 0, 0 ' can not exist
@@ -26,6 +29,8 @@
       size = 10, 10
       name = "label1"
       text = "Je suis un label"
+      font = "Oxanium"
+      font_size = 10,10
       font_color = 0, 0, 0
       bg = 0, 0, 0
     ]
@@ -35,6 +40,8 @@
       pos = 50, 50
       size = 10, 20
       name = "text_box1"
+      font = "Oxanium"
+      font_size = 10,10
       font_color = 255, 255, 255
       bg = 0, 0, 0
       functions = "comment.so","nomdefonction"
