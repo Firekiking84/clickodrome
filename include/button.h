@@ -2,8 +2,18 @@
 
 #define			__BUTTON_H__
 
+#include "button.h"
+#include "vector.h"
+#include "lapin.h"
+#include "draw.h"
+#include "vector_ptr.h"
+
+#include <stddef.h>
+#include <stdio.h>
+#include <stdlib.h>
 typedef struct	        s_button
 {
+    t_zposition		pos;
   t_bunny_size		size;
   char			*text;
   char			*name;
@@ -17,10 +27,12 @@ typedef struct	        s_button
 
 typedef struct		s_button_settings
 {
-  t_zposition		*pos;
+  t_zposition		pos;
   t_bunny_size		size;
   char			*name;
   char			*text;
+  char			*font;
+  t_bunny_size		font_size;
   t_bunny_color		*font_color;
   t_bunny_color		*hover_color;
   t_bunny_color		*bg;

@@ -1,12 +1,32 @@
 NAME =			test_button
 
-SRC =			main.c				\
-			../../button/new.c		\
-			../../button/delete.c   	\
-			../../button/event.c	        \
-			../../button/display.c		\
-			../../vector/new.c		\
-			../../vector/push.c		\
+SRC =			main.c					\
+			../../objects/button/new.c		\
+			../../objects/button/delete.c   	\
+			../../objects/button/event.c	        \
+			../../objects/button/display.c		\
+			../../src/vector_ptr/new.c		\
+			../../src/vector_ptr/push.c		\
+			../../src/vector_ptr/pop_back.c		\
+			../../src/vector_ptr/erase.c		\
+			../../src/vector_ptr/delete.c		\
+			../../src/draw/draw_rectangle.c		\
+			../../src/draw/text.c			\
+			../../src/draw/letter.c			\
+			../../src/draw/set_pixel.c		\
+			../../src/draw/set_zpixel.c		\
+			../../src/draw/get_ratio.c		\
+			../../src/draw/get_value.c		\
+			../../src/vector/clear.c		\
+			../../src/vector/delete.c		\
+			../../src/vector/new.c			\
+			../../src/vector/new_vector.c		\
+			../../src/vector/pop.c			\
+			../../src/vector/push.c			\
+			../../src/vector/pop_index.c		\
+			../../src/vector/view.c			\
+			../../src/vector/memcpy.c		\
+			../../src/vector_ptr/push.c
 OBJS =			$(SRC:.c=.o)
 
 INCLUDE =		-I./../../include

@@ -1,13 +1,12 @@
-#include		"lab.h"
+#include		"label.h"
 
 int			main()
 {
-  t_program		*prog;
+  t_bunny_zpixelarray	*zpx;
+  t_bunny_pixelarray	*font;
+  t_bunny_window	*window;
+  t_label_settings	set;
   t_label		*la;
-  t_zposition		zp;
-  t_bunny_size		size;
-  t_bunny_color		fc;
-  t_bunny_color		bg;
 
   /*
   ** if (argc != 2)
@@ -16,24 +15,28 @@ int			main()
   **     return (-1);
   **   }
    */
-  zp.x = 900;
-  zp.y = 500;
-  zp.z = 0;
-  size.x = 240;
-  size.y = 80;
-  fc.full = BLACK;
-  bg.full = GREEN;
-  la = efnew_label(&zp, size, "UTILITE DE KERYAN", "sert a rien\nsert a rien\nnul a overwatch", &fc, NULL);
-  prog = malloc(sizeof(prog));
-  prog->zpx = malloc(sizeof(t_bunny_zpixelarray*));
-  prog->zpx->z = malloc(sizeof(double) * 1920 * 1080);
-  prog->window = bunny_start(1920, 1080, false, "clickodrome");
-  prog->font = bunny_load_pixelarray("../../res/font.png");
-  prog->zpx->px = bunny_new_pixelarray(1920, 1080);
-  efclear_zbuffer(prog->zpx);
-  efdisplay_label(la, prog->zpx, prog->font);
-  bunny_blit(&prog->window->buffer, &prog->zpx->px->clipable, NULL);
-  bunny_display(prog->window);
+  set.pos.x = 900;
+  set.pos.y = 500;
+  set.pos.z = 0;
+  set.size.x = 240;
+  set.size.y = 80;
+  set.name = malloc(strlen("UTILITE DE KERYAN"));
+  strcpy(set.name, "UTILITE DE KERYAN");
+  set.text = malloc(strlen("sert a rien\nsert a rien\nnul a overwatch"));
+  strcpy(set.text, "sert a rien\nsert a rien\nnul a overwatch");
+  set.font_color.full = BLACK;
+  set.bg.full = GREEN;
+  font = bunny_load_pixelarray("../../res/font.png");
+  set.font = font;
+  la = efnew_label(&set);
+  zpx = malloc(sizeof(t_bunny_zpixelarray));
+  zpx->z = malloc(sizeof(double) * 1920 * 1080);
+  window = bunny_start(1920, 1080, false, "clickodrome");
+  zpx->px = bunny_new_pixelarray(1920, 1080);
+  efclear_zbuffer(zpx);
+  efdisplay_label(la, zpx);
+  bunny_blit(&window->buffer, &zpx->px->clipable, NULL);
+  bunny_display(window);
   bunny_usleep(10000000);
   /*
   bunny_set_event_response(efevent_gui);
