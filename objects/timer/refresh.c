@@ -1,16 +1,18 @@
 #include		"timer.h"
+#include		"lapin.h"
 
 void            efrefresh_timer(t_timer                         *timer)
 {
   double	time;
   size_t	i;
 
+  i = 0;
   time = bunny_get_current_time() * 1000;
-  if (time - timer->delai >= timer->last_time)
+  if (time - timer->delay >= timer->last_time)
     {
       while (i < timer->functions->data_count)
 	{
-	  efvector_funcptr_at(timer->functions, i, void(*)(void))();
+	  ((void (*)(void))efvector_ptr_get(timer->functions, 0))();
 	  i++;
 	}
       timer->last_time = time;

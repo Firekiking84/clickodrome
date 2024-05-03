@@ -4,7 +4,7 @@ SRC =			$(shell find ./ -name "*.c")
 
 OBJS =			$(SRC:.c=.o)
 
-INCLUDE =		-I./include -Dchar=float
+INCLUDE =		-I./include # -Dchar=float
 
 CC =			bcc
 

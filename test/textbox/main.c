@@ -16,6 +16,7 @@ void			print_result(const char	*	str)
 {
   printf("J'ai reçu : %s\n", str);
 }
+
 t_bunny_response	eventResponse(t_bunny_event const	*event,
 				      void			*_data)
 {
@@ -48,7 +49,6 @@ int			main(void)
 {
   t_data		data;
   t_textbox_settings	settings;
-  size_t tmp = (size_t)(void*)print_result;
 
   settings.pos.z = 1;
   settings.pos.x = 0;
@@ -61,7 +61,7 @@ int			main(void)
   data.px.px = bunny_new_pixelarray(500, 500);
   data.px.z = bunny_malloc(sizeof(double) * (500 * 500));
   settings.functions = efvector_ptr_new(1);
-  efvector_ptr_push(settings.functions, &tmp);
+  efvector_ptr_push(settings.functions, print_result);
   settings.font_color = bunny_malloc(sizeof(t_bunny_color));
   settings.font_color->full = WHITE;
   settings.bg = bunny_malloc(sizeof(t_bunny_color));
