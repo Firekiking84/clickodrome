@@ -26,14 +26,15 @@ int			main()
   strcpy(set.text, "sert a rien\nsert a rien\nnul a overwatch");
   set.font_color.full = BLACK;
   set.bg.full = GREEN;
+  font = bunny_load_pixelarray("../../res/font.png");
+  set.font = font;
   la = efnew_label(&set);
   zpx = malloc(sizeof(t_bunny_zpixelarray));
   zpx->z = malloc(sizeof(double) * 1920 * 1080);
   window = bunny_start(1920, 1080, false, "clickodrome");
-  font = bunny_load_pixelarray("../../res/font.png");
   zpx->px = bunny_new_pixelarray(1920, 1080);
   efclear_zbuffer(zpx);
-  efdisplay_label(la, zpx, font);
+  efdisplay_label(la, zpx);
   bunny_blit(&window->buffer, &zpx->px->clipable, NULL);
   bunny_display(window);
   bunny_usleep(10000000);
