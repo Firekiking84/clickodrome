@@ -17,7 +17,7 @@ static int		init_label_settings(t_bunny_configuration	*cnf,
   settings->text = strdup(tmp);
   if (!settings->text)
     {
-      free(settings->name);
+      bunny_free(settings->name);
       return(-1);
     }
   settings->bg = efget_color_cnf(cnf, "bg");
@@ -25,8 +25,8 @@ static int		init_label_settings(t_bunny_configuration	*cnf,
   settings->font = strdup(tmp);
   if (!settings->font)
     {
-      free(settings->text);
-      free(settings->name);
+      bunny_free(settings->text);
+      bunny_free(settings->name);
       return(-1);
     }
   settings->font_size = efget_font_size_cnf(cnf);
@@ -45,7 +45,7 @@ int			efadd_label_cnf(t_bunny_configuration		*cnf,
     return(-1);
   if (init_label_settings(cnf, &settings) == -1)
     {
-      free(comp);
+      bunny_free(comp);
       return(-1);
     }
   comp->component = efadd_label_div(efvector_ptr_get(gui->divs, gui->divs->data_count - 1), &settings);

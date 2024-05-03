@@ -25,10 +25,12 @@ typedef struct			s_div
   t_vector_ptr			*timers;
 }				t_div;
 
+
 t_div				*efnew_div(const char				*name,
 					   t_zposition				*pos,
 					   t_bunny_size				size);
 size_t				efdelete_div(t_div				*div);
+void				efrefresh_div(t_div				*div);
 void				efdisplay_div(t_div				*div,
 					      t_bunny_pixelarray		*px);
 t_button			*efadd_button_div(t_div				*div,

@@ -19,4 +19,5 @@ int efadd_div_cnf(t_bunny_configuration *cnf,
 	}
       div = bunny_configuration_next(div);
     }
+  return(1);
 }

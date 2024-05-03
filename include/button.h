@@ -11,9 +11,10 @@
 #include <stddef.h>
 #include <stdio.h>
 #include <stdlib.h>
+
 typedef struct	        s_button
 {
-    t_zposition		pos;
+  t_zposition		pos;
   t_bunny_size		size;
   char			*text;
   char			*name;
