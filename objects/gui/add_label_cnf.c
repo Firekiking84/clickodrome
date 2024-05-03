@@ -21,6 +21,15 @@ static int		init_label_settings(t_bunny_configuration	*cnf,
       return(-1);
     }
   settings->bg = efget_color_cnf(cnf, "bg");
+  bunny_configuration_getf(cnf, &tmp, "components.font");
+  settings->font = strdup(tmp);
+  if (!settings->font)
+    {
+      free(settings->text);
+      free(settings->name);
+      return(-1);
+    }
+  settings->font_size = efget_font_size_cnf(cnf);
   settings->font_color = efget_color_cnf(cnf, "font_color");
   return(0);
 }

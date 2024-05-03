@@ -19,11 +19,21 @@ static int		init_button_settings(t_bunny_configuration	*cnf,
       free(settings->name);
       return(-1);
     }
+  bunny_configuration_getf(cnf, &tmp, "components.font");
+  settings->font = strdup(tmp);
+  if (!settings->font)
+    {
+      free(settings->name);
+      free(settings->text);
+      return(-1);
+    }
+  settings->font_size = efget_font_size_cnf(cnf);
   settings->font_color = efget_color_cnf(cnf, "font_color");
   settings->bg = efget_color_cnf(cnf, "bg");
   settings->hover_color = efget_color_cnf(cnf, "hover_color");
   if ((settings->function = efget_functions(cnf, gui)) == NULL)
     {
+      free(settings->font);
       free(settings->name);
       free(settings->text);
       return(-1);

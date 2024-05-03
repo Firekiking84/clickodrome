@@ -63,6 +63,7 @@ t_bunny_color		*efget_color_cnf(t_bunny_configuration		*cnf,
 					char				*name);
 t_bunny_position	efget_pos_cnf(t_bunny_configuration		*cnf);
 t_bunny_size		efget_size_cnf(t_bunny_configuration		*cnf);
+t_bunny_size		efget_font_size_cnf(t_bunny_configuration	*cnf);
 t_div			*efget_div_cnf(t_bunny_configuration		*cnf);
 t_type			efcomp_type(const char*				str);
 t_vector_ptr		*efget_functions(t_bunny_configuration		*cnf,
