@@ -1,25 +1,22 @@
 NAME =			sphere_de_lespace_infini
 
-SRC =			main.c				\
-			blit.c				\
-			text.c				\
-			set_zpixel.c			\
-			set_pixel.c			\
-			new_label.c			\
-			loop_function.c			\
-			letter.c			\
-			get_value.c			\
-			get_ratio.c			\
-			get_npos.c			\
-			clear_zbuffer.c			\
-			delete_label.c			\
-			display_function.c		\
-			draw_rectangle.c		\
-			display_label.c			\
+SRC =			main.c					\
+			../../src/draw/blit.c			\
+			../../src/draw/set_zpixel.c		\
+			../../src/draw/set_pixel.c		\
+			../../objects/label/new.c		\
+			../../src/draw/letter.c			\
+			../../src/draw/get_value.c		\
+			../../src/draw/get_ratio.c		\
+			../../src/draw/get_npos.c		\
+			../../src/draw/clear_zbuffer.c		\
+			../../objects/label/delete.c		\
+			../../src/draw/draw_rectangle.c		\
+			../../objects/label/display_label.c	\
 
 OBJS =			$(SRC:.c=.o)
 
-INCLUDE =		-I./include
+INCLUDE =		-I../../include
 
 CC =			gcc
 

@@ -1,4 +1,4 @@
-#include		"lab.h"
+#include		"label.h"
 
 t_label			*efnew_label(t_zposition		*zpos,
 				     t_bunny_size		size,
@@ -9,19 +9,19 @@ t_label			*efnew_label(t_zposition		*zpos,
 {
   t_label		*label;
 
-  if ((label = malloc(sizeof(t_label))) == NULL)
+  if ((label = bunny_malloc(sizeof(t_label))) == NULL)
     {
       perror("malloc new_label");
       return (NULL);
     }
   label->pos = *zpos;
   label->size = size;
-  if ((label->name = malloc(strlen(name))) == NULL)
+  if ((label->name = bunny_malloc(strlen(name))) == NULL)
     {
       perror("malloc new_label_name");
       return (NULL);
     }
-  if ((label->text = malloc(strlen(text))) == NULL)
+  if ((label->text = bunny_malloc(strlen(text))) == NULL)
     {
       perror("malloc new_label_text");
       return (NULL);

@@ -76,7 +76,7 @@ static bool             set_is_end(bool                         is_reverse,
 
 void                    blit(t_bunny_zpixelarray		*target,
 			     const t_bunny_pixelarray		*src,
-			     const t_zposition			*pos,
+			     const t_bunny_position		*pos,
 			     t_bunny_color			*forcedCol)
 {
   t_blit                blit;
