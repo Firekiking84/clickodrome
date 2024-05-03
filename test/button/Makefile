@@ -10,6 +10,7 @@ SRC =			main.c					\
 			../../src/vector_ptr/pop_back.c		\
 			../../src/vector_ptr/erase.c		\
 			../../src/vector_ptr/delete.c		\
+			../../src/vector_ptr/resize.c		\
 			../../src/draw/draw_rectangle.c		\
 			../../src/draw/text.c			\
 			../../src/draw/letter.c			\
@@ -17,16 +18,10 @@ SRC =			main.c					\
 			../../src/draw/set_zpixel.c		\
 			../../src/draw/get_ratio.c		\
 			../../src/draw/get_value.c		\
-			../../src/vector/clear.c		\
-			../../src/vector/delete.c		\
-			../../src/vector/new.c			\
-			../../src/vector/new_vector.c		\
-			../../src/vector/pop.c			\
-			../../src/vector/push.c			\
-			../../src/vector/pop_index.c		\
-			../../src/vector/view.c			\
-			../../src/vector/memcpy.c		\
-			../../src/vector_ptr/push.c
+			../../src/draw/blit.c			\
+			../../src/draw/get_npos.c		\
+
+
 OBJS =			$(SRC:.c=.o)
 
 INCLUDE =		-I./../../include

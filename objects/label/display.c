@@ -1,5 +1,32 @@
 #include		"label.h"
 
+static void		ecriture_texte(t_bunny_zpixelarray		*zpx,
+				       t_label				*label,
+				       int				x,
+				       t_bunny_pixelarray		*font)
+{
+  int			xt;
+  t_zposition		po;
+
+  xt = 0;
+  po.x = label->pos.x;
+  po.y = label->pos.y;
+  while (label->text[xt] != '\0')
+    {
+      if (label->text[xt] == '\n')
+	{
+	  po.x = label->pos.x;
+	  po.y += 15;
+	}
+      else if (po.x + 10 <= x - 10)
+	{
+	  efletter(zpx, font, &po, label->font_color, label->text[xt]);
+	  po.x += 12;
+	}
+      xt ++;
+    }
+}
+
 void                    efdisplay_label(t_label                 *labelt,
 					t_bunny_zpixelarray     *zpx,
 					t_bunny_pixelarray	*font)
@@ -8,14 +35,12 @@ void                    efdisplay_label(t_label                 *labelt,
   t_label               label;
 
   label = *labelt;
+  pos_end.x = (label.pos.x + label.size.x);
   if (label.bg != NULL)
     {
-      pos_end.x = label.pos.x + label.size.x;
       pos_end.y = label.pos.y + label.size.y;
       pos_end.z = label.pos.z;
       draw_rectangle(zpx, &label.pos, &pos_end, label.bg);
     }
-  eftext(zpx, font, &label.pos, label.text, label.font_color);
-  label.pos.y -= 12;
-  eftext(zpx, font, &label.pos, label.name, label.font_color);
+  ecriture_texte(zpx, &label, pos_end.x, font);
 }

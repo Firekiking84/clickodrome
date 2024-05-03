@@ -6,6 +6,8 @@
 #include <stddef.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
+
 typedef struct			 s_data
 {
   t_bunny_zpixelarray		px;
@@ -13,9 +15,10 @@ typedef struct			 s_data
   t_bunny_window		*win;
   t_button			*button;
 }				t_data;
-void				 print_resutl(const char *str)
+
+void				 print_pressed()
 {
-  printf("j'ai reçu :%s\n", str);
+  printf("Je suis pressé !");
 }
 t_bunny_response		 eventResponse (t_bunny_event const  *event,
 						void *_data)
@@ -59,12 +62,18 @@ int				 main(void)
   set.name = " 123";
   data.win = bunny_start(500, 500, false, "Test button");
   data.px.px = bunny_new_pixelarray(500, 500);
-  data.px.z = malloc(sizeof(double) * (500 * 500));
-  set.function = efvector_new(size_t, 1);
-  size_t tmp = (size_t)(void*)print_resutl;
-  efvector_push(set.function, &tmp);
+  data.px.z = bunny_malloc(sizeof(double) * (500 * 500));
+  set.functions = efvector_ptr_new(1);
+  efvector_ptr_push(set.functions, print_pressed);
+  set.font_size.x = 10;
+  set.font_size.y = 14;
+  set.font = malloc(sizeof(char) * strlen("font.png"));
+  strcpy(set.font, "font.png");
+  set.font_color = bunny_malloc(sizeof(t_bunny_color));
   set.font_color->full = WHITE;
+  set.bg = bunny_malloc(sizeof(t_bunny_color));
   set.bg->full = BLACK;
+  set.hover_color = bunny_malloc(sizeof(t_bunny_color));
   set.hover_color->full = RED;
   data.button = efnew_button(&set);
   bunny_set_event_response(eventResponse);
