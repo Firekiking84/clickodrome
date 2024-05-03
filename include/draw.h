@@ -17,6 +17,7 @@ typedef struct		s_zposition
   double		z;
 }			t_zposition;
 
+
 typedef struct		s_blit
 {
   t_bunny_position	shift;
@@ -47,6 +48,9 @@ typedef struct		s_text_settings
   const char		*txt;
   t_bunny_color		*font_color;
 }			t_text_settings;
+
+void                    efclear_zbuffer(t_bunny_zpixelarray     *zpx);
+
 void			efclear_pixelarray(t_bunny_zpixelarray	*zpx,
 					   unsigned int		col);
 
