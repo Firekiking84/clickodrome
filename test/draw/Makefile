@@ -1,12 +1,13 @@
-NAME =			test_vector
+NAME =			draw
 
-SRC =			main.c				\
-			../../display/blit.c		\
-			../../display/draw_rectangle.c	\
-			../../display/get_npos.c	\
-			../../display/get_ratio.c	\
-			../../display/get_value.c	\
-			../../display/set_pixel.c	\
+SRC =			main.c					\
+			../../display/blit.c			\
+			../../display/draw_rectangle.c		\
+			../../display/clear_pixelarray.c	\
+			../../display/get_npos.c		\
+			../../display/get_ratio.c		\
+			../../display/get_value.c		\
+			../../display/set_zpixel.c		\
 
 OBJS =			$(SRC:.c=.o)
 

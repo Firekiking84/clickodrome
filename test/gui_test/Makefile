@@ -1,11 +1,10 @@
-NAME =			test_vector
+NAME =			gui_test
 
 SRC =			main.c				\
-			../../gui/new_gui.c		\
-			../../gui/add_picture_cnf.c		\
-			../../gui/add_label_cnf.c		\
-			../../gui/add_text_box_cnf.c	\
-			../../gui/add_button_cnf.c		\
+			$(wildcard ../../objects/gui/*.c)	\
+			$(wildcard ../../objects/vector/*.c)	\
+			$(wildcard ../../objects/div/*.c)	\
+			$(wildcard ../../objects/vector/*.c)	\
 
 OBJS =			$(SRC:.c=.o)
 
@@ -28,7 +27,13 @@ ar:$(OBJS)
 g:
 			gdb --arg ./$(NAME)
 clean:
-			rm -f $(OBJS)
+			rm -f $(shell find ./ -name "*.o")
+			rm -f $(shell find ./ -name "*~")
+			rm -f $(shell find ./ -name "*.gcda")
+			rm -f $(shell find ./ -name "*.gcno")
+			rm -f $(shell find ./ -name "*#")
+			rm -f $(shell find ./ -name "*#")
+
 fclean: clean
 			rm -f $(NAME)
 re: fclean all
