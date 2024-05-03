@@ -26,6 +26,8 @@ typedef struct		s_textbox_settings
   t_zposition		*pos;
   t_bunny_size		size;
   char			*name;
+  char			*font;
+  t_bunny_size		font_size;
   t_bunny_color		*font_color;
   t_bunny_color		*bg;
   t_vector_ptr		*functions;

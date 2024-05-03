@@ -20,6 +20,8 @@ typedef struct		s_label_settings
   t_bunny_size		size;
   char			*name;
   char			*text;
+  char			*font;
+  t_bunny_size		font_size;
   t_bunny_color		*font_color;
   t_bunny_color	        *bg;
 }			t_label_settings;
