@@ -2,6 +2,7 @@ NAME =			gui_test
 
 SRC =			main.c				\
 			$(wildcard ../../objects/gui/*.c)	\
+			$(wildcard ../../objects/div/*.c)	\
 
 OBJS =			$(SRC:.c=.o)
 
@@ -24,19 +25,19 @@ ar:$(OBJS)
 g:
 			gdb --arg ./$(NAME)
 clean:
-			rm -f $(shell find ./ -name "*.o")
-			rm -f $(shell find ./ -name "*~")
-			rm -f $(shell find ./ -name "*.gcda")
-			rm -f $(shell find ./ -name "*.gcno")
-			rm -f $(shell find ./ -name "*#")
-			rm -f $(shell find ./ -name "*#")
+			rm -f $(shell find ../../ -name "*.o")
+			rm -f $(shell find ../../ -name "*~")
+			rm -f $(shell find ../../ -name "*.gcda")
+			rm -f $(shell find ../../ -name "*.gcno")
+			rm -f $(shell find ../../ -name "*#")
+			rm -f $(shell find ../../ -name "*#")
 
 fclean: clean
 			rm -f $(NAME)
 re: fclean all
 
 report: fclean all
-			./$(NAME)
+			../../$(NAME)
 			gcov $(SRC)
 			rm -f *.gcov
 

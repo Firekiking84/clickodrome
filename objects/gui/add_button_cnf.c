@@ -16,15 +16,15 @@ static int		init_button_settings(t_bunny_configuration	*cnf,
   bunny_configuration_getf(cnf, &tmp, "components.text");
   if ((settings->text = strdup(tmp)) == NULL)
     {
-      free(settings->name);
+      bunny_free(settings->name);
       return(-1);
     }
   bunny_configuration_getf(cnf, &tmp, "components.font");
   settings->font = strdup(tmp);
   if (!settings->font)
     {
-      free(settings->name);
-      free(settings->text);
+      bunny_free(settings->name);
+      bunny_free(settings->text);
       return(-1);
     }
   settings->font_size = efget_font_size_cnf(cnf);
@@ -33,9 +33,9 @@ static int		init_button_settings(t_bunny_configuration	*cnf,
   settings->hover_color = efget_color_cnf(cnf, "hover_color");
   if ((settings->function = efget_functions(cnf, gui)) == NULL)
     {
-      free(settings->font);
-      free(settings->name);
-      free(settings->text);
+      bunny_free(settings->font);
+      bunny_free(settings->name);
+      bunny_free(settings->text);
       return(-1);
     }
   return(0);
@@ -44,8 +44,6 @@ static int		init_button_settings(t_bunny_configuration	*cnf,
 int			efadd_button_cnf(t_bunny_configuration		*cnf,
 					 t_gui				*gui)
 {
-  t_button		*button;
-  const char		*lib;
   t_component		*comp;
   t_button_settings	settings;
 
@@ -54,18 +52,19 @@ int			efadd_button_cnf(t_bunny_configuration		*cnf,
     return(-1);
   if (init_button_settings(cnf, &settings,gui) == -1)
     {
-      free(comp);
+      bunny_free(comp);
       return(-1);
     }
   comp->component = efadd_button_div(efvector_ptr_get(gui->divs, gui->divs->data_count - 1), &settings);
   if (!comp->component)
     {
-      free(comp);
-      free(settings.name);
-      free(settings.text);
+      bunny_free(comp);
+      bunny_free(settings.name);
+      bunny_free(settings.text);
       return(-1);
     }
   comp->type = BUTTON;
   efvector_ptr_push(gui->components, comp);
+  return(1);
 }
 

@@ -29,6 +29,7 @@ t_div				*efnew_div(const char			*name,
 void				efdelete_div(t_div			*div);
 void				efdisplay_div(t_div			*div,
 					      t_bunny_pixelarray	*px);
+void				efrefresh_div(t_div			*div);
 t_button			*efadd_button_div(t_div			*div,
 						 t_button_settings	*set);
 t_label				*efadd_label_div(t_div	 		*div,

@@ -15,8 +15,8 @@ t_gui			*efnew_gui(const char	*file)
   gui = bunny_malloc(sizeof(t_gui));
   if (!gui)
     return(NULL);
-  gui->components = _efvector_new(sizeof(t_vector), bunny_configuration_casesf(cnf, "components"));
-  gui->components = efvector_new(div, bunny_configuration_childrenf(cnf, "[]"));
+  gui->components = efvector_ptr_new(sizeof(t_vector) * (int)bunny_configuration_casesf(cnf, "components"));
+  gui->components = efvector_ptr_new(sizeof(div) * (int)bunny_configuration_childrenf(cnf, "[]"));
   div = bunny_configuration_first(cnf);
   efadd_div_cnf(cnf,div,gui);
   return (gui);

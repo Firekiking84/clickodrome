@@ -17,14 +17,13 @@ static int		init_timer_settings(t_bunny_configuration	*cnf,
   settings->delay = (size_t)delay;
   if (!settings->delay)
     {
-      free(settings->delay);
+      bunny_free((char *)settings->name);
       return(-1);
     }
   settings->functions = efget_functions(cnf, gui);
   if (!settings->functions)
     {
-      free(settings->name);
-      free(settings->delay);
+      bunny_free((char *)settings->name);
       return(-1);
     }
   return(0);
@@ -33,7 +32,7 @@ static int		init_timer_settings(t_bunny_configuration	*cnf,
 int			efadd_timer_cnf(t_bunny_configuration		*cnf,
 					t_gui				*gui)
 {
-  t_timer_settings	*settings;
+  t_timer_settings	settings;
   t_component		*comp;
 
   comp = bunny_malloc(sizeof(t_component));
@@ -41,7 +40,7 @@ int			efadd_timer_cnf(t_bunny_configuration		*cnf,
     return(-1);
   if (init_timer_settings(cnf, gui, &settings) == -1)
     {
-      free(comp);
+      bunny_free(comp);
       return(-1);
     }
   comp->component = efadd_timer_div(efvector_ptr_get(gui->divs, gui->divs->data_count - 1), &settings);
