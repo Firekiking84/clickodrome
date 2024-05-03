@@ -1,22 +1,18 @@
 #include                "label.h"
 
-void                    efletter(t_bunny_zpixelarray    *pix,
-                                 t_bunny_pixelarray     *font,
-                                 t_zposition		*pos,
-				 t_bunny_color		*col,
-                                 char                   c)
+void                    efletter(t_letter_settings *set)
 {
   t_bunny_clipable	tmp;
 
-  if (pix->z[pos->x + pos->y * pix->px->clipable.buffer.width] > pos->z)
+  if (set->pix->z[set->pos->x + set->pos->y * set->pix->px->clipable.buffer.width] > set->pos->z)
     {
-      bunny_clipable_copy(&tmp, &font->clipable);
-      font->clipable.clip_x_position = c * 10;
-      font->clipable.clip_y_position = 0;
-      font->clipable.clip_width = 10;
-      blit(pix, font, pos, col);
+      bunny_clipable_copy(&tmp, &set->font->clipable);
+      set->font->clipable.clip_x_position = set->c * 10;
+      set->font->clipable.clip_y_position = 0;
+      set->font->clipable.clip_width = 10;
+      blit(set->pix, set->font, set->pos, set->col);
 
-      bunny_clipable_copy(&font->clipable, &tmp);
+      bunny_clipable_copy(&set->font->clipable, &tmp);
     }
   return;
 }

@@ -1,6 +1,6 @@
-#include "button.h"
+#include		"button.h"
 
-t_button		*efnew_button(t_settings_button *set)
+t_button		*efnew_button(t_button_settings *set)
 
 {
   t_button		*button;
@@ -8,7 +8,7 @@ t_button		*efnew_button(t_settings_button *set)
   if ((button = bunny_malloc (sizeof(button))) == NULL)
     return(NULL);
   button->pos = set->pos;
-  button->size = set->xosize;
+  button->size = set->size;
   button->text = set->text;
   button->focus = false;
   button->in_button = false;
