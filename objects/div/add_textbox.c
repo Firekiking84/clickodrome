@@ -1,10 +1,12 @@
-#include "div.h"
+#include		"div.h"
 
 t_text_box		*efadd_text_box_div(t_div		*div,
 					    t_textbox_settings	*settings)
 {
   t_text_box		*new_textbox;
 
+  if (!efcheck_pos_new_component(div->pos, div->end_pos, &settings->pos, &settings->size))
+    return(NULL);
   new_textbox = efnew_text_box(settings);
   if (!new_textbox)
     return(NULL);
