@@ -5,8 +5,8 @@ t_bunny_color	*efget_color_cnf(t_bunny_configuration	*cnf,
 {
   t_bunny_color *color;
 
-  bunny_configuration_getf(cnf,&color->argb[0], "components.%s[0]", name);
-  bunny_configuration_getf(cnf,&color->argb[1], "components.%s[1]", name);
-  bunny_configuration_getf(cnf,&color->argb[2], "components.%s[2]", name);
+  bunny_configuration_getf_int(cnf,&color->argb[0], "components.%s[0]", name);
+  bunny_configuration_getf_int(cnf,&color->argb[1], "components.%s[1]", name);
+  bunny_configuration_getf_int(cnf,&color->argb[2], "components.%s[2]", name);
   return (color);
 }
