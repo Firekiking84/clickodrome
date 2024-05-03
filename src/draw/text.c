@@ -1,30 +1,27 @@
 #include            <lapin.h>
-
-void                eftext(t_bunny_zpixelarray		*pix,
-                           t_bunny_pixelarray		*font,
-			   t_zposition			*pos,
-			   const char			*txt,
-			   t_bunny_color		*font_color)
+#include	    "draw.h"
+void                eftext(t_text_settings *set)
 {
-  int             i;
-  t_zposition	  po;
+  int		    i;
+  t_zposition	    po;
+  t_letter_settings sett;
 
-  po.x = pos->x;
-  po.y = pos->y;
+  po.x = set->pos->x;
+  po.y = set->pos->y;
   i = 0;
-  while (txt[i] != '\0')
+  while (set->txt[i] != '\0')
     {
-      if (txt[i] == '\n')
+      if (set->txt[i] == '\n')
 	{
-	  pos->x = po.x;
-	  pos->y += 15;
+	  set->pos->x = po.x;
+	  set->pos->y += 15;
 	}
       else
 	{
-	  efletter(pix, font, pos, font_color, txt[i]);
-	  pos->x += 12;
+	  efletter(&sett);
+	  set->pos->x += 12;
 	}
       i ++;
     }
-  *pos = po;
+  *set->pos = po;
 }

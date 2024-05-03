@@ -1,7 +1,8 @@
 #ifndef			__VECTOR_PTR_H__
 
 #define			__VECTOR_PTR_H__
-
+#include <stdlib.h>
+#include <stddef.h>
 typedef struct		s_vector_ptr
 {
   size_t		*data_array;
@@ -19,7 +20,7 @@ void  			efvector_ptr_delete(t_vector_ptr	*vec);
 void  			efvector_ptr_clear(t_vector_ptr		*vec);
 
 // Ajoute un pointeur à la fin d'un vector de pointeur
-void			efvector_ptr_push(t_vector_ptr		*vec,
+int			efvector_ptr_push(t_vector_ptr		*vec,
 					  const void		*ptr);
 
 // Efface un pointeur à la fin d'un vector de pointeur
