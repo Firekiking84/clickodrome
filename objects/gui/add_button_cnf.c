@@ -31,7 +31,7 @@ static int		init_button_settings(t_bunny_configuration	*cnf,
   settings->font_color = efget_color_cnf(cnf, "font_color");
   settings->bg = efget_color_cnf(cnf, "bg");
   settings->hover_color = efget_color_cnf(cnf, "hover_color");
-  if ((settings->function = efget_functions(cnf, gui)) == NULL)
+  if ((settings->functions = efget_functions(cnf, gui)) == NULL)
     {
       free(settings->font);
       free(settings->name);
@@ -40,12 +40,9 @@ static int		init_button_settings(t_bunny_configuration	*cnf,
     }
   return(0);
 }
-
 int			efadd_button_cnf(t_bunny_configuration		*cnf,
 					 t_gui				*gui)
 {
-  t_button		*button;
-  const char		*lib;
   t_component		*comp;
   t_button_settings	settings;
 
@@ -67,5 +64,6 @@ int			efadd_button_cnf(t_bunny_configuration		*cnf,
     }
   comp->type = BUTTON;
   efvector_ptr_push(gui->components, comp);
+  return(0);
 }
 

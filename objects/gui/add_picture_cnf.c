@@ -22,7 +22,6 @@ static int		init_picture_settings(t_bunny_configuration	*cnf,
 int			efadd_picture_cnf(t_bunny_configuration		*cnf,
 					  t_gui				*gui)
 {
-  t_picture		*picture;
   t_component		*comp;
   t_picture_settings	settings;
 
@@ -32,17 +31,18 @@ int			efadd_picture_cnf(t_bunny_configuration		*cnf,
     return(-1);
   if (init_picture_settings(cnf, &settings) == -1)
     {
-      free(comp);
+      bunny_free(comp);
       return(-1);
     }
   comp->component = efadd_picture_div(efvector_ptr_get(gui->divs, gui->divs->data_count - 1), &settings);
   if (!comp->component)
     {
-      free(comp);
-      free(settings.name);
-      free(settings.filename);
+      bunny_free(comp);
+      bunny_free(settings.name);
+      bunny_free(settings.filename);
       return(-1);
     }
   comp->type = PICTURE;
   efvector_ptr_push(gui->components, comp);
+  return(0);
 }

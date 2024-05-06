@@ -16,8 +16,7 @@ static int		init_textbox_settings(t_bunny_configuration	*cnf,
   settings->font = strdup(tmp);
   if (!settings->font)
     {
-      free(settings->name);
-      free(settings->text);
+      bunny_free(settings->name);
       return(-1);
     }
   settings->font_size = efget_font_size_cnf(cnf);
@@ -26,9 +25,9 @@ static int		init_textbox_settings(t_bunny_configuration	*cnf,
   settings->functions = efget_functions(cnf, gui);
   if (!settings->functions)
     {
-      free(settings->font);
-      free(settings->name);
-      free(settings->font);
+      bunny_free(settings->font);
+      bunny_free(settings->name);
+      bunny_free(settings->font);
       return(-1);
     }
   return(0);
