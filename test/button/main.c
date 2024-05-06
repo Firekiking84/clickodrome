@@ -46,6 +46,7 @@ t_bunny_response		loop(void	*data2)
   bunny_display(data->win);
   return(GO_ON);
 }
+
 int				 main(void)
 {
   t_data			 data;

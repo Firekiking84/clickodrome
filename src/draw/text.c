@@ -8,6 +8,7 @@ void                eftext(t_text_settings *set)
 
   sett.pix = set->pix;
   sett.font = set->font;
+  sett.font_size = set->font_size;
   sett.pos = set->pos;
   sett.col = set->font_color;
   i = 0;
