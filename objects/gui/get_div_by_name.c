@@ -6,7 +6,7 @@ t_div			*get_div_by_name(t_gui		*gui,
 					 const char	*div_name)
 {
   t_div			*target_div;
-  int			i;
+  size_t		i;
 
   i = 0;
   target_div = NULL;
