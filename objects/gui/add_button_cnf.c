@@ -31,7 +31,7 @@ static int		init_button_settings(t_bunny_configuration	*cnf,
   settings->font_color = efget_color_cnf(cnf, "font_color");
   settings->bg = efget_color_cnf(cnf, "bg");
   settings->hover_color = efget_color_cnf(cnf, "hover_color");
-  if ((settings->function = efget_functions(cnf, gui)) == NULL)
+  if ((settings->functions = efget_functions(cnf, gui)) == NULL)
     {
       bunny_free(settings->font);
       bunny_free(settings->name);
