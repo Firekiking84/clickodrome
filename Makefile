@@ -1,6 +1,6 @@
 NAME =			Clickodrome
 
-SRC =	
+SRC =			
 
 OBJS =			$(SRC:.c=.o)
 

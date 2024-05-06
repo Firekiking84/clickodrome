@@ -42,10 +42,15 @@ typedef struct		s_button_settings
   t_vector_ptr		*functions;
 }			t_button_settings;
 
+
 t_button		*efnew_button(t_button_settings *set);
 void			efdelete_button(t_button		*button);
+t_button		*efnew_button(t_button_settings		*set);
+size_t			efdelete_button(t_button		*button);
 void			efdisplay_button(t_button		*button,
 					 t_bunny_zpixelarray	*px);
 void			efevents_button(t_button	    	*button,
-					t_bunny_event const		*event);
+					t_bunny_event const	*event);
+void			efedit_button(t_button			*button,
+				      t_button_settings		*edit);
 #endif	//		__BUTTON_H__              //

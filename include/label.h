@@ -31,6 +31,8 @@ void			efdisplay_label(t_label			*label,
 					t_bunny_zpixelarray	*px,
 					t_bunny_pixelarray	*font);
 void			efdelete_label(t_label			*label);
+void			efedit_label(t_label			*label,
+				     t_label_settings		*edit);
 
 
 #endif	//		__LABEL_H__
