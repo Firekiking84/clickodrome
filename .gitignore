@@ -1,3 +1,5 @@
 *.o
 *.gcno
 *~
+.*
+sphere_de_lespace_infini
