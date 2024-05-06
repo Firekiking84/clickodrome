@@ -48,5 +48,15 @@ void			        efevents_div(t_div				*div,
 bool				efcheck_pos_new_component(t_div			*div,
 							  t_bunny_position	*pos,
 							  t_bunny_size		*size);
+void				efedit_button_div(t_div				*div,
+						  t_button_settings const	*edit);
+void				efedit_label_div(t_div				*div,
+						 t_label_settings const		*edit);
+void				efedit_textbox_div(t_div			*div,
+						   t_textbox_settings const	*edit);
+void				efedit_picture_div(t_div			*div,
+						   t_picture_settings const	*edit);
+void				efedit_timer_div(t_div				*div,
+						 t_timer_settings const		*edit);
 
 #endif //	__DIV_H__		//
