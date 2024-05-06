@@ -13,6 +13,6 @@ t_zposition	efget_posz_cnf(t_bunny_configuration	*cnf)
       pos.y = 400;
       pos.z = -1;
     }
-  return(tpos);
+  return(pos);
 }
 

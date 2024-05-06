@@ -1,27 +1,29 @@
 #include            <lapin.h>
 #include	    "draw.h"
+
 void                eftext(t_text_settings *set)
 {
   int		    i;
-  t_zposition	    po;
   t_letter_settings sett;
 
-  po.x = set->pos->x;
-  po.y = set->pos->y;
+  sett.pix = set->pix;
+  sett.font = set->font;
+  sett.font_size = set->font_size;
+  sett.pos = set->pos;
+  sett.col = set->font_color;
   i = 0;
   while (set->txt[i] != '\0')
     {
       if (set->txt[i] == '\n')
 	{
-	  set->pos->x = po.x;
-	  set->pos->y += 15;
+	  sett.pos.x = set->pos.x;
+	  sett.pos.y += set->font_size.y;
 	}
       else
 	{
 	  efletter(&sett);
-	  set->pos->x += 12;
+	  sett.pos.x += set->font_size.x;
 	}
       i ++;
     }
-  *set->pos = po;
 }
