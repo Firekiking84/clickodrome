@@ -3,6 +3,8 @@
 #define			__TIMER_H__
 
 #include		<stddef.h>
+#include		<lapin.h>
+
 #include		"vector_ptr.h"
 
 typedef struct		s_timer_settings

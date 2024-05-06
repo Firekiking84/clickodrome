@@ -7,7 +7,7 @@ SRC =			main.c				\
 			$(wildcard ../../objects/textbox/*.c)\
 			$(wildcard ../../objects/timer/*.c)\
 			$(wildcard ../../objects/picture/*.c)\
-
+			$(wildcard ../../objects/label/*.c)\
 
 OBJS =			$(SRC:.c=.o)
 

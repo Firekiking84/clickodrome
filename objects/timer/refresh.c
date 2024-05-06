@@ -1,5 +1,4 @@
 #include		"timer.h"
-#include		"lapin.h"
 
 void            efrefresh_timer(t_timer                         *timer)
 {
