@@ -27,7 +27,7 @@ typedef struct			s_div
 
 
 t_div				*efnew_div(const char				*name,
-					   t_zposition				*pos,
+					   t_zposition				pos,
 					   t_bunny_size				size);
 size_t				efdelete_div(t_div				*div);
 void				efrefresh_div(t_div				*div);

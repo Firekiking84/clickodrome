@@ -7,14 +7,14 @@
 
 typedef struct	        s_picture
 {
-  t_zposition		*pos;
+  t_zposition		pos;
   t_bunny_size		size;
   char			*name;
   t_bunny_pixelarray	*img;
 }			t_picture;
 typedef struct		s_picture_settings
 {
-  t_zposition		*pos;
+  t_zposition		pos;
   t_bunny_size		size;
   const char		*name;
   const char		*filename;

@@ -6,7 +6,7 @@
 
 typedef struct	        s_label
 {
-  t_zposition		*pos;
+  t_zposition		pos;
   t_bunny_size		size;
   char			*name;
   char			*text;
@@ -16,7 +16,7 @@ typedef struct	        s_label
 
 typedef struct		s_label_settings
 {
-  t_zposition	       	*pos;
+  t_zposition	       	pos;
   t_bunny_size		size;
   char			*name;
   char			*text;
