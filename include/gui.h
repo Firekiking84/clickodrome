@@ -71,15 +71,22 @@ t_vector_ptr		*efget_functions(t_bunny_configuration		*cnf,
 void                    eftype_func(t_bunny_configuration               *comp,
 				    t_gui                               *gui,
 				    int					i);
-void			efedit_button_gui(const char			*div_name,
+void			efedit_button_gui(t_gui				*gui,
+					  const char			*div_name,
 					  t_button_settings const	*edit);
-void			efedit_label_gui(const char			*div_name,
+void			efedit_label_gui(t_gui				*gui,
+					 const char			*div_name,
 					 t_label_settings const		*edit);
-void			efedit_textbox_gui(const char			*div_name,
+void			efedit_textbox_gui(t_gui			*gui,
+					   const char			*div_name,
 					   t_textbox_settings const	*edit);
-void			efedit_picture_gui(const char			*div_name,
+void			efedit_picture_gui(t_gui			*gui,
+					   const char			*div_name,
 					   t_picture_settings const	*edit);
-void			efedit_timer_gui(const char			*div_name,
+void			efedit_timer_gui(t_gui				*gui,
+					 const char			*div_name,
 					 t_timer_settings const		*edit);
+t_div			*get_div_by_name(t_gui				*gui,
+					 const char			*div_name);
 
 #endif //		__GUI_H__

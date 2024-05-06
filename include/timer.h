@@ -24,6 +24,6 @@ t_timer		*efnew_timer(t_timer_settings			*settings);
 void		efdelete_timer(t_timer				*timer);
 void		efrefresh_timer(t_timer				*timer);
 void		efedit_timer(t_timer				*timer,
-			     t_timer_settings			*edit);
+			     t_timer_settings const		*edit);
 
 #endif	//		__TIMER_H__
