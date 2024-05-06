@@ -10,6 +10,6 @@ t_div *efget_div_cnf(t_bunny_configuration *cnf)
   bunny_configuration_getf(cnf, &divname, "[]");
   pos = efget_posz_cnf(cnf);
   size = efget_size_cnf(cnf);
-  tdiv = efnew_div(divname, pos, size);
+  tdiv = efnew_div(divname, &pos, size);
   return(tdiv);
 }

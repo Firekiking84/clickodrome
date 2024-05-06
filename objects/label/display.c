@@ -33,6 +33,7 @@ void                    efdisplay_label(t_label                 *labelt,
 {
   t_zposition		pos_end;
   t_label               label;
+  t_letter_settings	set;
 
   label = *labelt;
   pos_end.x = (label.pos.x + label.size.x);
@@ -42,5 +43,5 @@ void                    efdisplay_label(t_label                 *labelt,
       pos_end.z = label.pos.z;
       draw_rectangle(zpx, &label.pos, &pos_end, label.bg);
     }
-  ecriture_texte(zpx, &label, pos_end.x, font);
+  ecriture_texte(&set);
 }

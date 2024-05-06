@@ -13,6 +13,7 @@ SRC =			main.c					\
 			../../src/vector_ptr/resize.c		\
 			../../src/draw/draw_rectangle.c		\
 			../../src/draw/text.c			\
+			../../src/draw/clear_zbuffer.c		\
 			../../src/draw/letter.c			\
 			../../src/draw/set_pixel.c		\
 			../../src/draw/set_zpixel.c		\
