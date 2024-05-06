@@ -40,7 +40,6 @@ static int		init_button_settings(t_bunny_configuration	*cnf,
     }
   return(0);
 }
-
 int			efadd_button_cnf(t_bunny_configuration		*cnf,
 					 t_gui				*gui)
 {
@@ -65,6 +64,7 @@ int			efadd_button_cnf(t_bunny_configuration		*cnf,
     }
   comp->type = BUTTON;
   efvector_ptr_push(gui->components, comp);
-  return(1);
+
+  return(0);
 }
 

@@ -16,8 +16,8 @@ typedef struct		s_picture_settings
 {
   t_zposition		pos;
   t_bunny_size		size;
-  const char		*name;
-  const char		*filename;
+  char			*name;
+  char			*filename;
 }			t_picture_settings;
 
 t_picture		*efnew_picture(t_picture_settings	*set);

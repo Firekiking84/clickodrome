@@ -52,10 +52,8 @@ typedef struct		s_text_settings
 }			t_text_settings;
 
 void                    efclear_zbuffer(t_bunny_zpixelarray     *zpx);
-
 void			efclear_pixelarray(t_bunny_zpixelarray	*zpx,
 					   unsigned int		col);
-
 void			set_pixel(t_bunny_pixelarray		*px,
 				  t_bunny_position	        pos,
 				  t_bunny_color			*col);
@@ -78,7 +76,6 @@ int			get_value(int				a,
 				  double			ratio);
 int			get_npos(int				width,
 				 t_bunny_position		pos);
-
 void			efletter(t_letter_settings		*set);
 void			eftext(t_text_settings			*set);
 

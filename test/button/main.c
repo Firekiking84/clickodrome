@@ -61,14 +61,11 @@ int				 main(void)
   set.size.y = 100;
   set.text = "BUTTON";
   set.name = " 123";
-  data.win = bunny_start(500, 500, false, "Test button");
-  data.px.px = bunny_new_pixelarray(500, 500);
-  data.px.z = bunny_malloc(sizeof(double) * (500 * 500));
   set.functions = efvector_ptr_new(1);
   efvector_ptr_push(set.functions, print_pressed);
   set.font_size.x = 10;
   set.font_size.y = 14;
-  set.font = malloc(sizeof(char) * strlen("font.png"));
+  set.font = bunny_malloc(sizeof(char) * strlen("font.png") +1);
   strcpy(set.font, "font.png");
   set.font_color = bunny_malloc(sizeof(t_bunny_color));
   set.font_color->full = WHITE;
@@ -76,7 +73,11 @@ int				 main(void)
   set.bg->full = BLACK;
   set.hover_color = bunny_malloc(sizeof(t_bunny_color));
   set.hover_color->full = RED;
+  data.win = bunny_start(500, 500, false, "Test button");
+  data.px.px = bunny_new_pixelarray(500, 500);
+  data.px.z = bunny_malloc(sizeof(double) * (500 * 500));
   data.button = efnew_button(&set);
+  efclear_zbuffer(&data.px);
   bunny_set_event_response(eventResponse);
   bunny_set_loop_main_function(loop);
   bunny_loop(data.win, 60, &data);

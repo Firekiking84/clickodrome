@@ -8,9 +8,9 @@ static void   efcheck_pos(t_button *button,
        event->y > button->pos.y &&
        event->y < button->pos.y + button->size.y)
      button->in_button = true;
-   }
-void efevents_button(t_button      	 *button,
-		     t_bunny_event const	 *event)
+}
+void efevents_button(t_button			*button,
+		     t_bunny_event const	*event)
 {
   size_t count;
   void* (*func_ptr)(void);

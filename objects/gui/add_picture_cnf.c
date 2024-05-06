@@ -43,5 +43,6 @@ int			efadd_picture_cnf(t_bunny_configuration		*cnf,
     }
   comp->type = PICTURE;
   efvector_ptr_push(gui->components, comp);
-  return(1);
+
+  return(0);
 }
