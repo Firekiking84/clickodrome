@@ -36,7 +36,8 @@ typedef struct		s_letter_settings
 {
   t_bunny_zpixelarray	*pix;
   t_bunny_pixelarray	*font;
-  t_zposition		*pos;
+  t_bunny_size		font_size;
+  t_zposition		pos;
   t_bunny_color         *col;
   char			c;
 }t_letter_settings;
@@ -44,7 +45,8 @@ typedef struct		s_text_settings
 {
   t_bunny_zpixelarray	*pix;
   t_bunny_pixelarray	*font;
-  t_zposition		*pos;
+  t_bunny_size		font_size;
+  t_zposition		pos;
   const char		*txt;
   t_bunny_color		*font_color;
 }			t_text_settings;
