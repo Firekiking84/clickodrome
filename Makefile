@@ -37,6 +37,7 @@ re: fclean all
 test: fclean
 			cd test/vector_test/ ; make report
 			cd test/draw/ ; make report
+			cd test/gui_test/ ; make report
 
 tree: fclean
 			tree
