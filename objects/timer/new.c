@@ -11,7 +11,13 @@ t_timer         *efnew_timer(t_timer_settings	*settings)
     }
   time->name = settings->name;
   time->last_time = bunny_get_current_time() * 1000;
-  time->delay = settings->delay;
+  if (settings->delay < 0)
+    {
+      dprintf(2, "Wrong delay value. Set to default(1)");
+      time->delay = 1;
+    }
+  else
+    time->delay = settings->delay;
   time->functions = settings->functions;
   return (time);
 }

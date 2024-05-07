@@ -51,5 +51,5 @@ void			efdisplay_button(t_button		*button,
 void			efevents_button(t_button	    	*button,
 					t_bunny_event const	*event);
 void			efedit_button(t_button			*button,
-				      t_button_settings		*edit);
+				      t_button_settings const	*edit);
 #endif	//		__BUTTON_H__              //
