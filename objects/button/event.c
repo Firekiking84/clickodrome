@@ -13,7 +13,7 @@ void efevents_button(t_button			*button,
 		     t_bunny_event const	*event)
 {
   size_t count;
-  void* (*func_ptr)(void);
+  void* (*func_ptr)(void); // a changer
 
   count = 0;
   if (button->focus  == true && event->key.sym == BKS_RETURN )

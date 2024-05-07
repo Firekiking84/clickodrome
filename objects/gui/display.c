@@ -1,7 +1,7 @@
 #include		"gui.h"
 
 void			efdisplay_gui(t_gui			*gui,
-				      t_bunny_pixelarray	*px)
+				      t_bunny_zpixelarray	*px)
 {
   size_t count;
 
