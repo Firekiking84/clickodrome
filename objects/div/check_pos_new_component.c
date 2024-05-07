@@ -4,7 +4,7 @@
 
 static bool		short_return(const char				*err_msg)
 {
-  dprint(2, err_msg);
+  dprintf(2, err_msg);
   return(false);
 }
 
@@ -14,7 +14,7 @@ bool			efcheck_pos_new_component(t_div			*div,
 {
   int			end_pos;
 
-  if (size.x <= 0 || size.y <= 0)
+  if (size->x <= 0 || size->y <= 0)
     return(short_return("Wrong size values !"));
   if (pos->x < div->pos.x)
     pos->x = div->pos.x;

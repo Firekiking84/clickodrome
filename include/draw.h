@@ -4,19 +4,6 @@
 
 #include		<lapin.h>
 
-typedef struct          s_bunny_pixelarray
-{
-  t_bunny_pixelarray    *px;
-  double                *z;
-}		        t_bunny_pixelarray;
-
-typedef struct		s_zposition
-{
-  int			x;
-  int			y;
-  double		z;
-}			t_bunny_position;
-
 typedef struct		s_blit
 {
   t_bunny_position	shift;
@@ -57,9 +44,6 @@ void			efclear_pixelarray(t_bunny_pixelarray	*zpx,
 void			set_pixel(t_bunny_pixelarray		*px,
 				  t_bunny_position	        pos,
 				  t_bunny_color			*col);
-void			set_pixel(t_bunny_pixelarray		*px,
-				   t_bunny_position			*pos,
-				   t_bunny_color		*col);
 void			draw_rectangle(t_bunny_pixelarray	*px,
 				       t_bunny_position		*posStart,
 				       t_bunny_position		*posEnd,

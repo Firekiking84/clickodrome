@@ -14,7 +14,7 @@
 
 typedef struct	        s_button
 {
-  t_zposition		pos;
+  t_bunny_position	pos;
   t_bunny_size		size;
   char			*text;
   char			*name;
@@ -30,7 +30,7 @@ typedef struct	        s_button
 
 typedef struct		s_button_settings
 {
-  t_zposition		pos;
+  t_bunny_position	pos;
   t_bunny_size		size;
   char			*name;
   char			*text;

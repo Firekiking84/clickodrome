@@ -1,4 +1,4 @@
-ifndef			__PICTURE_H__
+#ifndef			__PICTURE_H__
 
 #define			__PICTURE_H__
 
