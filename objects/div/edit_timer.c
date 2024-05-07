@@ -2,17 +2,17 @@
 
 #include		<string.h>
 
-static t_timer		*get_timer_by_name(t_vector			*timers,
+static t_timer		*get_timer_by_name(t_vector_ptr			*timers,
 					    const char			*name)
 {
   t_timer		*target;
-  int			i;
+  size_t		i;
 
   i = 0;
   target = NULL;
   while (i < timers->data_count && !(target != NULL && strcmp(name, target->name) == 0))
     {
-      target_div = efvector_ptr_get(timers, i);
+      target = efvector_ptr_get(timers, i);
       i += 1;
     }
   if (i == timers->data_count)
@@ -27,5 +27,5 @@ void			efedit_timer_div(t_div				*div,
 
   target = get_timer_by_name(div->timers, edit->name);
   if (target)
-    edit_timer(target, edit);
+    efedit_timer(target, edit);
 }

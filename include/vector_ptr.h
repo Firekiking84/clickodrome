@@ -37,7 +37,7 @@ void			efvector_ptr_erase(t_vector_ptr			*vec,
 					   size_t			index);
 
 // Retourne le pointeur à l'index choisi
-void			*efvector_ptr_get(t_vector_ptr			*vec,
+void			*efvector_ptr_get(t_vector_ptr const		*vec,
 					  size_t			index);
 
 // Change la taille du vector de pointer à la taille passé en paramètre

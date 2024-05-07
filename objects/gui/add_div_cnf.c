@@ -10,15 +10,16 @@
 ** * *** * * ***  ** * ** ** ** ** * * * *** * **  **************************
 */
 
-#include "gui.h"
+#include	        "gui.h"
 
-int efadd_div_cnf(t_bunny_configuration *cnf,
-		  t_bunny_configuration *div,
-		  t_gui			*gui)
+int			efadd_div_cnf(t_bunny_configuration	*cnf,
+				      t_bunny_configuration	*div,
+				      t_gui			*gui)
 {
   t_bunny_configuration	*components;
-  t_div *tdiv;
-  int i;
+  t_div			*tdiv;
+  int			i;
+
   while (div != bunny_configuration_end(cnf))
     {
       tdiv = efget_div_cnf(div);

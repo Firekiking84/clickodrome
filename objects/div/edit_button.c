@@ -2,17 +2,17 @@
 
 #include		<string.h>
 
-static t_button		*get_button_by_name(t_vector			*buttons,
+static t_button		*get_button_by_name(t_vector_ptr		*buttons,
 					    const char			*name)
 {
   t_button		*target;
-  int			i;
+  size_t		i;
 
   i = 0;
   target = NULL;
   while (i < buttons->data_count && !(target != NULL && strcmp(name, target->name) == 0))
     {
-      target_div = efvector_ptr_get(buttons, i);
+      target = efvector_ptr_get(buttons, i);
       i += 1;
     }
   if (i == buttons->data_count)
@@ -27,5 +27,5 @@ void			efedit_button_div(t_div				*div,
 
   target = get_button_by_name(div->buttons, edit->name);
   if (target)
-    edit_button(target, edit);
+    efedit_button(target, edit);
 }

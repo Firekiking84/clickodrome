@@ -1,0 +1,199 @@
+[calculator
+  pos = 0, 0, 0 ' x, y, z
+  size = 200, 500 ' width, height
+  {components
+    [
+      type = "label"
+      pos = 0, 0, 0
+      size = 200, 200
+      name = "screen"
+      text = "0"
+      font = "font.png"
+      font_size = 10, 14
+      font_color = 0, 0, 0
+      bg = 255, 255, 255
+    ]
+    ,
+    [
+      type = "button"
+      pos = 0, 205, 0 ' x, y, z
+      size = 50, 50 ' width, height
+      name = "clear" ' = id
+      text = "C"
+      font = "font.png"
+      font_size = 10, 14
+      font_color = 0, 0, 0' red, blue, green
+      bg = 255, 255, 255 ' can not exist
+      hover_color = 181, 181, 181 ' can not exist
+      functions = "calculator.so", "clear"
+    ]
+    ,
+    [
+      type = "button"
+      pos = 50, 205, 0 ' x, y, z
+      size = 50, 50 ' width, height
+      name = "del" ' = id
+      text = "Del"
+      font = "font.png"
+      font_size = 10, 14
+      font_color = 0, 0, 0' red, blue, green
+      bg = 255, 255, 255 ' can not exist
+      hover_color = 181, 181, 181 ' can not exist
+      functions = "calculator.so", "del"
+    ]
+    ,
+    [
+      type = "button"
+      pos = 100, 205, 0 ' x, y, z
+      size = 50, 50 ' width, height
+      name = "modulo" ' = id
+      text = "%"
+      font = "font.png"
+      font_size = 10, 14
+      font_color = 0, 0, 0' red, blue, green
+      bg = 255, 255, 255 ' can not exist
+      hover_color = 181, 181, 181 ' can not exist
+      functions = "calculator.so", "modulo"
+    ]
+    ,
+    [
+      type = "button"
+      pos = 150, 205, 0 ' x, y, z
+      size = 50, 50 ' width, height
+      name = "divide" ' = id
+      text = "/"
+      font = "font.png"
+      font_size = 10, 14
+      font_color = 0, 0, 0' red, blue, green
+      bg = 255, 255, 255 ' can not exist
+      hover_color = 181, 181, 181 ' can not exist
+      functions = "calculator.so", "divide"
+    ]
+    ,
+    [
+      type = "button"
+      pos = 0, 260, 0 ' x, y, z
+      size = 50, 50 ' width, height
+      name = "7" ' = id
+      text = "7"
+      font = "font.png"
+      font_size = 10, 14
+      font_color = 0, 0, 0' red, blue, green
+      bg = 255, 255, 255 ' can not exist
+      hover_color = 181, 181, 181 ' can not exist
+      functions = "calculator.so", "push_7"
+    ]
+    ,
+    [
+      type = "button"
+      pos = 50, 260, 0 ' x, y, z
+      size = 50, 50 ' width, height
+      name = "8" ' = id
+      text = "8"
+      font = "font.png"
+      font_size = 10, 14
+      font_color = 0, 0, 0' red, blue, green
+      bg = 255, 255, 255 ' can not exist
+      hover_color = 181, 181, 181 ' can not exist
+      functions = "calculator.so", "push_8"
+    ]
+    ,
+    [
+      type = "button"
+      pos = 100, 260, 0 ' x, y, z
+      size = 50, 50 ' width, height
+      name = "9" ' = id
+      text = "9"
+      font = "font.png"
+      font_size = 10, 14
+      font_color = 0, 0, 0' red, blue, green
+      bg = 255, 255, 255 ' can not exist
+      hover_color = 181, 181, 181 ' can not exist
+      functions = "calculator.so", "push_9"
+    ]
+    ,
+    [
+      type = "button"
+      pos = 150, 260, 0 ' x, y, z
+      size = 50, 50 ' width, height
+      name = "multiply" ' = id
+      text = "x"
+      font = "font.png"
+      font_size = 10, 14
+      font_color = 0, 0, 0' red, blue, green
+      bg = 255, 255, 255 ' can not exist
+      hover_color = 181, 181, 181 ' can not exist
+      functions = "calculator.so", "multiply"
+    ]
+    ,
+    [
+      type = "button"
+      pos = 0, 315, 0 ' x, y, z
+      size = 50, 50 ' width, height
+      name = "4" ' = id
+      text = "4"
+      font = "font.png"
+      font_size = 10, 14
+      font_color = 0, 0, 0' red, blue, green
+      bg = 255, 255, 255 ' can not exist
+      hover_color = 181, 181, 181 ' can not exist
+      functions = "calculator.so", "push_4"
+    ]
+    ,
+    [
+      type = "button"
+      pos = 50, 315, 0 ' x, y, z
+      size = 50, 50 ' width, height
+      name = "5" ' = id
+      text = "5"
+      font = "font.png"
+      font_size = 10, 14
+      font_color = 0, 0, 0' red, blue, green
+      bg = 255, 255, 255 ' can not exist
+      hover_color = 181, 181, 181 ' can not exist
+      functions = "calculator.so", "push_5"
+    ]
+    ,
+    [
+      type = "button"
+      pos = 100, 315, 0 ' x, y, z
+      size = 50, 50 ' width, height
+      name = "6" ' = id
+      text = "6"
+      font = "font.png"
+      font_size = 10, 14
+      font_color = 0, 0, 0' red, blue, green
+      bg = 255, 255, 255 ' can not exist
+      hover_color = 181, 181, 181 ' can not exist
+      functions = "calculator.so", "push_6"
+    ]
+    ,
+    [
+      type = "button"
+      pos = 150, 315, 0 ' x, y, z
+      size = 50, 50 ' width, height
+      name = "substract" ' = id
+      text = "-"
+      font = "font.png"
+      font_size = 10, 14
+      font_color = 0, 0, 0' red, blue, green
+      bg = 255, 255, 255 ' can not exist
+      hover_color = 181, 181, 181 ' can not exist
+      functions = "calculator.so", "substract"
+    ]
+    ,
+    [
+      type = "button"
+      pos = 0, 370, 0 ' x, y, z
+      size = 50, 50 ' width, height
+      name = "clear" ' = id
+      text = "C"
+      font = "font.png"
+      font_size = 10, 14
+      font_color = 0, 0, 0' red, blue, green
+      bg = 255, 255, 255 ' can not exist
+      hover_color = 181, 181, 181 ' can not exist
+      functions = "calculator.so", "clear"
+    ]
+  }
+]

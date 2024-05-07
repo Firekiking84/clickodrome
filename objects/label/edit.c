@@ -1,4 +1,4 @@
-#include		"label.c"
+#include		"label.h"
 
 void			efedit_label(t_label			*label,
 				     t_label_settings const	*edit)

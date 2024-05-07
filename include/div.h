@@ -15,9 +15,10 @@
 typedef struct			s_div
 {
   const char			*name;
-  t_zposition			pos;  // pos top left
+  t_bunny_position		pos;  // pos top left
   t_bunny_size			size;
-  t_zposition			end_pos;
+  t_bunny_position		end_pos;
+  bool				in_div;
   t_vector_ptr			*labels;
   t_vector_ptr			*buttons;
   t_vector_ptr			*text_boxes;
@@ -25,11 +26,10 @@ typedef struct			s_div
   t_vector_ptr			*timers;
 }				t_div;
 
-
 t_div				*efnew_div(const char				*name,
-					   t_zposition				pos,
+					   t_bunny_position			pos,
 					   t_bunny_size				size);
-size_t				efdelete_div(t_div				*div);
+void				efdelete_div(t_div				*div);
 void				efrefresh_div(t_div				*div);
 void				efdisplay_div(t_div				*div,
 					      t_bunny_pixelarray		*px);

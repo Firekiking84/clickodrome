@@ -17,8 +17,8 @@ static int		init_picture_settings(t_bunny_configuration	*cnf,
 {
   const char		*tmp;
 
-  settings->pos = efget_posz_cnf(cnf);
-  settings->size = efget_size_cnf(cnf);
+  settings->pos = efget_pos_cnf(cnf);
+  settings->size = efget_size_cnf(cnf, "components.size");
   bunny_configuration_getf(cnf, &tmp, "components.name");
   if ((settings->name = strdup(tmp)) == NULL)
     return(-1);

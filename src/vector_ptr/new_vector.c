@@ -1,9 +1,9 @@
-#include		"vector_ptr.c"
+#include		"vector_ptr.h"
 
-t_vector		*efvector_ptr_new_vector(t_vector_ptr const	*other)
+t_vector_ptr		*efvector_ptr_new_vector(t_vector_ptr const	*other)
 {
-  t_vector		*new;
-  int			i;
+  t_vector_ptr		*new;
+  size_t		i;
 
   new = efvector_ptr_new(other->data_count);
   i = 0;
@@ -11,7 +11,7 @@ t_vector		*efvector_ptr_new_vector(t_vector_ptr const	*other)
     {
       if (efvector_ptr_push(new, efvector_ptr_get(other, i)) == -1)
 	{
-	  efvector_delete(new);
+	  efvector_ptr_delete(new);
 	  return(NULL);
 	}
       i += 1;

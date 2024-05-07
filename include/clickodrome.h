@@ -5,7 +5,7 @@
 
 typedef struct          s_program
 {
-  t_bunny_zpixelarray   *zpx;
+  t_bunny_pixelarray	*px;
   t_bunny_pixelarray	*font;
   t_bunny_window	*window;
   t_gui			*gui;

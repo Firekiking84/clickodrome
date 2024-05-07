@@ -2,17 +2,17 @@
 
 #include		<string.h>
 
-static t_picture		*get_picture_by_name(t_vector			*pictures,
-					    const char			*name)
+static t_picture		*get_picture_by_name(t_vector_ptr		*pictures,
+						     const char			*name)
 {
   t_picture		*target;
-  int			i;
+  size_t		i;
 
   i = 0;
   target = NULL;
   while (i < pictures->data_count && !(target != NULL && strcmp(name, target->name) == 0))
     {
-      target_div = efvector_ptr_get(pictures, i);
+      target = efvector_ptr_get(pictures, i);
       i += 1;
     }
   if (i == pictures->data_count)
@@ -27,5 +27,5 @@ void			efedit_picture_div(t_div				*div,
 
   target = get_picture_by_name(div->pictures, edit->name);
   if (target)
-    edit_picture(target, edit);
+    efedit_picture(target, edit);
 }

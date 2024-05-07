@@ -10,7 +10,7 @@
 typedef struct		s_timer_settings
 {
   char			*name;
-  size_t		delay;
+  ssize_t		delay;
   t_vector_ptr		*functions;
 }			t_timer_settings;
 

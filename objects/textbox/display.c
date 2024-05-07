@@ -57,13 +57,12 @@ static void		init_display_values(t_text_box		*box,
 }
 
 void			efdisplay_text_box(t_text_box		*text_box,
-					   t_bunny_zpixelarray	*px)
+					   t_bunny_pixelarray	*px)
 {
-  t_zposition		draw_pos;
+  t_bunny_position		draw_pos;
   t_display_values	val;
 
   draw_bg(text_box, px);
-  draw_pos.z = text_box->pos.z;
   init_display_values(text_box, &val);
   while (val.i < text_box->text->str_len && (val.i - val.start) < text_box->max_letter)
     {

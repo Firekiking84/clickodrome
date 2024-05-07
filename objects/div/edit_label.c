@@ -2,17 +2,17 @@
 
 #include		<string.h>
 
-static t_label		*get_label_by_name(t_vector			*labels,
+static t_label		*get_label_by_name(t_vector_ptr			*labels,
 					    const char			*name)
 {
   t_label		*target;
-  int			i;
+  size_t		i;
 
   i = 0;
   target = NULL;
   while (i < labels->data_count && !(target != NULL && strcmp(name, target->name) == 0))
     {
-      target_div = efvector_ptr_get(labels, i);
+      target = efvector_ptr_get(labels, i);
       i += 1;
     }
   if (i == labels->data_count)
@@ -27,5 +27,5 @@ void			efedit_label_div(t_div				*div,
 
   target = get_label_by_name(div->labels, edit->name);
   if (target)
-    edit_label(target, edit);
+    efedit_label(target, edit);
 }

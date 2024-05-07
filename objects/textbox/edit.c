@@ -10,9 +10,9 @@
 ** * *** * * ***  ** * ** ** ** ** * * * *** * **  **************************
 */
 
-#include		"text_box..h"
+#include		"text_box.h"
 
-void			efedit_textbox(t_text_box		*picture,
+void			efedit_textbox(t_text_box		*textbox,
 				       t_textbox_settings const	*edit)
 {
   t_bunny_pixelarray	*new_font;
@@ -21,11 +21,6 @@ void			efedit_textbox(t_text_box		*picture,
     textbox->pos = edit->pos;
   if (edit->size.x > 0)
     textbox->size = edit->size;
-  if (edit->text)
-    {
-      bunny_free(textbox->text);
-      textbox->text = edit->text;
-    }
   if (edit->font)
     {
       new_font = bunny_load_pixelarray(edit->font);
@@ -36,7 +31,7 @@ void			efedit_textbox(t_text_box		*picture,
 	}
     }
   if (edit->font_size.x > 0)
-    textbox->font_size = edit->font_size;
+    textbox->size_font = edit->font_size;
   if (edit->font_color)
     {
       if (!textbox->font_color)
@@ -52,6 +47,6 @@ void			efedit_textbox(t_text_box		*picture,
   if (edit->functions)
     {
       efvector_ptr_delete(textbox->functions);
-      efvector_ptr_new(edit->functions);
+      efvector_ptr_new_vector(edit->functions);
     }
 }
