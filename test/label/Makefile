@@ -6,13 +6,14 @@ SRC =			main.c					\
 			../../src/draw/set_pixel.c		\
 			../../objects/label/new.c		\
 			../../src/draw/letter.c			\
+			../../src/draw/text.c			\
 			../../src/draw/get_value.c		\
 			../../src/draw/get_ratio.c		\
 			../../src/draw/get_npos.c		\
 			../../src/draw/clear_zbuffer.c		\
 			../../objects/label/delete.c		\
 			../../src/draw/draw_rectangle.c		\
-			../../objects/label/display_label.c	\
+			../../objects/label/display.c		\
 
 OBJS =			$(SRC:.c=.o)
 

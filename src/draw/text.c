@@ -17,12 +17,21 @@ void                eftext(t_text_settings *set)
       if (set->txt[i] == '\n')
 	{
 	  sett.pos.x = set->pos.x;
-	  sett.pos.y += set->font_size.y;
+	  sett.pos.y += set->font_size.y + 1;
+	  if ((sett.pos.y + set->font_size.y) > set->pos_end.y)
+	     return;
 	}
       else
 	{
 	  efletter(&sett);
-	  sett.pos.x += set->font_size.x;
+	  sett.pos.x += set->font_size.x + 1;
+	  if ((sett.pos.x + set->font_size.x) > set->pos_end.x)
+	    {
+	      sett.pos.x = set->pos.x;
+	      sett.pos.y += set->font_size.y + 1;
+	      if ((sett.pos.y + set->font_size.y) > set->pos_end.y)
+		return;
+	    }
 	}
       i ++;
     }
