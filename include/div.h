@@ -17,6 +17,7 @@ typedef struct			s_div
   const char			*name;
   t_zposition			pos;  // pos top left
   t_bunny_size			size;
+  bool				in_div;
   t_zposition			end_pos;
   t_vector_ptr			*labels;
   t_vector_ptr			*buttons;

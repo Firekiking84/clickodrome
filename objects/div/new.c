@@ -13,9 +13,9 @@ t_div			*efnew_div(const char			*name,
   div.end_pos.y = div.pos.y + div.size.y;
   div.end_pos.z = div.pos.z;
   div.in_div = false;
-  div.labels = efvector_new(t_vector, 3);
-  div.buttons = efvector_new(t_vector, 3);
-  div.text_boxes = efvector_new(t_vector, 3);
-  div.pictures = efvector_new(t_vector, 3);
-  div.timer = efvector_new(t_vector, 3);
+  div.labels = efvector_ptr_new(3);
+  div.buttons = efvector_ptr_new(3);
+  div.text_boxes = efvector_ptr_new(3);
+  div.pictures = efvector_ptr_new(3);
+  div.timers = efvector_ptr_new(3);
 }

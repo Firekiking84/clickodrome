@@ -12,7 +12,7 @@ static t_button		*get_button_by_name(t_vector_ptr			*buttons,
   target = NULL;
   while (i < buttons->data_count && !(target != NULL && strcmp(name, target->name) == 0))
     {
-      target_div = efvector_ptr_get(buttons, i);
+      target = efvector_ptr_get(buttons, i);
       i += 1;
     }
   if (i == buttons->data_count)
@@ -21,7 +21,7 @@ static t_button		*get_button_by_name(t_vector_ptr			*buttons,
 }
 
 void			efedit_button_div(t_div				*div,
-					  t_button_settings		*edit)
+					  t_button_settings const	*edit)
 {
   t_button		*target;
 
