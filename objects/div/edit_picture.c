@@ -3,7 +3,7 @@
 #include		<string.h>
 
 static t_picture		*get_picture_by_name(t_vector			*pictures,
-					    const char			*name)
+						     const char			*name)
 {
   t_picture		*target;
   int			i;
@@ -12,7 +12,7 @@ static t_picture		*get_picture_by_name(t_vector			*pictures,
   target = NULL;
   while (i < pictures->data_count && !(target != NULL && strcmp(name, target->name) == 0))
     {
-      target_div = efvector_ptr_get(pictures, i);
+      target = efvector_ptr_get(pictures, i);
       i += 1;
     }
   if (i == pictures->data_count)

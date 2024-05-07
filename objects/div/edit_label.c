@@ -12,7 +12,7 @@ static t_label		*get_label_by_name(t_vector			*labels,
   target = NULL;
   while (i < labels->data_count && !(target != NULL && strcmp(name, target->name) == 0))
     {
-      target_div = efvector_ptr_get(labels, i);
+      target = efvector_ptr_get(labels, i);
       i += 1;
     }
   if (i == labels->data_count)

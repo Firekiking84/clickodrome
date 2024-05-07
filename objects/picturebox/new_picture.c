@@ -1,6 +1,6 @@
 #include		"picture.h"
 
-t_picture               *efnew_picture(t_zposition		pos,
+t_picture               *efnew_picture(t_bunny_position		pos,
 				       t_bunny_size             size,
 				       const char               *name,
 				       const char               *filename)

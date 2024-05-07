@@ -9,7 +9,7 @@ static bool		short_return(const char				*err_msg)
 }
 
 bool			efcheck_pos_new_component(t_div			*div,
-						  t_zposition		*pos,
+						  t_bunny_position	*pos,
 						  t_bunny_size		*size)
 {
   int			end_pos;

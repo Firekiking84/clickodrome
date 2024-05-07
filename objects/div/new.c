@@ -11,7 +11,6 @@ t_div			*efnew_div(const char			*name,
   div.size = size;
   div.end_pos.x = div.pos.x + div.size.x;
   div.end_pos.y = div.pos.y + div.size.y;
-  div.end_pos.z = div.pos.z;
   div.in_div = false;
   div.labels = efvector_new(t_vector, 3);
   div.buttons = efvector_new(t_vector, 3);

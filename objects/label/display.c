@@ -1,9 +1,9 @@
 #include		"label.h"
 
 void                    efdisplay_label(t_label                 *label,
-					t_bunny_zpixelarray     *zpx)
+					t_bunny_pixelarray     *px)
 {
-  t_zposition		pos_end;
+  t_bunny_position	pos_end;
   t_text_settings	set;
 
   pos_end = label->pos_end;
@@ -11,9 +11,9 @@ void                    efdisplay_label(t_label                 *label,
     {
       pos_end.y = label->pos.y + label->size.y;
       pos_end.z = label->pos.z;
-      draw_rectangle(zpx, &label->pos, &pos_end, label->bg);
+      draw_rectangle(px, &label->pos, &pos_end, label->bg);
     }
-  set.pix = zpx;
+  set.pix = px;
   set.font = label->font;
   set.pos = label->pos;
   set.pos_end = label->pos_end;

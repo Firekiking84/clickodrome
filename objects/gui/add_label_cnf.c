@@ -19,7 +19,7 @@ static int		init_label_settings(t_bunny_configuration	*cnf,
 {
   const char		*tmp;
 
-  settings->pos = efget_posz_cnf(cnf);
+  settings->pos = efget_pos_cnf(cnf);
   settings->size = efget_size_cnf(cnf);
   bunny_configuration_getf(cnf, &tmp, "components.name");
   settings->name = strdup(tmp);
