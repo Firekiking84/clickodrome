@@ -10,7 +10,6 @@ void                    efdisplay_label(t_label                 *label,
   if (label->bg != NULL)
     {
       pos_end.y = label->pos.y + label->size.y;
-      pos_end.z = label->pos.z;
       draw_rectangle(px, &label->pos, &pos_end, label->bg);
     }
   set.pix = px;

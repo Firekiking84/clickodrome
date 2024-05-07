@@ -109,6 +109,6 @@ void			manage_control_key(t_text_box			*text_box,
 void			manage_shift_key(t_text_box			*text_box,
 					 const t_bunny_event		*event);
 void			efedit_textbox(t_text_box			*textbox,
-				       t_textbox_settings		*edit);
+				       t_textbox_settings const		*edit);
 
 #endif	//		__TEXT_BOX_H__

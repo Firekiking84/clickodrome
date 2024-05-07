@@ -87,7 +87,7 @@ void                    blit(t_bunny_pixelarray			*target,
   bool                  x_is_end;
   t_bunny_color		col;
   t_bunny_color		tmp_col;
-  t_bunny_position	pos;
+  t_bunny_position	draw_pos;
 
   init_struct(pos, &blit, src);
   tab = (unsigned int*)src->pixels;
@@ -117,9 +117,9 @@ void                    blit(t_bunny_pixelarray			*target,
 	      tmp_col.argb[ALPHA_CMP] = col.argb[ALPHA_CMP];
 	      col = tmp_col;
 	    }
-	  pos.x = blit.final_pos.x;
-	  pos.y = blit.final_pos.y;
-          set_pixel(target, &pos, &col);
+	  draw_pos.x = blit.final_pos.x;
+	  draw_pos.y = blit.final_pos.y;
+          set_pixel(target, draw_pos, &col);
           x_is_end = set_is_end(blit.is_x_reverse, &blit.target_pos.x, blit.size_dest.x);
         }
       y_is_end = set_is_end(blit.is_y_reverse, &blit.target_pos.y, blit.size_dest.y);

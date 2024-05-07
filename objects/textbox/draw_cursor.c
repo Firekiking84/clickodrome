@@ -2,7 +2,7 @@
 
 void			draw_cursor(t_text_box			*text_box,
 				    t_bunny_position		draw_pos,
-				    t_bunny_zpixelarray		*px)
+				    t_bunny_pixelarray		*px)
 {
   t_bunny_color		cursor_color;
   t_bunny_position	end_pos;

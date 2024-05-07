@@ -3,7 +3,6 @@
 #define			__BUTTON_H__
 
 #include "button.h"
-#include "vector.h"
 #include "lapin.h"
 #include "draw.h"
 #include "vector_ptr.h"

@@ -2,11 +2,11 @@
 
 #include		<string.h>
 
-static t_textbox		*get_textbox_by_name(t_vector			*textboxs,
+static t_text_box		*get_textbox_by_name(t_vector_ptr		*textboxs,
 						     const char			*name)
 {
-  t_textbox		*target;
-  int			i;
+  t_text_box		*target;
+  size_t		i;
 
   i = 0;
   target = NULL;
@@ -23,9 +23,9 @@ static t_textbox		*get_textbox_by_name(t_vector			*textboxs,
 void			efedit_textbox_div(t_div				*div,
 					   t_textbox_settings const		*edit)
 {
-  t_textbox		*target;
+  t_text_box		*target;
 
-  target = get_textbox_by_name(div->textboxs, edit->name);
+  target = get_textbox_by_name(div->text_boxes, edit->name);
   if (target)
-    edit_textbox(target, edit);
+    efedit_textbox(target, edit);
 }
