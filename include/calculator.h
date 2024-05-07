@@ -15,6 +15,7 @@
 #define		__CALCULATOR_H__
 
 #include	"efstring.h"
+#include	"gui.h"
 
 typedef enum	e_calc
   {
@@ -52,4 +53,6 @@ void divide		(t_gui gui ,void *data);
 void multiply		(t_gui gui ,void *data);
 void modulo		(t_gui gui ,void *data);
 void result		(t_gui gui ,void *data);
-void operation		(t_gui gui ,void *data , double num);
+void operation		(t_gui gui ,void *data);
+void delete		(t_gui gui ,void *data);
+void clear 		(t_gui gui ,void *data);
