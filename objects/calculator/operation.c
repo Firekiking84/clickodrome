@@ -4,25 +4,34 @@
 ** ***     ***     ***     ******  *******  *****      **********************
 ** **  ******  ******  *** *****  *******  *********  ***********************
 ** *     ***  ******  *** ***       ****  *****      ************************
-** 07/05/2024 11:59:18 ******************************************************
+** 07/05/2024 12:43:09 ******************************************************
 ** romain.cescutti <romain.cescutti@aldrin.efrits.fr>
 ** - clickodrome -
 ** * *** * * ***  ** * ** ** ** ** * * * *** * **  **************************
 */
 
-void push_0	(t_gui gui ,void *data)
+void operation(t_gui gui ,void *data , double num)
 {
-  if (data->operator == NONE)
+  if (data->operator == ADD)
     {
-      if ( data->res != 0)
-	{
-	  data->res = data->res * 10;
-	}
-      if (data->res == 0)
-	{
-	  return(void);
-	}
-      string_push_back(data->string,'0');
+      data->res = data->res + buffer;
     }
+  if (data->operator == SUBTRACT)
+    {
+      data->res = data->res - buffer;
+    }
+  if (data->operator == MULTIPLY)
+    {
+      data->res = data->res * buffer;
+    }
+  if (data->operator == DIVIDE)
+    {
+      data->res = data->res / buffer;
+    }
+  if (data->operator == MODULO)
+    {
+      data->res = data->res % buffer;
+    }
+  data->operator = NONE;
   return(void);
 }
