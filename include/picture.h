@@ -14,7 +14,7 @@ typedef struct	        s_picture
 
 typedef struct		s_picture_settings
 {
-  t_bunny_position		pos;
+  t_bunny_position	pos;
   t_bunny_size		size;
   char			*name;
   char			*filename;
@@ -25,7 +25,7 @@ void			efdelete_picture(t_picture		*picture);
 void			efdisplay_picture(t_picture		*picture,
 					  t_bunny_pixelarray	*px);
 void			efedit_picture(t_picture		*picture,
-				      t_picture_settings const	*edit);
+				       t_picture_settings const	*edit);
 
 
 #endif	//		__PICTURE_H__

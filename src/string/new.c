@@ -2,7 +2,7 @@
 
 #include		<stdlib.h>
 
-t_string		*string_new()
+t_string		*efstring_new()
 {
   t_string		*new_string;
 

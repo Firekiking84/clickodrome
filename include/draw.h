@@ -38,9 +38,8 @@ typedef struct		s_text_settings
   t_bunny_color		*font_color;
 }			t_text_settings;
 
-void                    efclear_zbuffer(t_bunny_pixelarray     *zpx);
-void			efclear_pixelarray(t_bunny_pixelarray	*zpx,
-					   unsigned int		col);
+void			efclear_pixelarray(t_bunny_pixelarray	*px,
+					   t_bunny_color	color);
 void			set_pixel(t_bunny_pixelarray		*px,
 				  t_bunny_position	        pos,
 				  t_bunny_color			*col);

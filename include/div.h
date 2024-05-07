@@ -19,13 +19,13 @@ typedef struct			s_div
   t_bunny_size			size;
   bool				in_div;
   t_bunny_position		end_pos;
+  bool				in_div;
   t_vector_ptr			*labels;
   t_vector_ptr			*buttons;
   t_vector_ptr			*text_boxes;
   t_vector_ptr			*pictures;
   t_vector_ptr			*timers;
 }				t_div;
-
 
 t_div				*efnew_div(const char				*name,
 					   t_bunny_position			pos,

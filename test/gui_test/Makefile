@@ -1,7 +1,8 @@
 NAME =			gui_test
 
 SRC =			main.c				\
-			$(wildcard ../../objects/*/*.c)\
+			$(wildcard ../../objects/*/*.c)	\
+			$(wildcard ../../src/*/*.c)	\
 
 
 OBJS =			$(SRC:.c=.o)
@@ -30,7 +31,7 @@ clean:
 			rm -f $(shell find ../../ -name "*.gcda")
 			rm -f $(shell find ../../ -name "*.gcno")
 			rm -f $(shell find ../../ -name "*#")
-			rm -f $(shell find ../../ -name "*#")
+			rm -f $(shell find ../../ -name "#*")
 
 fclean: clean
 			rm -f $(NAME)

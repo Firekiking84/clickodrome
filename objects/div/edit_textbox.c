@@ -6,7 +6,7 @@ static t_text_box		*get_textbox_by_name(t_vector_ptr		*textboxs,
 						     const char			*name)
 {
   t_text_box		*target;
-  size_t 	        i;
+  size_t		i;
 
   i = 0;
   target = NULL;

@@ -1,0 +1,40 @@
+screen = 500, 500 'fenètre taille
+[portrait
+  pos = 0, 0, 0 ' x, y, z
+  size = 200, 500 ' width, height
+  {components
+    [
+      type = "label"
+      pos = 0, 0, 0
+      size = 200, 200
+      name = "screen"
+      text = "0"
+      font = "font.png"
+      font_size = 10, 14
+      font_color = 0, 0, 0
+      bg = 255, 255, 255
+    ]
+    ,
+    [
+      type = "button"
+      pos = 0, 205, 0 ' x, y, z
+      size = 50, 50 ' width, height
+      name = "clear" ' = id
+      text = "C"
+      font = "font.png"
+      font_size = 10, 14
+      font_color = 0, 0, 0' red, blue, green
+      bg = 255, 255, 255 ' can not exist
+      hover_color = 181, 181, 181 ' can not exist
+      functions = "calculator.so", "clear"
+    ]
+    ,
+    [
+      type = "picture"
+      name = "portrait"
+      pos = 0, 50
+      size = 50, 50
+      filename = "bobo.png"
+    ]
+  }
+]

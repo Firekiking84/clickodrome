@@ -2,8 +2,13 @@
 
 #include		<string.h>
 
-static t_picture		*get_picture_by_name(t_vector_ptr       *pictures,
-					    const char			*name)
+
+
+
+
+static t_picture		*get_picture_by_name(t_vector_ptr		*pictures,
+						     const char			*name)
+
 {
   t_picture		*target;
   size_t		i;

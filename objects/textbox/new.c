@@ -57,8 +57,8 @@ static void		init_textbox_values(t_text_box		*box)
   box->pressed_in = false;
   box->cursor_pos = 0;
   box->selection_active = false;
-  box->text = string_new();
-  box->copy = string_new();
+  box->text = efstring_new();
+  box->copy = efstring_new();
   box->time_cursor_blink = bunny_get_current_time();
 }
 

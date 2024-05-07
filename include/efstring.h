@@ -11,7 +11,7 @@ typedef struct	s_string
   int		str_len;
 }		t_string;
 
-t_string	*string_new();
+t_string	*efstring_new();
 t_string	*string_new_string(const t_string	*other);
 t_string	*string_new_str(const char		*str);
 void		string_delete(t_string			*string);
