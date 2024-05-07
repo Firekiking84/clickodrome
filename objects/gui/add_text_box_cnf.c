@@ -18,7 +18,7 @@ static int		init_textbox_settings(t_bunny_configuration	*cnf,
 {
   const char		*tmp;
 
-  settings->pos = efget_posz_cnf(cnf);
+  settings->pos = efget_pos_cnf(cnf);
   settings->size = efget_size_cnf(cnf);
   bunny_configuration_getf(cnf, &tmp, "components.name");
   settings->name = strdup(tmp);
@@ -50,7 +50,8 @@ int 			efadd_text_box_cnf(t_bunny_configuration	*cnf,
   t_textbox_settings	settings;
   t_component		*comp;
 
-  init_textbox_settings(cnf, gui, &settings);
+  if (init_textbox_settings(cnf, gui, &settings) == -1)
+    return(-1);
   comp = bunny_malloc(sizeof(t_component));
   if (!comp)
     return(-1);

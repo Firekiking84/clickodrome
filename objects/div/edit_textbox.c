@@ -3,7 +3,7 @@
 #include		<string.h>
 
 static t_textbox		*get_textbox_by_name(t_vector			*textboxs,
-					    const char			*name)
+						     const char			*name)
 {
   t_textbox		*target;
   int			i;
@@ -12,7 +12,7 @@ static t_textbox		*get_textbox_by_name(t_vector			*textboxs,
   target = NULL;
   while (i < textboxs->data_count && !(target != NULL && strcmp(name, target->name) == 0))
     {
-      target_div = efvector_ptr_get(textboxs, i);
+      target = efvector_ptr_get(textboxs, i);
       i += 1;
     }
   if (i == textboxs->data_count)
@@ -21,7 +21,7 @@ static t_textbox		*get_textbox_by_name(t_vector			*textboxs,
 }
 
 void			efedit_textbox_div(t_div				*div,
-					  t_textbox_settings const	*edit)
+					   t_textbox_settings const		*edit)
 {
   t_textbox		*target;
 

@@ -46,6 +46,6 @@ void			efedit_button(t_button			*button,
   if (edit->functions)
     {
       efvector_ptr_delete(button->functions);
-      efvector_ptr_new(edit->functions);
+      efvector_ptr_new_vector(edit->functions);
     }
 }

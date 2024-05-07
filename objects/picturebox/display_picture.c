@@ -1,7 +1,7 @@
 #include		"picture.h"
 
 void                    efdisplay_picture(t_picture             *picture,
-					  t_bunny_zpixelarray   *px)
+					  t_bunny_pixelarray	*px)
 {
   t_bunny_area		save;
 

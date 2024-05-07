@@ -10,12 +10,15 @@
 ** * *** * * ***  ** * ** ** ** ** * * * *** * **  **************************
 */
 
-#include "gui.h"
+#include	"gui.h"
 
-void eftype_func(t_bunny_configuration *comp,t_gui *gui,int i)
+void		eftype_func(t_bunny_configuration	*comp,
+			    t_gui			*gui,
+			    int				i)
 {
-  const char *type;
-  int tenum;
+  const char	*type;
+  int		tenum;
+
   bunny_configuration_getf(comp, &type, "components[%d].type", i);
   tenum = efcomp_type(type);
   if(tenum == BUTTON)

@@ -4,20 +4,6 @@
 
 #include		<lapin.h>
 
-typedef struct          s_bunny_zpixelarray
-{
-  t_bunny_pixelarray    *px;
-  double                *z;
-}		        t_bunny_zpixelarray;
-
-typedef struct		s_zposition
-{
-  int			x;
-  int			y;
-  double		z;
-}			t_zposition;
-
-
 typedef struct		s_blit
 {
   t_bunny_position	shift;
@@ -34,40 +20,37 @@ typedef struct		s_blit
 
 typedef struct		s_letter_settings
 {
-  t_bunny_zpixelarray	*pix;
+  t_bunny_pixelarray	*pix;
   t_bunny_pixelarray	*font;
   t_bunny_size		font_size;
-  t_zposition		pos;
+  t_bunny_position	pos;
   t_bunny_color         *col;
   char			c;
 }t_letter_settings;
 typedef struct		s_text_settings
 {
-  t_bunny_zpixelarray	*pix;
+  t_bunny_pixelarray	*pix;
   t_bunny_pixelarray	*font;
   t_bunny_size		font_size;
-  t_zposition		pos;
-  t_zposition		pos_end;
+  t_bunny_position	pos;
+  t_bunny_position	pos_end;
   char			*txt;
   t_bunny_color		*font_color;
 }			t_text_settings;
 
-void                    efclear_zbuffer(t_bunny_zpixelarray     *zpx);
-void			efclear_pixelarray(t_bunny_zpixelarray	*zpx,
+void                    efclear_zbuffer(t_bunny_pixelarray     *zpx);
+void			efclear_pixelarray(t_bunny_pixelarray	*zpx,
 					   unsigned int		col);
 void			set_pixel(t_bunny_pixelarray		*px,
 				  t_bunny_position	        pos,
 				  t_bunny_color			*col);
-void			set_zpixel(t_bunny_zpixelarray		*px,
-				   t_zposition			*pos,
-				   t_bunny_color		*col);
-void			draw_rectangle(t_bunny_zpixelarray	*px,
-				       t_zposition		*posStart,
-				       t_zposition		*posEnd,
+void			draw_rectangle(t_bunny_pixelarray	*px,
+				       t_bunny_position		*posStart,
+				       t_bunny_position		*posEnd,
 				       t_bunny_color		*col);
-void			blit(t_bunny_zpixelarray		*target,
+void			blit(t_bunny_pixelarray		*target,
 			     const t_bunny_pixelarray		*src,
-			     const t_zposition			*pos,
+			     const t_bunny_position			*pos,
 			     t_bunny_color			*forcedCol);
 double			get_ratio(int				a,
 				  int				b,

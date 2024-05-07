@@ -1,6 +1,6 @@
 #include		"draw.h"
 
-static void             init_struct(const t_zposition		*pos,
+static void             init_struct(const t_bunny_position	*pos,
                                     t_blit			*blit,
                                     const t_bunny_pixelarray    *src)
 {
@@ -74,9 +74,9 @@ static bool             set_is_end(bool                         is_reverse,
   return(false);
 }
 
-void                    blit(t_bunny_zpixelarray		*target,
+void                    blit(t_bunny_pixelarray			*target,
 			     const t_bunny_pixelarray		*src,
-			     const t_zposition			*pos,
+			     const t_bunny_position		*pos,
 			     t_bunny_color			*forcedCol)
 {
   t_blit                blit;
@@ -87,7 +87,7 @@ void                    blit(t_bunny_zpixelarray		*target,
   bool                  x_is_end;
   t_bunny_color		col;
   t_bunny_color		tmp_col;
-  t_zposition		zpos;
+  t_bunny_position	pos;
 
   init_struct(pos, &blit, src);
   tab = (unsigned int*)src->pixels;
@@ -117,10 +117,9 @@ void                    blit(t_bunny_zpixelarray		*target,
 	      tmp_col.argb[ALPHA_CMP] = col.argb[ALPHA_CMP];
 	      col = tmp_col;
 	    }
-	  zpos.x = blit.final_pos.x;
-	  zpos.y = blit.final_pos.y;
-	  zpos.z = pos->z;
-          set_zpixel(target, &zpos, &col);
+	  pos.x = blit.final_pos.x;
+	  pos.y = blit.final_pos.y;
+          set_pixel(target, &pos, &col);
           x_is_end = set_is_end(blit.is_x_reverse, &blit.target_pos.x, blit.size_dest.x);
         }
       y_is_end = set_is_end(blit.is_y_reverse, &blit.target_pos.y, blit.size_dest.y);

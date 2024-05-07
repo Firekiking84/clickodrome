@@ -12,7 +12,7 @@ static t_button		*get_button_by_name(t_vector			*buttons,
   target = NULL;
   while (i < buttons->data_count && !(target != NULL && strcmp(name, target->name) == 0))
     {
-      target_div = efvector_ptr_get(buttons, i);
+      target = efvector_ptr_get(buttons, i);
       i += 1;
     }
   if (i == buttons->data_count)

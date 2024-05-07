@@ -4,7 +4,7 @@
 
 int			main()
 {
-  t_bunny_zpixelarray	*zpx;
+  t_bunny_pixelarray	*px;
   t_bunny_window	*window;
   t_label_settings	set;
   t_label		*la;
@@ -59,28 +59,16 @@ int			main()
     }
   strcpy(set.font, "../../res/font.png");
   la = efnew_label(&set);
-  zpx = bunny_malloc(sizeof(t_bunny_zpixelarray));
-  if (!zpx)
-    {
-      perror("Malloc error zpx");
-      return(1);
-    }
-  zpx->z = bunny_malloc(sizeof(double) * 1920 * 1080);
-  if (!zpx->z)
-    {
-      perror("Malloc error zpx->z");
-      return(1);
-    }
   window = bunny_start(1920, 1080, false, "clickodrome");
-  zpx->px = bunny_new_pixelarray(1920, 1080);
-  if (!zpx->px)
+  px = bunny_new_pixelarray(1920, 1080);
+  if (!px)
     {
       bunny_perror("Bunny_new_pixelarray error");
       return(1);
     }
-  efclear_zbuffer(zpx);
-  efdisplay_label(la, zpx);
-  bunny_blit(&window->buffer, &zpx->px->clipable, NULL);
+  efclear_zbuffer(px);
+  efdisplay_label(la, px);
+  bunny_blit(&window->buffer, &px->clipable, NULL);
   bunny_display(window);
   bunny_usleep(10000000);
   /*

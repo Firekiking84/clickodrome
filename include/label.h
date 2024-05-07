@@ -6,8 +6,8 @@
 
 typedef struct	        s_label
 {
-  t_zposition		pos;
-  t_zposition		pos_end;
+  t_bunny_position		pos;
+  t_bunny_position		pos_end;
   t_bunny_size		size;
   char			*name;
   char			*text;
@@ -19,7 +19,7 @@ typedef struct	        s_label
 
 typedef struct		s_label_settings
 {
-  t_zposition	       	pos;
+  t_bunny_position	       	pos;
   t_bunny_size		size;
   char			*name;
   char			*text;
@@ -31,7 +31,7 @@ typedef struct		s_label_settings
 
 t_label			*efnew_label(t_label_settings		*set);
 void			efdisplay_label(t_label			*label,
-					t_bunny_zpixelarray	*px);
+					t_bunny_pixelarray	*px);
 void			efdelete_label(t_label			*label);
 void			efedit_label(t_label			*label,
 				     t_label_settings		*edit);

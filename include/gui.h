@@ -58,7 +58,7 @@ int			efadd_timer_cnf(t_bunny_configuration		*cnf,
 int                    efadd_div_cnf(t_bunny_configuration	        *cnf,
 				     t_bunny_configuration              *div,
 				     t_gui				*gui);
-t_zposition		efget_posz_cnf(t_bunny_configuration		*cnf);
+t_bunny_position	efget_posz_cnf(t_bunny_configuration		*cnf);
 t_bunny_color		*efget_color_cnf(t_bunny_configuration		*cnf,
 					char				*name);
 t_bunny_position	efget_pos_cnf(t_bunny_configuration		*cnf);
