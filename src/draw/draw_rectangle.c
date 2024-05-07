@@ -29,7 +29,7 @@ void		        draw_rectangle(t_bunny_pixelarray	*px,
       drawPos.x = posStart->x;
       while (drawPos.x < posEnd->x)
 	{
-	  set_pixel(px, &drawPos, col);
+	  set_pixel(px, drawPos, col);
 	  drawPos.x += 1;
 	}
       drawPos.y += 1;

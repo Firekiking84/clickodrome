@@ -1,7 +1,7 @@
 #include		"vector_ptr.h"
 
-void			*efvector_ptr_get(t_vector_ptr	*vec,
-					  size_t	index)
+void			*efvector_ptr_get(t_vector_ptr const	*vec,
+					  size_t		index)
 {
   if (index >= vec->data_count)
     return(NULL);

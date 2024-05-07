@@ -1,9 +1,9 @@
-#include "div.h"
+#include	"div.h"
 
-void efevents_div(t_div *div,
-		  const t_bunny_event *event)
+void		efevents_div(t_div			*div,
+			     const t_bunny_event	*event)
 {
-  size_t count;
+  size_t	count;
 
   if ( event->type == BET_MOUSE_MOVED)
     {
@@ -22,12 +22,12 @@ void efevents_div(t_div *div,
 	  count = 0;
 	  while (count < div->buttons->data_count)
 	  {
-	    efevents_button( div->buttons, event);
-	   count++;
+	    efevents_button(efvector_ptr_get(div->buttons, count), event);
+	    count++;
 	  }
 	  while (count < div->text_boxes->data_count)
 	    {
-	      efevents_button( div->text_boxes, event);
+	      efevents_button(efvector_ptr_get(div->text_boxes, count), event);
 	      count++;
 	    }
 	}

@@ -2,7 +2,6 @@
 
 #define			__GUI_H__
 
-#include		"vector.h"
 #include                "vector_ptr.h"
 #include		"div.h"
 #include                "dlfcn.h"
@@ -47,23 +46,23 @@ void			efdisplay_gui(t_gui				*ck,
 				      t_bunny_pixelarray		*px);
 int			efadd_button_cnf(t_bunny_configuration		*cnf,
 					 t_gui				*gui);
-int                    efadd_label_cnf(t_bunny_configuration		*cnf,
+int			efadd_label_cnf(t_bunny_configuration		*cnf,
 					t_gui				*gui);
-int                    efadd_picture_cnf(t_bunny_configuration		*cnf,
+int			efadd_picture_cnf(t_bunny_configuration		*cnf,
 					  t_gui				*gui);
 int			efadd_text_box_cnf(t_bunny_configuration	*cnf,
 					   t_gui			*gui);
 int			efadd_timer_cnf(t_bunny_configuration		*cnf,
 					t_gui				*gui);
-int                    efadd_div_cnf(t_bunny_configuration	        *cnf,
+int			efadd_div_cnf(t_bunny_configuration	        *cnf,
 				     t_bunny_configuration              *div,
 				     t_gui				*gui);
 t_bunny_position	efget_posz_cnf(t_bunny_configuration		*cnf);
 t_bunny_color		*efget_color_cnf(t_bunny_configuration		*cnf,
 					char				*name);
 t_bunny_position	efget_pos_cnf(t_bunny_configuration		*cnf);
-t_bunny_size		efget_size_cnf(t_bunny_configuration		*cnf);
-t_bunny_size		efget_font_size_cnf(t_bunny_configuration	*cnf);
+t_bunny_size		efget_size_cnf(t_bunny_configuration		*cnf,
+				       char const			*elem);
 t_div			*efget_div_cnf(t_bunny_configuration		*cnf);
 t_type			efcomp_type(const char*				str);
 t_vector_ptr		*efget_functions(t_bunny_configuration		*cnf,
