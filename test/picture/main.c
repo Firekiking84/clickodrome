@@ -2,7 +2,7 @@
 
 int			main()
 {
-  t_bunny_zpixelarray	*zpx;
+  t_bunny_pixelarray	*px;
   t_bunny_pixelarray	*font;
   t_bunny_window	*window;
   t_picture_settings	set;
@@ -18,7 +18,6 @@ int			main()
 
   set.pos.x = 0;
   set.pos.y = 0;
-  set.pos.z = 500;
   set.size.x = 1920;
   set.size.y = 1080;
   set.name = malloc(strlen("image1"));
@@ -26,13 +25,10 @@ int			main()
   set.filename = malloc(strlen("satoru.jpg"));
   strcpy(set.filename, "satoru.jpg");
   picture = efnew_picture(&set);
-  zpx = malloc(sizeof(t_bunny_zpixelarray));
-  zpx->z = malloc(sizeof(double) * 1920 * 1080);
   window = bunny_start(1920, 1080, false, "clickodrome");
-  zpx->px = bunny_new_pixelarray(1920, 1080);
-  efclear_zbuffer(zpx);
-  efdisplay_picture(picture, zpx);
-  bunny_blit(&window->buffer, &zpx->px->clipable, NULL);
+  px = bunny_new_pixelarray(1920, 1080);
+  efdisplay_picture(picture, px);
+  bunny_blit(&window->buffer, px->clipable, NULL);
   bunny_display(window);
   bunny_usleep(10000000);
   /*

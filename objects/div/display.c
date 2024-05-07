@@ -22,7 +22,7 @@ void			efdisplay_div(t_div			*div,
       efdisplay_text_box(efvector_ptr_get(div->text_boxes, count), px);
       count++;
     }
-  count =0;
+  count = 0;
   while (count < div->pictures->data_count)
     {
       efdisplay_picture(efvector_ptr_get(div->pictures,count), px);

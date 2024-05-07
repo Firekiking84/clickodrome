@@ -10,7 +10,7 @@
 
 typedef struct			 s_data
 {
-  t_bunny_zpixelarray		px;
+  t_bunny_pixelarray		px;
   t_bunny_position		origin;
   t_bunny_window		*win;
   t_button			*button;
@@ -35,14 +35,8 @@ t_bunny_response		loop(void	*data2)
   int				i;
 
   data = (t_data *)data2;
-  i = 0;
-  while (i<(500 *500))
-    {
-      data->px.z[i] = 10000000;
-      i ++;
-    }
   efdisplay_button(data->button, &data->px);
-  bunny_blit(&data->win->buffer, &data->px.px->clipable, &data->origin);
+  bunny_blit(&data->win->buffer, &data->px->clipable, &data->origin);
   bunny_display(data->win);
   return(GO_ON);
 }
@@ -52,7 +46,6 @@ int				 main(void)
   t_data			 data;
   t_button_settings		 set;
 
-  set.pos.z = 1;
   set.pos.x = 0;
   set.pos.y = 0;
   data.origin.x = 0;
@@ -74,8 +67,7 @@ int				 main(void)
   set.hover_color = bunny_malloc(sizeof(t_bunny_color));
   set.hover_color->full = RED;
   data.win = bunny_start(500, 500, false, "Test button");
-  data.px.px = bunny_new_pixelarray(500, 500);
-  data.px.z = bunny_malloc(sizeof(double) * (500 * 500));
+  data.px = bunny_new_pixelarray(500, 500);
   data.button = efnew_button(&set);
   efclear_zbuffer(&data.px);
   bunny_set_event_response(eventResponse);

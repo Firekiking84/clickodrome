@@ -1,7 +1,7 @@
-
 #include "button.h"
+
 void			efdisplay_button(t_button		*button,
-					 t_bunny_zpixelarray	*px)
+					 t_bunny_pixelarray	*px)
 {
   t_text_settings		set;
 

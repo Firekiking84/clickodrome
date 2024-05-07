@@ -6,7 +6,7 @@
 
 typedef struct		s_data
 {
-  t_bunny_zpixelarray	px;
+  t_bunny_pixelarray	*px;
   t_bunny_position	origin;
   t_bunny_window	*win;
   t_text_box		*box;
@@ -33,14 +33,8 @@ t_bunny_response	loop(void			*data2)
   int			i;
 
   data = (t_data *)data2;
-  i = 0;
-  while (i < (500 * 500))
-    {
-      data->px.z[i] = 10000000;
-      i += 1;
-    }
   efdisplay_text_box(data->box, &data->px);
-  bunny_blit(&data->win->buffer, &data->px.px->clipable, &data->origin);
+  bunny_blit(&data->win->buffer, &data->px->clipable, &data->origin);
   bunny_display(data->win);
   return(GO_ON);
 }
@@ -50,7 +44,6 @@ int			main(void)
   t_data		data;
   t_textbox_settings	settings;
 
-  settings.pos.z = 1;
   settings.pos.x = 0;
   settings.pos.y = 0;
   data.origin.x = 0;
@@ -58,8 +51,7 @@ int			main(void)
   settings.size.x = 100;
   settings.size.y = 100;
   data.win = bunny_start(500, 500, false, "Test texbox");
-  data.px.px = bunny_new_pixelarray(500, 500);
-  data.px.z = bunny_malloc(sizeof(double) * (500 * 500));
+  data.px = bunny_new_pixelarray(500, 500);
   settings.functions = efvector_ptr_new(1);
   efvector_ptr_push(settings.functions, print_result);
   settings.font_color = bunny_malloc(sizeof(t_bunny_color));

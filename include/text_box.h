@@ -23,7 +23,7 @@
 
 typedef struct		s_textbox_settings
 {
-  t_zposition		pos;
+  t_bunny_position	pos;
   t_bunny_size		size;
   char			*name;
   char			*font;
@@ -49,7 +49,7 @@ typedef struct		s_area
 
 typedef struct	        s_text_box
 {
-  t_zposition		pos;
+  t_bunny_position	pos;
   t_bunny_size		size;
   char			*name;
   t_string		*text;
@@ -73,7 +73,7 @@ typedef struct	        s_text_box
 t_text_box		*efnew_text_box(t_textbox_settings		*settings);
 void			efdelete_text_box(t_text_box			*text_box);
 void			efdisplay_text_box(t_text_box			*text_box,
-					   t_bunny_zpixelarray		*px);
+					   t_bunny_pixelarray		*px);
 void			efevent_text_box(t_text_box			*text_box,
 					 const t_bunny_event		*event);
 int			mult_arrondi(int				x,
@@ -84,13 +84,13 @@ void			copy_selection(t_text_box			*box);
 void			paste(t_text_box				*box);
 void			cut_selection(t_text_box			*box);
 void			draw_cursor(t_text_box				*text_box,
-				    t_zposition				draw_pos,
-				    t_bunny_zpixelarray			*px);
+				    t_bunny_position			draw_pos,
+				    t_bunny_pixelarray			*px);
 void			draw_bg(t_text_box				*text_box,
-				t_bunny_zpixelarray			*px);
+				t_bunny_pixelarray			*px);
 void			draw_selected_area(t_text_box			*text_box,
-					   t_zposition			pos_start,
-					   t_bunny_zpixelarray		*px);
+					   t_bunny_position		pos_start,
+					   t_bunny_pixelarray		*px);
 int			get_cursor_pos(int				x,
 				       int				y,
 				       t_text_box			*box);

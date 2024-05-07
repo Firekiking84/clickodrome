@@ -14,7 +14,7 @@
 
 typedef struct	        s_button
 {
-  t_zposition		pos;
+  t_bunny_position	pos;
   t_bunny_size		size;
   char			*text;
   char			*name;
@@ -30,7 +30,7 @@ typedef struct	        s_button
 
 typedef struct		s_button_settings
 {
-  t_zposition		pos;
+  t_bunny_position	pos;
   t_bunny_size		size;
   char			*name;
   char			*text;
@@ -47,7 +47,7 @@ t_button		*efnew_button(t_button_settings *set);
 void			efdelete_button(t_button		*button);
 t_button		*efnew_button(t_button_settings		*set);
 void			efdisplay_button(t_button		*button,
-					 t_bunny_zpixelarray	*px);
+					 t_bunny_pixelarray	*px);
 void			efevents_button(t_button	    	*button,
 					t_bunny_event const	*event);
 void			efedit_button(t_button			*button,

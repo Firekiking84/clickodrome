@@ -21,7 +21,7 @@ static t_text_box		*get_textbox_by_name(t_vector_ptr		*textboxs,
 }
 
 void			efedit_textbox_div(t_div				*div,
-					  t_textbox_settings const	*edit)
+					   t_textbox_settings const		*edit)
 {
   t_text_box		*target;
 

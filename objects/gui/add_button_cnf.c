@@ -16,11 +16,11 @@
 
 static int		init_button_settings(t_bunny_configuration	*cnf,
 					     t_button_settings		*settings,
-					     t_gui *gui)
+					     t_gui			*gui)
 {
   const char		*tmp;
 
-  settings->pos = efget_posz_cnf(cnf);
+  settings->pos = efget_pos_cnf(cnf);
   settings->size = efget_size_cnf(cnf);
   bunny_configuration_getf(cnf, &tmp, "components.name");
   if ((settings->name = strdup(tmp)) == NULL)
