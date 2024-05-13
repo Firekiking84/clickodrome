@@ -22,7 +22,7 @@ int			main(int		argc,
   size.y = 80;
   fc.full = BLACK;
   bg.full = GREEN;
-  la = efnew_label(&zp, size, "UTILITÉ DE KERYAN", "sert a rien\nsert a rien\nnul a overwatch", &fc, &bg);
+  la = efnew_label(&zp, size, "UTILITÉ DE KENAN", "sert a rien\nsert a rien\nnul a overwatch", &fc, &bg);
   prog = malloc(sizeof(prog));
   prog->window = bunny_start(1920, 1080, false, "clickodrome");
   prog->font = bunny_load_pixelarray("../res/font.png");
