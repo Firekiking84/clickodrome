@@ -4,12 +4,24 @@
 
 #include        <lapin.h>
 
+typedef struct	s_setting_base10
+{
+  int		chiffre;
+  int		i;
+  int		fin;
+  int		p10;
+  int		nbr2;
+}		t_setting;
+
 typedef struct	s_string
 {
   char		*str;
   int		size_alloc;
   int		str_len;
 }		t_string;
+
+int		convert_integer(int			nbr,
+				char			*decimal);
 
 t_string	*efstring_new();
 t_string	*string_new_string(const t_string	*other);
@@ -39,5 +51,6 @@ int		string_insert(t_string			*string,
 			      char			c);
 int		efstring_resize(t_string		*string,
 				int			new_size);
+char		*efstrdup(const char			*str);
 
 #endif //	__EF_STRING_H__

@@ -12,8 +12,6 @@
 
 #include		"text_box.h"
 
-#include		<stdio.h>
-
 void			efevent_text_box(t_text_box			*text_box,
 					 const t_bunny_event		*event)
 {

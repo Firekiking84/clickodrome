@@ -1,10 +1,13 @@
 #include		"text_box.h"
+#include		"gui.h"
 
 static bool		manage_exec(t_text_box				*text_box,
 				    const t_bunny_event			*event)
 {
   size_t		i;
-  void			(*func_ptr)(const char *);
+  void			(*func_ptr)(t_gui	*,
+				    void	*,
+				    const char	*);
 
   if (event->key.sym == BKS_RETURN)
     {
@@ -12,7 +15,7 @@ static bool		manage_exec(t_text_box				*text_box,
       while (i < text_box->functions->data_count)
 	{
  	  func_ptr = efvector_ptr_get(text_box->functions, i);
-	  func_ptr(string_get_content(text_box->text));
+	  func_ptr(text_box->gui, text_box->lib->data, string_get_content(text_box->text));
 	  i += 1;
 	}
       string_clear(text_box->text);

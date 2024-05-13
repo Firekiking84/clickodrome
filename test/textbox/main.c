@@ -60,7 +60,7 @@ int			main(void)
   if (!settings.bg)
     return(1);
   settings.bg->full = BLACK;
-  settings.name = strdup("test");
+  settings.name = efstrdup("test");
   data.box = efnew_text_box(&settings);
   if (!data.box)
     return(1);
