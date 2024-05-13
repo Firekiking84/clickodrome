@@ -54,5 +54,5 @@ void multiply		(t_gui gui ,void *data);
 void modulo		(t_gui gui ,void *data);
 void result		(t_gui gui ,void *data);
 void operation		(t_gui gui ,void *data);
-void delete		(t_gui gui ,void *data);
+void del		(t_gui gui ,void *data);
 void clear 		(t_gui gui ,void *data);

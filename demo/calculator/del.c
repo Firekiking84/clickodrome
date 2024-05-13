@@ -12,7 +12,7 @@
 
 #include "calculator.h"
 
-void delete (t_gui gui ,void *data)
+void del (t_gui gui ,void *data)
 {
   int temp;
   string_pop_back(data->string);
