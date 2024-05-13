@@ -22,7 +22,7 @@ int			efadd_div_cnf(t_bunny_configuration	*cnf,
 
   while (div != bunny_configuration_end(cnf))
     {
-      tdiv = efget_div_cnf(div);
+      tdiv = efget_div_cnf(cnf, gui);
       efvector_ptr_push(gui->divs, tdiv);
       i = 0;
       while (bunny_configuration_getf(div, &components, "components[%d]", i))

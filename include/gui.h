@@ -2,9 +2,11 @@
 
 #define			__GUI_H__
 
+#include		"lib.h"
 #include                "vector_ptr.h"
 #include		"div.h"
-#include                "dlfcn.h"
+
+#include                <dlfcn.h>
 
 typedef	enum		e_type
   {
@@ -14,7 +16,6 @@ typedef	enum		e_type
     PICTURE,
     TIMER
   }			t_type;
-
 
 typedef struct		s_component
 {
@@ -57,13 +58,13 @@ int			efadd_timer_cnf(t_bunny_configuration		*cnf,
 int			efadd_div_cnf(t_bunny_configuration	        *cnf,
 				     t_bunny_configuration              *div,
 				     t_gui				*gui);
-t_bunny_position	efget_posz_cnf(t_bunny_configuration		*cnf);
 t_bunny_color		*efget_color_cnf(t_bunny_configuration		*cnf,
 					char				*name);
 t_bunny_position	efget_pos_cnf(t_bunny_configuration		*cnf);
 t_bunny_size		efget_size_cnf(t_bunny_configuration		*cnf,
 				       char const			*elem);
-t_div			*efget_div_cnf(t_bunny_configuration		*cnf);
+t_div			*efget_div_cnf(t_bunny_configuration		*cnf,
+				       t_gui				*gui);
 t_type			efcomp_type(const char*				str);
 t_vector_ptr		*efget_functions(t_bunny_configuration		*cnf,
 					 t_gui				*gui);

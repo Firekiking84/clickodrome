@@ -20,10 +20,10 @@ static int		init_picture_settings(t_bunny_configuration	*cnf,
   settings->pos = efget_pos_cnf(cnf);
   settings->size = efget_size_cnf(cnf, "components.size");
   bunny_configuration_getf(cnf, &tmp, "components.name");
-  if ((settings->name = strdup(tmp)) == NULL)
+  if ((settings->name = efstrdup(tmp)) == NULL)
     return(-1);
   bunny_configuration_getf(cnf, &tmp, "components.filename");
-  if ((settings->filename = strdup(tmp)) == NULL)
+  if ((settings->filename = efstrdup(tmp)) == NULL)
     {
       bunny_free((char *)settings->name);
       return(-1);

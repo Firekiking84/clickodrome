@@ -17,12 +17,16 @@
 #include		"efstring.h"
 #include		"vector_ptr.h"
 #include		"draw.h"
+#include		"lib.h"
 
 #include		<stddef.h>
 #include		<lapin.h>
 
+struct s_gui;
+
 typedef struct		s_textbox_settings
 {
+  struct s_gui		*gui;
   t_bunny_position	pos;
   t_bunny_size		size;
   char			*name;
@@ -30,6 +34,7 @@ typedef struct		s_textbox_settings
   t_bunny_size		font_size;
   t_bunny_color		*font_color;
   t_bunny_color		*bg;
+  t_lib			*lib;
   t_vector_ptr		*functions;
 }			t_textbox_settings;
 
@@ -49,6 +54,7 @@ typedef struct		s_area
 
 typedef struct	        s_text_box
 {
+  struct s_gui		*gui;
   t_bunny_position	pos;
   t_bunny_size		size;
   char			*name;
@@ -66,6 +72,7 @@ typedef struct	        s_text_box
   t_bunny_pixelarray	*font;
   t_bunny_color		*font_color;
   t_bunny_color		*bg;
+  t_lib			*lib;
   t_vector_ptr		*functions;
   double		time_cursor_blink;
 }			t_text_box;

@@ -21,11 +21,11 @@ static int		init_textbox_settings(t_bunny_configuration	*cnf,
   settings->pos = efget_pos_cnf(cnf);
   settings->size = efget_size_cnf(cnf, "components.size");
   bunny_configuration_getf(cnf, &tmp, "components.name");
-  settings->name = strdup(tmp);
+  settings->name = efstrdup(tmp);
   if (!settings->name)
     return(-1);
   bunny_configuration_getf(cnf, &tmp, "components.font");
-  settings->font = strdup(tmp);
+  settings->font = efstrdup(tmp);
   if (!settings->font)
     {
       bunny_free(settings->name);

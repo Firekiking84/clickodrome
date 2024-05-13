@@ -18,7 +18,7 @@
 static int		allocation_assign(t_text_box		*box,
 					  t_textbox_settings	*settings)
 {
-  box->font = bunny_load_pixelarray("./font.png");
+  box->font = bunny_load_pixelarray(settings->font);
   if (!box->font)
     return(-1);
   if (!settings->bg)
@@ -42,12 +42,14 @@ static int		assign_settings(t_text_box		*box,
 {
   if (allocation_assign(box, settings) == -1)
     return(-1);
+  box->gui = settings->gui;
   box->pos = settings->pos;
   box->size = settings->size;
   box->name = settings->name;
   box->font_color = settings->font_color;
-  box->size_font.x = 10;
-  box->size_font.y = 14;
+  box->size_font.x = settings->font_size.x;
+  box->size_font.y = settings->font_size.y;
+  box->lib = settings->lib;
   return(0);
 }
 

@@ -1,4 +1,4 @@
-#include		"timer.h"
+#include		"gui.h"
 
 void            efrefresh_timer(t_timer                         *timer)
 {
@@ -11,7 +11,7 @@ void            efrefresh_timer(t_timer                         *timer)
     {
       while (i < timer->functions->data_count)
 	{
-	  ((void (*)(void))efvector_ptr_get(timer->functions, 0))();
+	  ((void (*)(t_gui *, void *))efvector_ptr_get(timer->functions, 0))(timer->gui, timer->lib->data);
 	  i++;
 	}
       timer->last_time = time;

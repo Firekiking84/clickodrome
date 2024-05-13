@@ -5,6 +5,7 @@ t_timer			*efadd_timer_div(t_div				*div,
 {
   t_timer		*timer;
 
+  set->lib = div->lib;
   timer = efnew_timer(set);
   if (!timer)
     return(NULL);

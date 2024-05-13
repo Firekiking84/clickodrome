@@ -5,6 +5,7 @@ t_button	*efadd_button_div(t_div				*div,
 {
   t_button	 *button;
 
+  settings->lib = div->lib;
   if (!efcheck_pos_new_component(div, &settings->pos, &settings->size))
     return(NULL);
   button = efnew_button(settings);

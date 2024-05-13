@@ -6,19 +6,26 @@
 #include		<lapin.h>
 
 #include		"vector_ptr.h"
+#include		"lib.h"
+
+struct s_gui;
 
 typedef struct		s_timer_settings
 {
+  struct s_gui		*gui;
   char			*name;
   ssize_t		delay;
+  t_lib			*lib;
   t_vector_ptr		*functions;
 }			t_timer_settings;
 
 typedef struct	        s_timer
 {
+  struct s_gui		*gui;
   size_t		last_time;
   size_t		delay;
   char			*name;
+  t_lib			*lib;
   t_vector_ptr		*functions;
 }			t_timer;
 

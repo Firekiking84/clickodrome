@@ -9,6 +9,7 @@
 #include        "button.h"
 #include        "label.h"
 #include        "timer.h"
+#include	"lib.h"
 
 #include	<lapin.h>
 
@@ -18,6 +19,7 @@ typedef struct			s_div
   t_bunny_position		pos;  // pos top left
   t_bunny_size			size;
   t_bunny_position		end_pos;
+  t_lib				*lib;
   bool				in_div;
   t_vector_ptr			*labels;
   t_vector_ptr			*buttons;
@@ -28,7 +30,8 @@ typedef struct			s_div
 
 t_div				*efnew_div(const char				*name,
 					   t_bunny_position			pos,
-					   t_bunny_size				size);
+					   t_bunny_size				size,
+					   t_lib				*lib);
 void				efdelete_div(t_div				*div);
 void				efrefresh_div(t_div				*div);
 void				efdisplay_div(t_div				*div,
@@ -43,8 +46,8 @@ t_picture			*efadd_picture_div(t_div			*div,
 						  t_picture_settings		*set);
 t_timer				*efadd_timer_div(t_div				*div,
 						t_timer_settings		*set);
-void			        efevents_div(t_div				*div,
-					     const t_bunny_event		*event);
+void			        efevent_div(t_div				*div,
+					    const t_bunny_event			*event);
 bool				efcheck_pos_new_component(t_div			*div,
 							  t_bunny_position	*pos,
 							  t_bunny_size		*size);

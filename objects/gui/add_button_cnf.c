@@ -23,16 +23,16 @@ static int		init_button_settings(t_bunny_configuration	*cnf,
   settings->pos = efget_pos_cnf(cnf);
   settings->size = efget_size_cnf(cnf, "components.size");
   bunny_configuration_getf(cnf, &tmp, "components.name");
-  if ((settings->name = strdup(tmp)) == NULL)
+  if ((settings->name = efstrdup(tmp)) == NULL)
     return(-1);
   bunny_configuration_getf(cnf, &tmp, "components.text");
-  if ((settings->text = strdup(tmp)) == NULL)
+  if ((settings->text = efstrdup(tmp)) == NULL)
     {
       bunny_free(settings->name);
       return(-1);
     }
   bunny_configuration_getf(cnf, &tmp, "components.font");
-  settings->font = strdup(tmp);
+  settings->font = efstrdup(tmp);
   if (!settings->font)
     {
       bunny_free(settings->name);
@@ -76,7 +76,6 @@ int			efadd_button_cnf(t_bunny_configuration		*cnf,
     }
   comp->type = BUTTON;
   efvector_ptr_push(gui->components, comp);
-
   return(0);
 }
 

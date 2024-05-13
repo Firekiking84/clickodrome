@@ -5,8 +5,9 @@ t_button		*efnew_button(t_button_settings *set)
 {
   t_button		*button;
 
-  if ((button = bunny_malloc (sizeof(button))) == NULL)
+  if ((button = bunny_malloc(sizeof(button))) == NULL)
     return(NULL);
+  button->gui = set->gui;
   button->pos = set->pos;
   button->size = set->size;
   button->text = set->text;
@@ -20,6 +21,7 @@ t_button		*efnew_button(t_button_settings *set)
   button->font_size = set->font_size;
   button->font_color = set->font_color;
   button->bg = set->bg;
+  button->lib = set->lib;
   button->functions = set->functions;
   return(button);
 }
