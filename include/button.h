@@ -17,11 +17,14 @@ typedef struct	        s_button
 {
   struct s_gui		*gui;
   t_bunny_position	pos;
+  t_bunny_position	pos_end;
   t_bunny_size		size;
   char			*text;
   char			*name;
+  bool			is_hover;
   bool			in_button;
   bool			focus;
+  t_bunny_color		*click_color;
   t_bunny_color		*hover_color;
   t_bunny_color		*font_color;
   t_bunny_pixelarray	*font;
@@ -41,6 +44,7 @@ typedef struct		s_button_settings
   char			*font;
   t_bunny_size		font_size;
   t_bunny_color		*font_color;
+  t_bunny_color		*click_color;
   t_bunny_color		*hover_color;
   t_bunny_color		*bg;
   t_lib			*lib;

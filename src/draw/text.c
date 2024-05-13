@@ -14,6 +14,7 @@ void                eftext(t_text_settings *set)
   i = 0;
   while (set->txt[i] != '\0')
     {
+      sett.c = set->txt[i];
       if (set->txt[i] == '\n')
 	{
 	  sett.pos.x = set->pos.x;
