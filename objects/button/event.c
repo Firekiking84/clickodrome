@@ -9,11 +9,13 @@ static void	efcheck_pos(t_button				*button,
        event->y < button->pos.y + button->size.y)
      button->in_button = true;
 }
-void		efevents_button(t_button			*button,
-				t_bunny_event const		*event)
+
+void		efevent_button(t_button			*button,
+			       t_bunny_event const		*event)
 {
   size_t	count;
-  void*		(*func_ptr)(void);
+  void		(*func_ptr)(t_gui	*,
+			    void	*);
 
   count = 0;
   if (button->focus == true && event->key.sym == BKS_RETURN )
@@ -21,7 +23,7 @@ void		efevents_button(t_button			*button,
       while (count < button->functions->data_count)
 	{
 	  func_ptr = efvector_ptr_get(button->functions, count);
-	  func_ptr();
+	  func_ptr(button->gui, button->lib->data);
 	  count++;
 	}
     }
@@ -36,7 +38,7 @@ void		efevents_button(t_button			*button,
 	while (count < button->functions->data_count)
 	  {
 	    func_ptr = efvector_ptr_get(button->functions, count);
-	    func_ptr();
+	    func_ptr(button->gui, button->lib->data);
 	    count++;
 	  }
     }

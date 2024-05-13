@@ -21,6 +21,7 @@ static int		init_timer_settings(t_bunny_configuration	*cnf,
   const char		*tmp;
   int			delay;
 
+  settings->gui = gui;
   bunny_configuration_getf(cnf, &tmp, "components.name");
   settings->name = strdup(tmp);
   if (!settings->name)

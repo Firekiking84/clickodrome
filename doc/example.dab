@@ -1,6 +1,10 @@
+screen = 500, 500 ' taille de la fenêtre
 [div1
   pos = 0, 0, 0 ' x, y, z
   size = 100, 100 ' width, height
+  lib = "send.so"
+  data = "data_struct"
+  init_func = "data_struct_init"
   {components
     [
       type = "button"
@@ -13,12 +17,14 @@
       font_color = 255, 255, 255 ' red, blue, green
       bg = 0, 0, 0 ' can not exist
       hover_color = 255, 0, 0 ' can not exist
-      functions = "send.so", "nomdefonction"
+      functions = "nomdefonction"
     ]
   }
 ]
-,
 [div2
+  lib = "lol.so"
+  data = "data_struct"
+  init_func = "data_struct_init"
   pos = 100, 0, 0
   size = 100, 100
   {components
@@ -43,7 +49,7 @@
       font_size = 10,10
       font_color = 255, 255, 255
       bg = 0, 0, 0
-      functions = "comment.so","nomdefonction"
+      functions = "nomdefonction"
     ]
     ,
     [
@@ -58,7 +64,7 @@
       type = "timer"
       name = "timer1"
       delay = 10 ' unit : ms
-      function = "refresh.so","nomdefonction"
+      function = "nomdefonction"
     ]
   }
 ]

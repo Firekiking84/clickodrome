@@ -11,7 +11,7 @@ void			efevent_gui(t_bunny_event const		*event,
   count = 0;
   while (count < dataptr->gui->divs->data_count)
     {
-      efevents_div(efvector_ptr_get(dataptr->gui->divs, count) ,event);
+      efevent_div(efvector_ptr_get(dataptr->gui->divs, count) ,event);
       count++;
     }
 }

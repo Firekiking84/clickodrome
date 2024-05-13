@@ -38,7 +38,7 @@ fclean: clean
 re: fclean all
 
 report: fclean all
-			../../$(NAME)
+			./$(NAME)
 			gcov $(SRC)
 			rm -f *.gcov
 
