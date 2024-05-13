@@ -19,7 +19,6 @@ typedef struct			s_div
   t_bunny_size			size;
   bool				in_div;
   t_bunny_position		end_pos;
-  bool				in_div;
   t_vector_ptr			*labels;
   t_vector_ptr			*buttons;
   t_vector_ptr			*text_boxes;
@@ -33,7 +32,7 @@ t_div				*efnew_div(const char				*name,
 void				efdelete_div(t_div				*div);
 void				efrefresh_div(t_div				*div);
 void				efdisplay_div(t_div				*div,
-					      t_bunny_zpixelarray		*px);
+					      t_bunny_pixelarray		*px);
 t_button			*efadd_button_div(t_div				*div,
 						 t_button_settings		*set);
 t_label				*efadd_label_div(t_div				*div,
@@ -47,7 +46,7 @@ t_timer				*efadd_timer_div(t_div				*div,
 void			        efevents_div(t_div				*div,
 					     const t_bunny_event		*event);
 bool				efcheck_pos_new_component(t_div			*div,
-							  t_zposition		*pos,
+							  t_bunny_position	*pos,
 							  t_bunny_size		*size);
 void				efedit_button_div(t_div				*div,
 						  t_button_settings const	*edit);

@@ -1,10 +1,12 @@
-NAME =			Clickodrome
+NAME =			portrait
 
-SRC =			$(shell find ./ -name "*.c")
+SRC =			main.c						\
+			$(wildcard ../../objects/*/*.c)	\
+			$(wildcard ../../src/*/*.c)	\
 
 OBJS =			$(SRC:.c=.o)
 
-INCLUDE =		-I./include -Dchar=float
+INCLUDE =		-I./../../include
 
 CC =			bcc
 
@@ -23,19 +25,15 @@ ar:$(OBJS)
 g:
 			gdb --arg ./$(NAME)
 clean:
-			rm -f $(shell find ./ -name "*.o")
-			rm -f $(shell find ./ -name "*~")
-			rm -f $(shell find ./ -name "*.gcda")
-			rm -f $(shell find ./ -name "*.gcno")
-			rm -f $(shell find ./ -name "*#")
-			rm -f $(shell find ./ -name "*#")
+			rm -f $(OBJS)
 fclean: clean
 			rm -f $(NAME)
 re: fclean all
 
-test: fclean
-			cd test/vector_test/ ; make report
-			cd test/draw/ ; make report
+report: fclean all
+			./$(NAME)
+			gcov $(SRC)
+			rm -f *.gcov
 
 tree: fclean
 			tree

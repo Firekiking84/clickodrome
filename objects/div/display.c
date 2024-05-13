@@ -1,6 +1,6 @@
 #include "div.h"
 void			efdisplay_div(t_div			*div,
-				      t_bunny_zpixelarray	*px)
+				      t_bunny_pixelarray	*px)
 {
   size_t count;
 

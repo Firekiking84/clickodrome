@@ -27,9 +27,5 @@ void			efedit_button_div(t_div				*div,
 
   target = get_button_by_name(div->buttons, edit->name);
   if (target)
-<<<<<<< HEAD
    efedit_button(target, edit);
-=======
-    efedit_button(target, edit);
->>>>>>> 9d6121d476d3431c0bd7822e52aa764c30793d16
 }

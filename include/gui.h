@@ -43,7 +43,7 @@ void			efevent_gui(t_bunny_event const			*event,
 				    void				*data);
 void			efrefresh_gui(t_gui				*gui);
 void			efdisplay_gui(t_gui				*ck,
-				      t_bunny_zpixelarray		*px);
+				      t_bunny_pixelarray		*px);
 int			efadd_button_cnf(t_bunny_configuration		*cnf,
 					 t_gui				*gui);
 int			efadd_label_cnf(t_bunny_configuration		*cnf,
