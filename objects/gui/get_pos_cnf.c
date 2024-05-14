@@ -16,13 +16,13 @@ t_bunny_position	efget_pos_cnf(t_bunny_configuration *cnf)
 {
   t_bunny_position	pos;
 
-  bunny_configuration_getf(cnf,&pos.x,"components.pos[0]");
-  bunny_configuration_getf(cnf,&pos.y,"components.pos[1]");
-  if (cnf == NULL)
+  if (!cnf ||
+      !bunny_configuration_getf(cnf, &pos.x, "pos[0]") ||
+      !bunny_configuration_getf(cnf, &pos.y, "pos[1]"))
     {
-      pos.x = 400;
-      pos.y = 400;
+      pos.x = -1;
+      pos.y = -1;
       return (pos);
-    }
+    };
   return(pos);
 }

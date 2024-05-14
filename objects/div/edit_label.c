@@ -21,7 +21,7 @@ static t_label		*get_label_by_name(t_vector_ptr			*labels,
 }
 
 void			efedit_label_div(t_div				*div,
-					  t_label_settings const	*edit)
+					 t_label_settings const		*edit)
 {
   t_label		*target;
 

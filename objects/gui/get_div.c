@@ -52,9 +52,7 @@ static t_lib		*get_lib_cnf(t_bunny_configuration	*cnf,
   t_lib			*lib;
   void			(*init_func)(void *);
 
-  if (bunny_configuration_casesf(cnf, "%s.functions", divname) == 0)
-    return(NULL);
-  if (!bunny_configuration_getf(cnf, &tmp, "%s.lib", divname))
+  if (!bunny_configuration_getf(cnf, &tmp, "lib"))
     return(short_return("lib div", NULL, 0));
   lib = lib_already_load(tmp, gui);
   if (lib)
@@ -67,12 +65,12 @@ static t_lib		*get_lib_cnf(t_bunny_configuration	*cnf,
     return(short_return("malloc lib name", lib, 1));
   strcpy(lib->name, tmp);
   lib->link = dlopen(lib->name, RTLD_LAZY);
-  if (!bunny_configuration_getf(cnf, &tmp, "%s.data", divname))
+  if (!bunny_configuration_getf(cnf, &tmp, "data"))
     return(short_return("cannot get data !", lib, 2));
   lib->data = dlsym(lib->link, divname);
   if (!lib->data)
     return(short_return("cannot link data_struct", lib, 2));
-  if (!bunny_configuration_getf(cnf, &tmp, "%s.init_function", divname))
+  if (!bunny_configuration_getf(cnf, &tmp, "init_function"))
     return(short_return("cannot get init_struct", lib, 2));
   init_func = dlsym(lib->link, tmp);
   if (!init_func)
@@ -90,9 +88,11 @@ t_div			*efget_div_cnf(t_bunny_configuration	*cnf,
   t_bunny_position	pos;
   t_lib			*lib;
 
-  bunny_configuration_getf(cnf, &divname, "[]");
+  divname = bunny_configuration_get_name(cnf);
   pos = efget_pos_cnf(cnf);
-  size = efget_size_cnf(cnf, "components.size");
+  if (pos.x == -1)
+    return(NULL);
+  size = efget_size_cnf(cnf);
   lib = get_lib_cnf(cnf, gui, divname);
   tdiv = efnew_div(divname, pos, size, lib);
   return(tdiv);
