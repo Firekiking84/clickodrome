@@ -13,9 +13,8 @@
 
 typedef struct s_data
 {
-  t_picture_settings		edit;
   t_bunny_window		*win;
-  t_picture			*picture;
+  t_bunny_pixelarray		*px;
   t_gui				*gui;
 }t_data;
 
@@ -24,24 +23,23 @@ t_bunny_response           display(void                    *_data)
   t_data		   *data;
 
   data = (t_data *)_data;
-  efdisplay_gui(data->gui, data->picture->img);
-  bunny_blit(&data->win->buffer,&data->picture->img->clipable, NULL);
-  bunny_display(data->win );
+  efdisplay_gui(data->gui, data->px);
+  bunny_blit(&data->win->buffer, &data->px->clipable, NULL);
+  bunny_display(data->win);
   return(GO_ON);
 }
+
 int			main()
 
 {
   t_data		data;
 
-  data.picture = efnew_picture(&data.edit);
-  if (data.picture == NULL)
-    return(1);
-  data.gui = efnew_gui(data.edit.filename);
-  data.win = bunny_start(1920, 1080, false, "clickodrome");
-  data.picture->img = bunny_new_pixelarray(data.edit.size.x, data.edit.size.y);
-  bunny_set_loop_main_function(display);
-  bunny_loop(data.win, 40, &data.picture);
+  bunny_set_error_descriptor(2);
+  data.gui = efnew_gui("./portrait.dab");
+  data.win = bunny_start(data.gui->screen_size.x, data.gui->screen_size.y, false, "Démo Portrait");
+  data.px = bunny_new_pixelarray(data.gui->screen_size.x, data.gui->screen_size.y);
+  bunny_set_display_function(display);
+  bunny_loop(data.win, 30, &data);
   bunny_stop(data.win);
   return(0);
 }

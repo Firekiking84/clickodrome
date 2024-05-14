@@ -4,8 +4,8 @@ void			efdisplay_div(t_div			*div,
 {
   size_t count;
 
-    count = 0;
-    while (count < div->labels->data_count)
+  count = 0;
+  while (count < div->labels->data_count)
     {
       efdisplay_label(efvector_ptr_get(div->labels, count), px);
       count++;

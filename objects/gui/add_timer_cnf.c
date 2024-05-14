@@ -22,11 +22,11 @@ static int		init_timer_settings(t_bunny_configuration	*cnf,
   int			delay;
 
   settings->gui = gui;
-  bunny_configuration_getf(cnf, &tmp, "components.name");
+  bunny_configuration_getf(cnf, &tmp, "name");
   settings->name = strdup(tmp);
   if (!settings->name)
     return(-1);
-  bunny_configuration_getf_int(cnf, &delay, "components.delay");
+  bunny_configuration_getf_int(cnf, &delay, "delay");
   settings->delay = (size_t)delay;
   if (!settings->delay)
     {

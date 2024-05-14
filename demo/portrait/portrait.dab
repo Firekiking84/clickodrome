@@ -1,0 +1,14 @@
+[portrait
+  pos = 0, 0
+  size = 500, 500 ' width, height
+  {components
+    [
+      type = "picture"
+      name = "portrait"
+      pos = 0, 0
+      size = 500, 500
+      filename = "alien.png"
+    ]
+  }
+]
+screen = 500, 500 'screen size

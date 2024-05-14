@@ -1,44 +1,46 @@
-NAME =			sphere_de_lespace_infini
+NAME =			gui_test
 
-SRC =			main.c						\
-			../../src/draw/blit.c				\
-			../../src/draw/set_zpixel.c			\
-			../../src/draw/set_pixel.c			\
-			../../objects/picturebox/new_picture.c		\
-			../../src/draw/letter.c				\
-			../../src/draw/get_value.c			\
-			../../src/draw/get_ratio.c			\
-			../../src/draw/get_npos.c			\
-			../../src/draw/clear_zbuffer.c			\
-			../../objects/picturebox/display_picture.c	\
-			../../src/draw/draw_rectangle.c			\
-			../../objects/picturebox/delete_picture.c	\
+SRC =			main.c				\
+			$(wildcard ../../objects/*/*.c)	\
+			$(wildcard ../../src/*/*.c)	\
+
 
 OBJS =			$(SRC:.c=.o)
 
-INCLUDE =		-I../../include
+INCLUDE =		-I./../../include
 
-CC =			gcc
+CC =			bcc
 
-FLAGS =			-W -Wall -Wextra -g
+FLAGS =			-Wall -Wextra -g
 
-LDFLAGS =		$(c_version) -L./ $(c_version) -llapin -lsfml-graphics  -lsfml-window -lsfml-system -lstdc++ -lm -lavcall -lsfml-audio -ldl -lpthread -lopencv_imgproc -lopencv_highgui -lopencv_objdetect -lopencv_video -lopencv_videoio -lopencv_core -lavcall        -lusb -ludev
+LDFLAGS =		-L./
 
 all:$(NAME)
 
 $(NAME):$(OBJS)
-			$(CC) $(OBJS) $(LDFLAGS) -o $(NAME)
+			$(CC) $(OBJS) -O0 --coverage $(LDFLAGS) -o $(NAME)
 .c.o:
-			$(CC) $(FLAGS) $(INCLUDE) -c $< -o $@
+			$(CC) $(FLAGS) -O0 --coverage $(INCLUDE) -c $< -o $@
 ar:$(OBJS)
 			ar rc $(NAME).a $(OBJS)
 g:
 			gdb --arg ./$(NAME)
 clean:
-			rm -f *~ *.o *.c~ include/*.h~
+			rm -f $(shell find ../../ -name "*.o")
+			rm -f $(shell find ../../ -name "*~")
+			rm -f $(shell find ../../ -name "*.gcda")
+			rm -f $(shell find ../../ -name "*.gcno")
+			rm -f $(shell find ../../ -name "*#")
+			rm -f $(shell find ../../ -name "#*")
+
 fclean: clean
 			rm -f $(NAME)
 re: fclean all
+
+report: fclean all
+			./$(NAME)
+			gcov $(SRC)
+			rm -f *.gcov
 
 tree: fclean
 			tree
