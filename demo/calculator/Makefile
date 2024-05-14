@@ -1,10 +1,12 @@
 NAME =			Clickodrome
 
-SRC =			$(shell find ./ -name "*.c")
+SRC =			*.c				\
+			$(wildcard ../../objects/*/*.c)	\
+			$(wildcard ../../src/*/*.c)	\
 
 OBJS =			$(SRC:.c=.o)
 
-INCLUDE =		-I./include -Dchar=float
+INCLUDE =		-I./../../include
 
 CC =			bcc
 

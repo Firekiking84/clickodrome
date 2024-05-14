@@ -12,7 +12,9 @@
 
 #include "calculator.h"
 
-void modulo		(t_gui gui ,void *data)
+void modulo		(t_gui *gui ,void *data)
 {
-  data->operator = MODULO;
+  t_calculator *calc;
+  calc = data;
+  calc->operator = MODULO;
 }

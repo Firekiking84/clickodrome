@@ -12,7 +12,9 @@
 
 #include "calculator.h"
 
-void divide		(t_gui gui ,void *data)
+void divide		(t_gui *gui ,void *data)
 {
-  data->operator = divide;
+  t_calculator *calc;
+  calc = data;
+  calc->operator = DIVIDE;
 }

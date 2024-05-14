@@ -12,21 +12,22 @@
 
 #include "calculator.h"
 
-void push_2	(t_gui gui ,void *data)
+void push_2	(t_gui *gui ,void *data)
 {
-  data->buffer = 2;
-  if (data->operator == NONE)
+  t_calculator *calc;
+  calc = data;
+  calc->buffer = 2;
+  if (calc->operator == NONE)
     {
-      if (data->res != 0)
+      if (calc->res != 0)
 	{
-	  data->res = data->res * 10;
-	  res += buffer;
+	  calc->res = calc->res * 10;
+	  calc->res += calc->buffer;
 	}
-      string_push_back(data->string,'2');
+      string_push_back(calc->string,'2');
     }
-  if (data->operator != NONE)
+  if (calc->operator != NONE)
     {
-      operation(gui,data,buffer);
+      operation(gui,data);
     }
-  return(void);
 }

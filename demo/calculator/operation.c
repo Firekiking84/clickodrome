@@ -12,29 +12,30 @@
 
 #include "calculator.h"
 
-void operation(t_gui gui ,void *data)
+void operation(t_gui *gui ,void *data)
 {
-  if (data->operator == ADD)
+  t_calculator *calc;
+  calc = data;
+  if (calc->operator == ADD)
     {
-      data->res = data->res + buffer;
+      calc->res = calc->res + calc->buffer;
     }
-  if (data->operator == SUBTRACT)
+  if (calc->operator == SUBSTRACT)
     {
-      data->res = data->res - buffer;
+      calc->res = calc->res - calc->buffer;
     }
-  if (data->operator == MULTIPLY)
+  if (calc->operator == MULTIPLY)
     {
-      data->res = data->res * buffer;
+      calc->res = calc->res * calc->buffer;
     }
-  if (data->operator == DIVIDE)
+  if (calc->operator == DIVIDE)
     {
-      data->res = data->res / buffer;
+      calc->res = calc->res / calc->buffer;
     }
-  if (data->operator == MODULO)
+  if (calc->operator == MODULO)
     {
-      data->res = data->res % buffer;
+      calc->res = fmod(calc->res,calc->buffer);
     }
-  update_string(t_gui gui ,void *data);
-  data->operator = NONE;
-  return(void);
+  update_string(gui , data);
+  calc->operator = NONE;
 }

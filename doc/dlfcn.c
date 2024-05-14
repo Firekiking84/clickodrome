@@ -13,7 +13,7 @@ int		main()
     return(-1);
 
   //create the link with the first argument which needs to be the path to the library use RTLD_LAZY Flag by default on the 2nd argument
-  void *me = dlopen("libtest.a", RTLD_LAZY);
+  void *me = dlopen("libtest.so", RTLD_LAZY);
   int (*func_ptr) (int a);
 
   //linking the empty function pointer to func_name from "libtest" if func_name is not within the library it will return NULL
@@ -22,7 +22,7 @@ int		main()
   // if the pointer is empty we return the cause of error with dlerror else return the name of the function called if dlerror returns NULL the error does not come from the lib dlfcn
   puts((func_ptr == NULL) ? dlerror() : func_name);
 
-  resultat = func_ptr(3, 4);
+  resultat = func_ptr(3);
 
   free(func_name);
   return(resultat);
