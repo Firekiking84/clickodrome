@@ -17,19 +17,25 @@
 #include		"efstring.h"
 #include		"vector_ptr.h"
 #include		"draw.h"
+#include		"lib.h"
 
 #include		<stddef.h>
 #include		<lapin.h>
 
+struct s_gui;
+
 typedef struct		s_textbox_settings
 {
+  struct s_gui		*gui;
   t_bunny_position	pos;
+  int			order;
   t_bunny_size		size;
   char			*name;
   char			*font;
   t_bunny_size		font_size;
   t_bunny_color		*font_color;
   t_bunny_color		*bg;
+  t_lib			*lib;
   t_vector_ptr		*functions;
 }			t_textbox_settings;
 
@@ -49,8 +55,10 @@ typedef struct		s_area
 
 typedef struct	        s_text_box
 {
+  struct s_gui		*gui;
   t_bunny_position	pos;
   t_bunny_size		size;
+  int			order;
   char			*name;
   t_string		*text;
   t_string		*copy;
@@ -66,6 +74,7 @@ typedef struct	        s_text_box
   t_bunny_pixelarray	*font;
   t_bunny_color		*font_color;
   t_bunny_color		*bg;
+  t_lib			*lib;
   t_vector_ptr		*functions;
   double		time_cursor_blink;
 }			t_text_box;
@@ -74,7 +83,7 @@ t_text_box		*efnew_text_box(t_textbox_settings		*settings);
 void			efdelete_text_box(t_text_box			*text_box);
 void			efdisplay_text_box(t_text_box			*text_box,
 					   t_bunny_pixelarray		*px);
-void			efevent_text_box(t_text_box			*text_box,
+int			efevent_text_box(t_text_box			*text_box,
 					 const t_bunny_event		*event);
 int			mult_arrondi(int				x,
 				     int				mult,

@@ -20,12 +20,14 @@ static int		init_textbox_settings(t_bunny_configuration	*cnf,
 
   settings->pos = efget_pos_cnf(cnf);
   settings->size = efget_size_cnf(cnf, "components.size");
+  settings->order = gui->nb_input_components;
+  gui->nb_input_components += 1;
   bunny_configuration_getf(cnf, &tmp, "components.name");
-  settings->name = strdup(tmp);
+  settings->name = efstrdup(tmp);
   if (!settings->name)
     return(-1);
   bunny_configuration_getf(cnf, &tmp, "components.font");
-  settings->font = strdup(tmp);
+  settings->font = efstrdup(tmp);
   if (!settings->font)
     {
       bunny_free(settings->name);
@@ -55,7 +57,7 @@ int 			efadd_text_box_cnf(t_bunny_configuration	*cnf,
   comp = bunny_malloc(sizeof(t_component));
   if (!comp)
     return(-1);
-  comp->component = efadd_text_box_div(efvector_ptr_get(gui->divs, gui->divs->data_count - 1), &settings);
+  comp->textbox = efadd_text_box_div(efvector_ptr_get(gui->divs, gui->divs->data_count - 1), &settings);
   comp->type = TEXTBOX;
   efvector_ptr_push(gui->components, comp);
   return(0);

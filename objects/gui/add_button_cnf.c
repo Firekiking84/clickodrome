@@ -22,17 +22,19 @@ static int		init_button_settings(t_bunny_configuration	*cnf,
 
   settings->pos = efget_pos_cnf(cnf);
   settings->size = efget_size_cnf(cnf, "components.size");
+  settings->order = gui->nb_input_components;
+  gui->nb_input_components += 1;
   bunny_configuration_getf(cnf, &tmp, "components.name");
-  if ((settings->name = strdup(tmp)) == NULL)
+  if ((settings->name = efstrdup(tmp)) == NULL)
     return(-1);
   bunny_configuration_getf(cnf, &tmp, "components.text");
-  if ((settings->text = strdup(tmp)) == NULL)
+  if ((settings->text = efstrdup(tmp)) == NULL)
     {
       bunny_free(settings->name);
       return(-1);
     }
   bunny_configuration_getf(cnf, &tmp, "components.font");
-  settings->font = strdup(tmp);
+  settings->font = efstrdup(tmp);
   if (!settings->font)
     {
       bunny_free(settings->name);
@@ -66,8 +68,8 @@ int			efadd_button_cnf(t_bunny_configuration		*cnf,
       bunny_free(comp);
       return(-1);
     }
-  comp->component = efadd_button_div(efvector_ptr_get(gui->divs, gui->divs->data_count - 1), &settings);
-  if (!comp->component)
+  comp->button = efadd_button_div(efvector_ptr_get(gui->divs, gui->divs->data_count - 1), &settings);
+  if (!comp->button)
     {
       bunny_free(comp);
       bunny_free(settings.name);
@@ -76,7 +78,6 @@ int			efadd_button_cnf(t_bunny_configuration		*cnf,
     }
   comp->type = BUTTON;
   efvector_ptr_push(gui->components, comp);
-
   return(0);
 }
 

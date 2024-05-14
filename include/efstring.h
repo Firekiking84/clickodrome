@@ -39,5 +39,6 @@ int		string_insert(t_string			*string,
 			      char			c);
 int		efstring_resize(t_string		*string,
 				int			new_size);
+char		*efstrdup(const char			*str);
 
 #endif //	__EF_STRING_H__

@@ -2,7 +2,8 @@
 
 t_div			*efnew_div(const char			*name,
 				   t_bunny_position  		pos,
-				   t_bunny_size			size)
+				   t_bunny_size			size,
+				   t_lib			*lib)
 {
   t_div			*div;
 
@@ -20,5 +21,6 @@ t_div			*efnew_div(const char			*name,
   div->text_boxes = efvector_ptr_new(0);
   div->pictures = efvector_ptr_new(0);
   div->timers = efvector_ptr_new(0);
+  div->lib = lib;
   return(div);
 }
