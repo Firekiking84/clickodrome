@@ -18,11 +18,11 @@ static int		init_picture_settings(t_bunny_configuration	*cnf,
   const char		*tmp;
 
   settings->pos = efget_pos_cnf(cnf);
-  settings->size = efget_size_cnf(cnf, "components.size");
-  bunny_configuration_getf(cnf, &tmp, "components.name");
+  settings->size = efget_size_cnf(cnf);
+  bunny_configuration_getf(cnf, &tmp, "name");
   if ((settings->name = efstrdup(tmp)) == NULL)
     return(-1);
-  bunny_configuration_getf(cnf, &tmp, "components.filename");
+  bunny_configuration_getf(cnf, &tmp, "filename");
   if ((settings->filename = efstrdup(tmp)) == NULL)
     {
       bunny_free((char *)settings->name);

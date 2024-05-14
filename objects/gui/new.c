@@ -15,7 +15,6 @@
 t_gui			*efnew_gui(const char	*file)
 {
   t_bunny_configuration	*cnf;
-  t_bunny_configuration	*div;
   t_gui			*gui;
 
   cnf = bunny_open_configuration(file, NULL);
@@ -28,13 +27,23 @@ t_gui			*efnew_gui(const char	*file)
   if (!gui)
     return(NULL);
   gui->nb_input_components = 0;
+  if (!bunny_configuration_getf(cnf, &gui->screen_size.x, "screen[0]"))
+    {
+      puts("Cannot get screen_size !");
+      return(NULL);
+    }
+  if (!bunny_configuration_getf(cnf, &gui->screen_size.y, "screen[1]"))
+    {
+      puts("Cannot get screen_size !");
+      return(NULL);
+    }
   gui->components = efvector_ptr_new((int)bunny_configuration_casesf(cnf, "components"));
-  gui->components = efvector_ptr_new((int)bunny_configuration_childrenf(cnf, "[]"));
-  div = bunny_configuration_first(cnf);
+  gui->divs = efvector_ptr_new((int)bunny_configuration_childrenf(cnf, "[]"));
+  gui->libs = efvector_ptr_new(0);
   gui->divs = efvector_ptr_new(0);
   gui->libs = efvector_ptr_new(0);
   gui->is_end = false;
-  efadd_div_cnf(cnf, div, gui);
+  efadd_div_cnf(cnf, gui);
   return(gui);
 }
 

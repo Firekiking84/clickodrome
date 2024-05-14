@@ -21,7 +21,6 @@ typedef struct			s_div
   t_bunny_position		end_pos;
   t_lib				*lib;
   bool				in_div;
-  t_bunny_position		end_pos;
   t_vector_ptr			*labels;
   t_vector_ptr			*buttons;
   t_vector_ptr			*text_boxes;
