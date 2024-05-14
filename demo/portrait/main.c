@@ -33,7 +33,7 @@ int			main()
 
 {
   t_data		data;
-  
+
   data.picture = efnew_picture(&data.edit);
   if (data.picture == NULL)
     return(1);
