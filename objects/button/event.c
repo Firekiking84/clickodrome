@@ -22,7 +22,7 @@ static void	efcheck_move_pos(t_button				*button,
      button->is_hover = false;
 }
 
-void		efevent_button(t_button					*button,
+int		efevent_button(t_button					*button,
 			       t_bunny_event const			*event)
 {
   size_t	count;
@@ -61,4 +61,7 @@ void		efevent_button(t_button					*button,
 	}
       button->in_button = false;
     }
+  if (button->in_button)
+    return(button->order);
+  return(-2);
 }

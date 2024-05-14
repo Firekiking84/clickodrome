@@ -1,11 +1,13 @@
 #include	"div.h"
 
-void		efevent_div(t_div			*div,
+int		efevent_div(t_div			*div,
 			    const t_bunny_event		*event)
 {
   size_t	count;
+  int		index_focus_elem;
 
-  if ( event->type == BET_MOUSE_MOVED)
+  index_focus_elem = -2;
+  if (event->type == BET_MOUSE_MOVED)
     {
       if (event->mouse_moved.x > div->pos.x &&
 	  event->mouse_moved.x < div->pos.x + div->size.x &&
@@ -22,15 +24,22 @@ void		efevent_div(t_div			*div,
 	  count = 0;
 	  while (count < div->buttons->data_count)
 	  {
-	    efevent_button(efvector_ptr_get(div->buttons, count), event);
+	    if (index_focus_elem == -2)
+	      index_focus_elem = efevent_button(efvector_ptr_get(div->buttons, count), event);
+	    else
+	      efevent_button(efvector_ptr_get(div->buttons, count), event);
 	    count++;
 	  }
 	  count = 0;
 	  while (count < div->text_boxes->data_count)
 	    {
-	      efevent_text_box(efvector_ptr_get(div->text_boxes, count), event);
+	      if (index_focus_elem == -2)
+		index_focus_elem = efevent_text_box(efvector_ptr_get(div->text_boxes, count), event);
+	      else
+		efevent_text_box(efvector_ptr_get(div->text_boxes, count), event);
 	      count++;
 	    }
 	}
     }
+  return(index_focus_elem);
 }

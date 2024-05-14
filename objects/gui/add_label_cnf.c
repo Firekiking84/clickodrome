@@ -50,18 +50,9 @@ int			efadd_label_cnf(t_bunny_configuration		*cnf,
 					t_gui				*gui)
 {
   t_label_settings	settings;
-  t_component		*comp;
 
-  comp = bunny_malloc(sizeof(t_component));
-  if (!comp)
-    return(-1);
   if (init_label_settings(cnf, &settings) == -1)
-    {
-      bunny_free(comp);
-      return(-1);
-    }
-  comp->component = efadd_label_div(efvector_ptr_get(gui->divs, gui->divs->data_count - 1), &settings);
-  comp->type = LABEL;
-  efvector_ptr_push(gui->components, comp);
+    return(-1);
+  efadd_label_div(efvector_ptr_get(gui->divs, gui->divs->data_count - 1), &settings);
   return(0);
 }

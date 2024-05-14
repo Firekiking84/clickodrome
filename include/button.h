@@ -19,6 +19,7 @@ typedef struct	        s_button
   t_bunny_position	pos;
   t_bunny_position	pos_end;
   t_bunny_size		size;
+  int			order;
   char			*text;
   char			*name;
   bool			is_hover;
@@ -39,6 +40,7 @@ typedef struct		s_button_settings
   struct s_gui		*gui;
   t_bunny_position	pos;
   t_bunny_size		size;
+  int			order;
   char			*name;
   char			*text;
   char			*font;
@@ -57,7 +59,7 @@ void			efdelete_button(t_button		*button);
 t_button		*efnew_button(t_button_settings		*set);
 void			efdisplay_button(t_button		*button,
 					 t_bunny_pixelarray	*px);
-void			efevent_button(t_button		    	*button,
+int			efevent_button(t_button		    	*button,
 					t_bunny_event const	*event);
 void			efedit_button(t_button			*button,
 				      t_button_settings const	*edit);
