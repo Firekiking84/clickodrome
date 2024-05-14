@@ -83,7 +83,7 @@ t_text_box		*efnew_text_box(t_textbox_settings	*settings)
     return(NULL);
   if (assign_settings(new_text_box, settings) == -1)
     {
-      free(new_text_box);
+      bunny_free(new_text_box);
       return(NULL);
     }
   init_textbox_values(new_text_box);

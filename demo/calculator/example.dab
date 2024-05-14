@@ -1,6 +1,10 @@
+screen = 500, 500 ' taille de la fenêtre
 [calculator
   pos = 0, 0, 0 ' x, y, z
   size = 200, 500 ' width, height
+  lib = "calculator.so"
+  data = "t_calculator"
+  init_func = "init_calculator"
   {components
     [
       type = "label"
@@ -25,7 +29,7 @@
       font_color = 0, 0, 0' red, blue, green
       bg = 255, 255, 255 ' can not exist
       hover_color = 181, 181, 181 ' can not exist
-      functions = "calculator.so", "clear"
+      functions = "clear"
     ]
     ,
     [
@@ -39,7 +43,7 @@
       font_color = 0, 0, 0' red, blue, green
       bg = 255, 255, 255 ' can not exist
       hover_color = 181, 181, 181 ' can not exist
-      functions = "calculator.so", "del"
+      functions = "del"
     ]
     ,
     [
@@ -53,7 +57,7 @@
       font_color = 0, 0, 0' red, blue, green
       bg = 255, 255, 255 ' can not exist
       hover_color = 181, 181, 181 ' can not exist
-      functions = "calculator.so", "modulo"
+      functions = "modulo"
     ]
     ,
     [
@@ -67,7 +71,7 @@
       font_color = 0, 0, 0' red, blue, green
       bg = 255, 255, 255 ' can not exist
       hover_color = 181, 181, 181 ' can not exist
-      functions = "calculator.so", "divide"
+      functions = "divide"
     ]
     ,
     [
@@ -81,7 +85,7 @@
       font_color = 0, 0, 0' red, blue, green
       bg = 255, 255, 255 ' can not exist
       hover_color = 181, 181, 181 ' can not exist
-      functions = "calculator.so", "push_7"
+      functions = "push_7"
     ]
     ,
     [
@@ -95,7 +99,7 @@
       font_color = 0, 0, 0' red, blue, green
       bg = 255, 255, 255 ' can not exist
       hover_color = 181, 181, 181 ' can not exist
-      functions = "calculator.so", "push_8"
+      functions = "push_8"
     ]
     ,
     [
@@ -109,7 +113,7 @@
       font_color = 0, 0, 0' red, blue, green
       bg = 255, 255, 255 ' can not exist
       hover_color = 181, 181, 181 ' can not exist
-      functions = "calculator.so", "push_9"
+      functions = "push_9"
     ]
     ,
     [
@@ -123,7 +127,7 @@
       font_color = 0, 0, 0' red, blue, green
       bg = 255, 255, 255 ' can not exist
       hover_color = 181, 181, 181 ' can not exist
-      functions = "calculator.so", "multiply"
+      functions = "multiply"
     ]
     ,
     [
@@ -137,7 +141,7 @@
       font_color = 0, 0, 0' red, blue, green
       bg = 255, 255, 255 ' can not exist
       hover_color = 181, 181, 181 ' can not exist
-      functions = "calculator.so", "push_4"
+      functions = "push_4"
     ]
     ,
     [
@@ -151,7 +155,7 @@
       font_color = 0, 0, 0' red, blue, green
       bg = 255, 255, 255 ' can not exist
       hover_color = 181, 181, 181 ' can not exist
-      functions = "calculator.so", "push_5"
+      functions = "push_5"
     ]
     ,
     [
@@ -165,7 +169,7 @@
       font_color = 0, 0, 0' red, blue, green
       bg = 255, 255, 255 ' can not exist
       hover_color = 181, 181, 181 ' can not exist
-      functions = "calculator.so", "push_6"
+      functions = "push_6"
     ]
     ,
     [
@@ -179,7 +183,7 @@
       font_color = 0, 0, 0' red, blue, green
       bg = 255, 255, 255 ' can not exist
       hover_color = 181, 181, 181 ' can not exist
-      functions = "calculator.so", "substract"
+      functions = "substract"
     ]
     ,
     [
@@ -193,7 +197,7 @@
       font_color = 0, 0, 0' red, blue, green
       bg = 255, 255, 255 ' can not exist
       hover_color = 181, 181, 181 ' can not exist
-      functions = "calculator.so", "clear"
+      functions = "clear"
     ]
   }
 ]
