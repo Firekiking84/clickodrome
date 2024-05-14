@@ -12,6 +12,7 @@ t_button		*efnew_button(t_button_settings *set)
   button->pos_end.x = set->pos.x + set->size.x;
   button->pos_end.y = set->pos.y + set->size.y;
   button->size = set->size;
+  button->order = set->order;
   button->text = set->text;
   button->focus = false;
   button->in_button = false;

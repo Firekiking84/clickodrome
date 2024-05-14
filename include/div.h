@@ -46,7 +46,7 @@ t_picture			*efadd_picture_div(t_div			*div,
 						  t_picture_settings		*set);
 t_timer				*efadd_timer_div(t_div				*div,
 						t_timer_settings		*set);
-void			        efevent_div(t_div				*div,
+int			        efevent_div(t_div				*div,
 					    const t_bunny_event			*event);
 bool				efcheck_pos_new_component(t_div			*div,
 							  t_bunny_position	*pos,

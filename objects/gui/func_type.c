@@ -13,13 +13,12 @@
 #include	"gui.h"
 
 void		eftype_func(t_bunny_configuration	*comp,
-			    t_gui			*gui,
-			    int				i)
+			    t_gui			*gui)
 {
   const char	*type;
   int		tenum;
 
-  bunny_configuration_getf(comp, &type, "components[%d].type", i);
+  bunny_configuration_getf(comp, &type, "type");
   tenum = efcomp_type(type);
   if(tenum == BUTTON)
     efadd_button_cnf(comp, gui);

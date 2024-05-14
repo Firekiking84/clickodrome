@@ -2,8 +2,13 @@
 
 #include		<string.h>
 
+
+
+
+
 static t_picture		*get_picture_by_name(t_vector_ptr		*pictures,
 						     const char			*name)
+
 {
   t_picture		*target;
   size_t		i;
@@ -20,7 +25,7 @@ static t_picture		*get_picture_by_name(t_vector_ptr		*pictures,
   return(target);
 }
 
-void			efedit_picture_div(t_div				*div,
+void			efedit_picture_div(t_div			*div,
 					  t_picture_settings const	*edit)
 {
   t_picture		*target;

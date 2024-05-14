@@ -45,6 +45,7 @@ static int		assign_settings(t_text_box		*box,
   box->gui = settings->gui;
   box->pos = settings->pos;
   box->size = settings->size;
+  box->order = settings->order;
   box->name = settings->name;
   box->font_color = settings->font_color;
   box->size_font.x = settings->font_size.x;

@@ -27,5 +27,5 @@ void			efedit_button_div(t_div				*div,
 
   target = get_button_by_name(div->buttons, edit->name);
   if (target)
-    efedit_button(target, edit);
+   efedit_button(target, edit);
 }
