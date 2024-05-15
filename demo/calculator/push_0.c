@@ -12,19 +12,16 @@
 
 #include "calculator.h"
 
-void push_0	(t_gui gui ,void *data)
+void push_0	(t_gui *gui ,void *data)
 {
-  if (data->operator == NONE)
+  t_calculator *calc;
+  calc = data;
+  if (calc->operator == NONE)
     {
-      if ( data->res != 0)
+      if ( calc->res != 0)
 	{
-	  data->res = data->res * 10;
+	  calc->res = calc->res * 10;
+	  string_push_back(calc->string,'0');
 	}
-      if (data->res == 0)
-	{
-	  return(void);
-	}
-      string_push_back(data->string,'0');
     }
-  return(void);
 }

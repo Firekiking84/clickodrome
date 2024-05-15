@@ -12,8 +12,10 @@
 
 #include "calculator.h"
 
-void clear (t_gui gui ,void *data)
+void clear (t_gui *gui ,void *data)
 {
-  string_clear(data->string);
-  res = 0;
+  t_calculator *calc;
+  calc = data;
+  string_clear(calc->string);
+  calc->res = 0;
 }

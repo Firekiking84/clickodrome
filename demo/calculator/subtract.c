@@ -12,7 +12,9 @@
 
 #include "calculator.h"
 
-void subtract		(t_gui gui ,void *data)
+void subtract		(t_gui *gui ,void *data)
 {
-  data->operator = SUBTRACT;
+  t_calculator *calc;
+  calc = data;
+  calc->operator = SUBSTRACT;
 }
