@@ -1,0 +1,22 @@
+[main
+  pos = 0, 0
+  size = 500, 500 ' width, height
+  lib = "./exit_me.so"
+  {components
+    [
+      type = "button"
+      pos = 225, 225
+      size = 50, 16
+      name = "exit_button"
+      text = "Exit"
+      font = "font.png"
+      font_size = 10, 14
+      click_color = 0, 255, 0
+      font_color = 255, 255, 255
+      bg = 255, 0, 0
+      hover_color = 0, 0, 255
+      {functions "exit_me"}
+    ]
+  }
+]
+screen = 500, 500 'screen size

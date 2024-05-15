@@ -17,28 +17,25 @@ int		efevent_div(t_div			*div,
       else
 	div->in_div = true ;
     }
-  else
+  if (div->in_div == true)
     {
-      if (div->in_div == true)
+      count = 0;
+      while (count < div->buttons->data_count)
 	{
-	  count = 0;
-	  while (count < div->buttons->data_count)
-	  {
-	    if (index_focus_elem == -2)
-	      index_focus_elem = efevent_button(efvector_ptr_get(div->buttons, count), event);
-	    else
-	      efevent_button(efvector_ptr_get(div->buttons, count), event);
-	    count++;
-	  }
-	  count = 0;
-	  while (count < div->text_boxes->data_count)
-	    {
-	      if (index_focus_elem == -2)
-		index_focus_elem = efevent_text_box(efvector_ptr_get(div->text_boxes, count), event);
-	      else
-		efevent_text_box(efvector_ptr_get(div->text_boxes, count), event);
-	      count++;
-	    }
+	  if (index_focus_elem == -2)
+	    index_focus_elem = efevent_button(efvector_ptr_get(div->buttons, count), event);
+	  else
+	    efevent_button(efvector_ptr_get(div->buttons, count), event);
+	  count++;
+	}
+      count = 0;
+      while (count < div->text_boxes->data_count)
+	{
+	  if (index_focus_elem == -2)
+	    index_focus_elem = efevent_text_box(efvector_ptr_get(div->text_boxes, count), event);
+	  else
+	    efevent_text_box(efvector_ptr_get(div->text_boxes, count), event);
+	  count++;
 	}
     }
   return(index_focus_elem);

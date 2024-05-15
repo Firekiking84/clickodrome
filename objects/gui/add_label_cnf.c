@@ -20,7 +20,7 @@ static int		init_label_settings(t_bunny_configuration	*cnf,
   const char		*tmp;
 
   settings->pos = efget_pos_cnf(cnf);
-  settings->size = efget_size_cnf(cnf);
+  settings->size = efget_size_cnf(cnf, "size");
   bunny_configuration_getf(cnf, &tmp, "name");
   settings->name = efstrdup(tmp);
   if (!settings->name)
@@ -41,7 +41,7 @@ static int		init_label_settings(t_bunny_configuration	*cnf,
       bunny_free(settings->name);
       return(-1);
     }
-  settings->font_size = efget_size_cnf(cnf);
+  settings->font_size = efget_size_cnf(cnf, "font_size");
   settings->font_color = efget_color_cnf(cnf, "font_color");
   return(0);
 }

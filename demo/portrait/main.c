@@ -1,16 +1,9 @@
-#include		"picture.h"
-#include		"lapin.h"
-#include		"draw.h"
-#include		"div.h"
-#include		"gui.h"
-#include		"vector_ptr.h"
+#include		"clickodrome.h"
+
 #include		<stddef.h>
 #include		<stdio.h>
 #include		<stdlib.h>
 #include		<string.h>
-#include		<lapin.h>
-#include		<stdio.h>
-
 typedef struct s_data
 {
   t_bunny_window		*win;

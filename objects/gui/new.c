@@ -40,9 +40,8 @@ t_gui			*efnew_gui(const char	*file)
   gui->components = efvector_ptr_new((int)bunny_configuration_casesf(cnf, "components"));
   gui->divs = efvector_ptr_new((int)bunny_configuration_childrenf(cnf, "[]"));
   gui->libs = efvector_ptr_new(0);
-  gui->divs = efvector_ptr_new(0);
-  gui->libs = efvector_ptr_new(0);
   gui->is_end = false;
+  gui->index_focus = -1;
   efadd_div_cnf(cnf, gui);
   return(gui);
 }
