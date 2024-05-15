@@ -12,7 +12,7 @@
 
 #include "calculator.h"
 
-void swap(char *a,
+static void swap(char *a,
           char *b)
 {
     char c;
@@ -22,7 +22,7 @@ void swap(char *a,
     *b = c;
 }
 
-char* reverse(char *word, int i, int j)
+static char* reverse(char *word, int i, int j)
 {
     while (i < j)
       {
@@ -31,7 +31,7 @@ char* reverse(char *word, int i, int j)
     return word;
 }
 
-char *efitoa (char * word ,int num)
+static char *efitoa (char * word ,int num)
 {
   int tempnum;
   int i;

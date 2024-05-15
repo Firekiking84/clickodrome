@@ -37,9 +37,9 @@ t_gui			*efnew_gui(const char	*file)
       puts("Cannot get screen_size !");
       return(NULL);
     }
-  gui->components = efvector_ptr_new((int)bunny_configuration_casesf(cnf, "components"));
   gui->divs = efvector_ptr_new((int)bunny_configuration_childrenf(cnf, "[]"));
   gui->libs = efvector_ptr_new(0);
+  gui->font = efvector_ptr_new(0);
   gui->is_end = false;
   efadd_div_cnf(cnf, gui);
   return(gui);

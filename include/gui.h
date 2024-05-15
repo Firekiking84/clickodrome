@@ -35,6 +35,7 @@ typedef struct		s_gui
   int			index_focus; // représente l'index actuel de l'élément focus dans le vecteur
   t_vector_ptr          *libs;  // ce vecteur contenir les liens avec dlsym;
   t_vector_ptr		*divs;  // ce vecteur devra contenir uniquement des t_div
+  t_vector_ptr		*fonts; // ce vecteur devra contenir uniquement des noms de font
   int			nb_input_components;
   bool			is_end;
 }			t_gui;

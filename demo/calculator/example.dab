@@ -2,7 +2,7 @@ screen = 500, 500 ' taille de la fenêtre
 [calculator
   pos = 0, 0, 0 ' x, y, z
   size = 200, 500 ' width, height
-  lib = "calculator.so"
+  lib = "./calculator.so"
   data = "t_calculator"
   init_func = "init_calculator"
   {components

@@ -13,6 +13,23 @@
 #include		"gui.h"
 #include		"efstring.h"
 
+static const char		*font_already_load(const char		*fontname,
+					  t_gui			*gui)
+{
+  size_t		i;
+  const char*		font;
+
+  i = 0;
+  while (i < gui->divs->data_count)
+    {
+      font = efvector_ptr_get(gui->fonts, i);
+      if (strcmp(divname, font) == 0)
+	return(font);
+      i += 1;
+    }
+  return(NULL);
+}
+
 static int		init_button_settings(t_bunny_configuration	*cnf,
 					     t_button_settings		*settings,
 					     t_gui			*gui)
@@ -33,6 +50,7 @@ static int		init_button_settings(t_bunny_configuration	*cnf,
       return(-1);
     }
   bunny_configuration_getf(cnf, &tmp, "font");
+  tmp = font_already_load(tmp,gui);
   settings->font = efstrdup(tmp);
   if (!settings->font)
     {

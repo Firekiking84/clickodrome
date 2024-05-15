@@ -22,17 +22,17 @@ t_bunny_color	*efget_color_cnf(t_bunny_configuration	*cnf,
   if (!color)
     return(NULL);
   color->argb[ALPHA_CMP] = 255;
-  bunny_configuration_getf_int(cnf, &tmp, "components.%s[0]", name);
+  bunny_configuration_getf_int(cnf, &tmp, "%s[0]", name);
   if (tmp <= 255 && tmp >= 0)
     color->argb[RED_CMP] = tmp;
   else
     color->argb[RED_CMP] = 255;
-  bunny_configuration_getf_int(cnf, &tmp, "components.%s[1]", name);
+  bunny_configuration_getf_int(cnf, &tmp, "%s[1]", name);
   if (tmp <= 255 && tmp >= 0)
     color->argb[GREEN_CMP] = tmp;
   else
     color->argb[GREEN_CMP] = 255;
-  bunny_configuration_getf_int(cnf, &tmp, "components.%s[2]", name);
+  bunny_configuration_getf_int(cnf, &tmp, "%s[2]", name);
   if (tmp <= 255 && tmp >= 0)
     color->argb[BLUE_CMP] = tmp;
   else

@@ -13,7 +13,7 @@ int		main()
     return(-1);
 
   //create the link with the first argument which needs to be the path to the library use RTLD_LAZY Flag by default on the 2nd argument
-  void *me = dlopen("libtest.so", RTLD_LAZY);
+  void *me = dlopen("./libtest.so", RTLD_LAZY);
   int (*func_ptr) (int a);
 
   //linking the empty function pointer to func_name from "libtest" if func_name is not within the library it will return NULL

@@ -5,7 +5,7 @@ t_button		*efnew_button(t_button_settings *set)
 {
   t_button		*button;
 
-  if ((button = bunny_malloc(sizeof(button))) == NULL)
+  if ((button = bunny_malloc(sizeof(t_button))) == NULL)
     return(NULL);
   button->gui = set->gui;
   button->pos = set->pos;

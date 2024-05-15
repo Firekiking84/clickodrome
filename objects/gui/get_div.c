@@ -37,7 +37,7 @@ static void		*short_return(const char		*err_msg,
 				      t_lib			*lib,
 				      int			mode)
 {
-  perror(err_msg);
+  puts(dlerror());
   bunny_perror(err_msg);
   if (mode >= 1)
     bunny_free(lib);
