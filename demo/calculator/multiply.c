@@ -12,7 +12,9 @@
 
 #include "calculator.h"
 
-void multiply		(t_gui gui ,void *data)
+void multiply		(t_gui *gui ,void *data)
 {
-  data->operator = MULTIPLY;
+  t_calculator *calc;
+  calc = data;
+  calc->operator = MULTIPLY;
 }

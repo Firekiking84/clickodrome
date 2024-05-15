@@ -12,10 +12,12 @@
 
 #include "calculator.h"
 
-void del (t_gui gui ,void *data)
+void del (t_gui *gui ,void *data)
 {
+  t_calculator *calc;
+  calc = data;
   int temp;
-  string_pop_back(data->string);
-  temp = res / 10;
-  res = temp;
+  string_pop_back(calc->string);
+  temp = calc->res / 10;
+  calc->res = temp;
 }

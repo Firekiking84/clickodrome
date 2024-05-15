@@ -45,8 +45,12 @@ char *efitoa (char * word ,int num)
   return (reverse(word,0,i - 1));
 }
 
-void update_string	(t_gui gui, void *data)
+void update_string	(t_gui *gui, void *data)
 {
-  string_clear(data->string);
-  data->string = string_new_str((const)itoa(data->res));
+  t_calculator *calc;
+  char* buffer;
+  buffer = bunny_malloc(128);
+  calc = data;
+  string_clear(calc->string);
+  calc->string = string_new_str((const char*)efitoa(buffer,calc->res));
 }
