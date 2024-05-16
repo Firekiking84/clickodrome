@@ -20,11 +20,16 @@ static const char		*font_already_load(const char		*fontname,
   const char*		font;
 
   i = 0;
+  if (gui->divs->data_count == 1)
+    efvector_ptr_push(gui->fonts,fontname);
   while (i < gui->divs->data_count)
     {
       font = efvector_ptr_get(gui->fonts, i);
-      if (strcmp(divname, font) == 0)
-	return(font);
+      if (strcmp(fontname, font) == 0)
+	{
+	  efvector_ptr_push(gui->fonts,fontname);
+	  return(font);
+	}
       i += 1;
     }
   return(NULL);

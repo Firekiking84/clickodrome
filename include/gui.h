@@ -17,6 +17,12 @@ typedef	enum		e_type
     LABEL
   }			t_type;
 
+typedef struct		t_font
+{
+  char			*fontname;
+  t_bunny_pixelarray	*px;
+}
+
 typedef struct		s_component
 {
   t_type		type;

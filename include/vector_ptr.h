@@ -1,4 +1,4 @@
-#ifndef			__VECTOR_PTR_H__
+ #ifndef			__VECTOR_PTR_H__
 
 #define			__VECTOR_PTR_H__
 #include                <stdio.h>
