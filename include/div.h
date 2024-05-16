@@ -15,7 +15,7 @@
 
 typedef struct			s_div
 {
-  const char			*name;
+  char				*name;
   t_bunny_position		pos;  // pos top left
   t_bunny_size			size;
   t_bunny_position		end_pos;
@@ -28,7 +28,7 @@ typedef struct			s_div
   t_vector_ptr			*timers;
 }				t_div;
 
-t_div				*efnew_div(const char				*name,
+t_div				*efnew_div(char					*name,
 					   t_bunny_position			pos,
 					   t_bunny_size				size,
 					   t_lib				*lib);

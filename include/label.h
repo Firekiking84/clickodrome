@@ -6,8 +6,8 @@
 
 typedef struct	        s_label
 {
-  t_bunny_position		pos;
-  t_bunny_position		pos_end;
+  t_bunny_position	pos;
+  t_bunny_position	pos_end;
   t_bunny_size		size;
   char			*name;
   char			*text;
@@ -23,7 +23,8 @@ typedef struct		s_label_settings
   t_bunny_size		size;
   char			*name;
   char			*text;
-  char			*font;
+  char			*font_name;
+  t_bunny_pixelarray	*font_res;
   t_bunny_size		font_size;
   t_bunny_color		*font_color;
   t_bunny_color	        *bg;

@@ -5,6 +5,11 @@
 static void		switch_focus(t_gui			*gui,
 				     int			new_focus)
 {
+  if (gui->components->data_count == 0)
+    {
+      dprintf(2, "No components to switch on !\n");
+      return;
+    }
   if (new_focus >= gui->components->data_count || new_focus < 0)
     new_focus = 0;
   if (gui->focus_element)

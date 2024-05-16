@@ -14,14 +14,19 @@ void			efedit_button(t_button			*button,
       bunny_free(button->text);
       button->text = edit->text;
     }
-  if (edit->font)
+  if (edit->font_name && !edit->font_res)
     {
-      new_font = bunny_load_pixelarray(edit->font);
+      new_font = bunny_load_pixelarray(edit->font_name);
       if (new_font)
 	{
 	  bunny_delete_clipable(button->font);
 	  button->font = new_font;
 	}
+    }
+  if (edit->font_res)
+    {
+      bunny_delete_clipable(button->font);
+      button->font = edit->font_res;
     }
   if (edit->font_size.x > 0)
     button->font_size = edit->font_size;

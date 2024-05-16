@@ -17,11 +17,11 @@ typedef	enum		e_type
     LABEL
   }			t_type;
 
-typedef struct		t_font
+typedef struct		s_font
 {
-  char			*fontname;
+  char			*name;
   t_bunny_pixelarray	*px;
-}
+}			t_font;
 
 typedef struct		s_component
 {
@@ -104,5 +104,7 @@ t_div			*get_div_by_name(t_gui				*gui,
 					 const char			*div_name);
 void			stop_program(t_gui				*gui);
 t_bunny_response	manage_continue(t_gui				*gui);
+t_bunny_pixelarray	*is_font_already_load(const char		*tmp,
+					      t_gui			*gui);
 
 #endif //		__GUI_H__

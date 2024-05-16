@@ -18,9 +18,10 @@
 static int		allocation_assign(t_text_box		*box,
 					  t_textbox_settings	*settings)
 {
-  box->font = bunny_load_pixelarray(settings->font);
-  if (!box->font)
-    return(-1);
+  if (!settings->font_name)
+    box->font = settings->font_res;
+  else
+    box->font = bunny_load_pixelarray(settings->font_name);
   if (!settings->bg)
     box->bg = NULL;
   else

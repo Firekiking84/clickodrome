@@ -37,7 +37,6 @@ static void		*short_return(const char		*err_msg,
 				      t_lib			*lib,
 				      int			mode)
 {
-  puts(dlerror());
   if (mode == -1)
     return(lib);
   bunny_perror(err_msg);
@@ -50,11 +49,11 @@ static void		*short_return(const char		*err_msg,
 
 static t_lib		*get_lib_cnf(t_bunny_configuration	*cnf,
 				     t_gui			*gui,
-				     const char			*divname)
+				     char			*divname)
 {
   const char		*tmp;
   t_lib			*lib;
-  void			(*init_func)(void *);
+  void			*(*init_func)();
 
   if (!bunny_configuration_getf(cnf, &tmp, "lib"))
     return(short_return("lib div", NULL, 0));
@@ -68,23 +67,16 @@ static t_lib		*get_lib_cnf(t_bunny_configuration	*cnf,
   if (!lib->name)
     return(short_return("malloc lib name", lib, 1));
   strcpy(lib->name, tmp);
+  lib->div_name = divname;
   lib->link = dlopen(lib->name, RTLD_LAZY);
   if (!lib->link)
     return(short_return("error dlopen", lib, 2));
-  if (!bunny_configuration_getf(cnf, &tmp, "data"))
-    {
-      lib->data = NULL;
-      return(short_return("cannot get data !", lib, -1));
-    }
-  lib->data = dlsym(lib->link, tmp);
-  if (!lib->data)
-    return(short_return("cannot link data_struct", lib, 2));
-  if (!bunny_configuration_getf(cnf, &tmp, "init_function"))
+  if (!bunny_configuration_getf(cnf, &tmp, "init_func"))
     return(short_return("cannot get init_struct", lib, 2));
   init_func = dlsym(lib->link, tmp);
   if (!init_func)
     return(short_return("cannot link init_func", lib, 2));
-  init_func(lib->data);
+  lib->data = init_func();
   return(lib);
 }
 
@@ -92,12 +84,14 @@ t_div			*efget_div_cnf(t_bunny_configuration	*cnf,
 				       t_gui			*gui)
 {
   t_div			*tdiv;
-  const char		*divname;
+  const char		*tmp;
+  char			*divname;
   t_bunny_size		size;
   t_bunny_position	pos;
   t_lib			*lib;
 
-  divname = bunny_configuration_get_name(cnf);
+  tmp = bunny_configuration_get_name(cnf);
+  divname = efstrdup(tmp);
   pos = efget_pos_cnf(cnf);
   if (pos.x == -1)
     return(NULL);

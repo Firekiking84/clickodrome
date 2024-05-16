@@ -18,9 +18,10 @@ t_button		*efnew_button(t_button_settings *set)
   button->in_button = false;
   button->is_hover = false;
   button->name = set->name;
-  button->font = bunny_load_pixelarray(set->font);
-  if (!button->font)
-    return(NULL);
+  if (!set->font_name)
+    button->font = set->font_res;
+  else
+    button->font = bunny_load_pixelarray(set->font_name);
   button->click_color = set->click_color;
   button->hover_color = set->hover_color;
   button->font_size = set->font_size;

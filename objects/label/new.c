@@ -28,7 +28,10 @@ t_label			*efnew_label(t_label_settings	*settings)
   label->size = settings->size;
   label->name = settings->name;
   label->text = settings->text;
-  label->font = bunny_load_pixelarray(settings->font);
+  if (!settings->font_name)
+    label->font = settings->font_res;
+  else
+    label->font = bunny_load_pixelarray(settings->font_name);
   if (!label->font)
     {
       bunny_free(label->name);

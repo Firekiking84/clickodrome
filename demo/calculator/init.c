@@ -10,11 +10,13 @@
 ** * *** * * ***  ** * ** ** ** ** * * * *** * **  **************************
 */
 
-#include "calculator.h"
+#include	"calculator.h"
+#include	<lapin.h>
 
-t_calculator *init_calculator(void)
+t_calculator	*init_calculator(void)
 {
-  t_calculator *calculator;
+  t_calculator	*calculator;
+
   calculator = bunny_malloc(sizeof(*calculator));
   if (!calculator)
     return(NULL);

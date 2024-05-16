@@ -15,7 +15,8 @@
 #include		<string.h>
 
 static int		init_label_settings(t_bunny_configuration	*cnf,
-					    t_label_settings		*settings)
+					    t_label_settings		*settings,
+					    t_gui			*gui)
 {
   const char		*tmp;
 
@@ -34,13 +35,8 @@ static int		init_label_settings(t_bunny_configuration	*cnf,
     }
   settings->bg = efget_color_cnf(cnf, "bg");
   bunny_configuration_getf(cnf, &tmp, "font");
-  settings->font = efstrdup(tmp);
-  if (!settings->font)
-    {
-      bunny_free(settings->text);
-      bunny_free(settings->name);
-      return(-1);
-    }
+  settings->font_res = is_font_already_load(tmp, gui);
+  settings->font_name = NULL;
   settings->font_size = efget_size_cnf(cnf, "font_size");
   settings->font_color = efget_color_cnf(cnf, "font_color");
   return(0);
@@ -51,7 +47,7 @@ int			efadd_label_cnf(t_bunny_configuration		*cnf,
 {
   t_label_settings	settings;
 
-  if (init_label_settings(cnf, &settings) == -1)
+  if (init_label_settings(cnf, &settings, gui) == -1)
     return(-1);
   efadd_label_div(efvector_ptr_get(gui->divs, gui->divs->data_count - 1), &settings);
   return(0);

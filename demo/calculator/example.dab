@@ -3,7 +3,6 @@ screen = 500, 500 ' taille de la fenêtre
   pos = 0, 0, 0 ' x, y, z
   size = 200, 500 ' width, height
   lib = "./calculator.so"
-  data = "t_calculator"
   init_func = "init_calculator"
   {components
     [
@@ -26,10 +25,11 @@ screen = 500, 500 ' taille de la fenêtre
       text = "C"
       font = "font.png"
       font_size = 10, 14
+      click_color = 0, 255, 0
       font_color = 0, 0, 0' red, blue, green
       bg = 255, 255, 255 ' can not exist
       hover_color = 181, 181, 181 ' can not exist
-      functions = "clear"
+      {functions "clear"}
     ]
     ,
     [
@@ -40,10 +40,11 @@ screen = 500, 500 ' taille de la fenêtre
       text = "Del"
       font = "font.png"
       font_size = 10, 14
+      click_color = 0, 255, 0
       font_color = 0, 0, 0' red, blue, green
       bg = 255, 255, 255 ' can not exist
       hover_color = 181, 181, 181 ' can not exist
-      functions = "del"
+      {functions "del"}
     ]
     ,
     [
@@ -54,10 +55,11 @@ screen = 500, 500 ' taille de la fenêtre
       text = "%"
       font = "font.png"
       font_size = 10, 14
+      click_color = 0, 255, 0
       font_color = 0, 0, 0' red, blue, green
       bg = 255, 255, 255 ' can not exist
       hover_color = 181, 181, 181 ' can not exist
-      functions = "modulo"
+      {functions "modulo"}
     ]
     ,
     [
@@ -68,10 +70,11 @@ screen = 500, 500 ' taille de la fenêtre
       text = "/"
       font = "font.png"
       font_size = 10, 14
+      click_color = 0, 255, 0
       font_color = 0, 0, 0' red, blue, green
       bg = 255, 255, 255 ' can not exist
       hover_color = 181, 181, 181 ' can not exist
-      functions = "divide"
+      {functions "divide"}
     ]
     ,
     [
@@ -82,10 +85,11 @@ screen = 500, 500 ' taille de la fenêtre
       text = "7"
       font = "font.png"
       font_size = 10, 14
+      click_color = 0, 255, 0
       font_color = 0, 0, 0' red, blue, green
       bg = 255, 255, 255 ' can not exist
       hover_color = 181, 181, 181 ' can not exist
-      functions = "push_7"
+      {functions = "push_7"}
     ]
     ,
     [
@@ -96,10 +100,11 @@ screen = 500, 500 ' taille de la fenêtre
       text = "8"
       font = "font.png"
       font_size = 10, 14
+      click_color = 0, 255, 0
       font_color = 0, 0, 0' red, blue, green
       bg = 255, 255, 255 ' can not exist
       hover_color = 181, 181, 181 ' can not exist
-      functions = "push_8"
+      {functions "push_8"}
     ]
     ,
     [
@@ -110,10 +115,11 @@ screen = 500, 500 ' taille de la fenêtre
       text = "9"
       font = "font.png"
       font_size = 10, 14
+      click_color = 0, 255, 0
       font_color = 0, 0, 0' red, blue, green
       bg = 255, 255, 255 ' can not exist
       hover_color = 181, 181, 181 ' can not exist
-      functions = "push_9"
+      {functions "push_9"}
     ]
     ,
     [
@@ -124,10 +130,11 @@ screen = 500, 500 ' taille de la fenêtre
       text = "x"
       font = "font.png"
       font_size = 10, 14
+      click_color = 0, 255, 0
       font_color = 0, 0, 0' red, blue, green
       bg = 255, 255, 255 ' can not exist
       hover_color = 181, 181, 181 ' can not exist
-      functions = "multiply"
+      {functions "multiply"}
     ]
     ,
     [
@@ -138,10 +145,11 @@ screen = 500, 500 ' taille de la fenêtre
       text = "4"
       font = "font.png"
       font_size = 10, 14
+      click_color = 0, 255, 0
       font_color = 0, 0, 0' red, blue, green
       bg = 255, 255, 255 ' can not exist
       hover_color = 181, 181, 181 ' can not exist
-      functions = "push_4"
+      {functions "push_4"}
     ]
     ,
     [
@@ -152,10 +160,11 @@ screen = 500, 500 ' taille de la fenêtre
       text = "5"
       font = "font.png"
       font_size = 10, 14
+      click_color = 0, 255, 0
       font_color = 0, 0, 0' red, blue, green
       bg = 255, 255, 255 ' can not exist
       hover_color = 181, 181, 181 ' can not exist
-      functions = "push_5"
+      {functions "push_5"}
     ]
     ,
     [
@@ -166,10 +175,11 @@ screen = 500, 500 ' taille de la fenêtre
       text = "6"
       font = "font.png"
       font_size = 10, 14
+      click_color = 0, 255, 0
       font_color = 0, 0, 0' red, blue, green
       bg = 255, 255, 255 ' can not exist
       hover_color = 181, 181, 181 ' can not exist
-      functions = "push_6"
+      {functions "push_6"}
     ]
     ,
     [
@@ -180,10 +190,11 @@ screen = 500, 500 ' taille de la fenêtre
       text = "-"
       font = "font.png"
       font_size = 10, 14
+      click_color = 0, 255, 0
       font_color = 0, 0, 0' red, blue, green
       bg = 255, 255, 255 ' can not exist
       hover_color = 181, 181, 181 ' can not exist
-      functions = "substract"
+      {functions "substract"}
     ]
     ,
     [
@@ -194,10 +205,11 @@ screen = 500, 500 ' taille de la fenêtre
       text = "C"
       font = "font.png"
       font_size = 10, 14
+      click_color = 0, 255, 0
       font_color = 0, 0, 0' red, blue, green
       bg = 255, 255, 255 ' can not exist
       hover_color = 181, 181, 181 ' can not exist
-      functions = "clear"
+      {functions "clear"}
     ]
   }
 ]

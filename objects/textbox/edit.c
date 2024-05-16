@@ -21,9 +21,9 @@ void			efedit_textbox(t_text_box		*textbox,
     textbox->pos = edit->pos;
   if (edit->size.x > 0)
     textbox->size = edit->size;
-  if (edit->font)
+  if (edit->font_name)
     {
-      new_font = bunny_load_pixelarray(edit->font);
+      new_font = bunny_load_pixelarray(edit->font_name);
       if (new_font)
 	{
 	  bunny_delete_clipable(textbox->font);

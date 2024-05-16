@@ -17,6 +17,6 @@ void                    efdelete_picture(t_picture             *picture)
   if (picture == NULL)
     return;
   bunny_free(picture->name);
-  bunny_free(picture->img);
+  bunny_delete_clipable(&picture->img->clipable);
   bunny_free(picture);
 }

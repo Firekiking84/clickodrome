@@ -43,7 +43,8 @@ typedef struct		s_button_settings
   int			order;
   char			*name;
   char			*text;
-  char			*font;
+  char			*font_name;
+  t_bunny_pixelarray	*font_res;
   t_bunny_size		font_size;
   t_bunny_color		*font_color;
   t_bunny_color		*click_color;
