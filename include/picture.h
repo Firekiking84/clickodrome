@@ -27,5 +27,4 @@ void			efdisplay_picture(t_picture		*picture,
 void			efedit_picture(t_picture		*picture,
 				       t_picture_settings const	*edit);
 
-
 #endif	//		__PICTURE_H__

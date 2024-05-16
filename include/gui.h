@@ -87,19 +87,37 @@ void                    eftype_func(t_bunny_configuration               *comp,
 				    t_gui                               *gui);
 void			efedit_button_gui(t_gui				*gui,
 					  const char			*div_name,
-					  t_button_settings const	*edit);
+					  t_button_settings		*edit);
 void			efedit_label_gui(t_gui				*gui,
 					 const char			*div_name,
-					 t_label_settings const		*edit);
+					 t_label_settings		*edit);
 void			efedit_textbox_gui(t_gui			*gui,
 					   const char			*div_name,
-					   t_textbox_settings const	*edit);
+					   t_textbox_settings		*edit);
 void			efedit_picture_gui(t_gui			*gui,
 					   const char			*div_name,
-					   t_picture_settings const	*edit);
+					   t_picture_settings		*edit);
 void			efedit_timer_gui(t_gui				*gui,
 					 const char			*div_name,
-					 t_timer_settings const		*edit);
+					 t_timer_settings		*edit);
+void			efadd_button_gui(t_gui				*gui,
+					 const char			*div_name,
+					 t_button_settings		*add);
+void			efadd_label_gui(t_gui				*gui,
+					const char			*div_name,
+					t_label_settings 		*add);
+void			efadd_textbox_gui(t_gui				*gui,
+					  const char			*div_name,
+					  t_textbox_settings		*add);
+void			efadd_picture_gui(t_gui				*gui,
+					  const char			*div_name,
+					  t_picture_settings		*add);
+void			efadd_timer_gui(t_gui				*gui,
+					const char			*div_name,
+					t_timer_settings		*add);
+void			efdelete_elem_gui(t_gui				*gui,
+					  const char			*div_name,
+					  const char			*elem_name);
 t_div			*get_div_by_name(t_gui				*gui,
 					 const char			*div_name);
 void			stop_program(t_gui				*gui);

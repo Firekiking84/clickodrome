@@ -1,8 +1,8 @@
 #include		"gui.h"
 
-void			efedit_picture_gui(t_gui				*gui,
+void			efedit_picture_gui(t_gui			*gui,
 					  const char			*div_name,
-					  t_picture_settings const	*edit)
+					  t_picture_settings		*edit)
 {
   t_div			*target_div;
 

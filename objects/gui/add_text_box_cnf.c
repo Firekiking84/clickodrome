@@ -53,7 +53,7 @@ int 			efadd_text_box_cnf(t_bunny_configuration	*cnf,
   comp = bunny_malloc(sizeof(t_component));
   if (!comp)
     return(-1);
-  comp->textbox = efadd_text_box_div(efvector_ptr_get(gui->divs, gui->divs->data_count - 1), &settings);
+  comp->textbox = efadd_textbox_div(efvector_ptr_get(gui->divs, gui->divs->data_count - 1), &settings);
   comp->type = TEXTBOX;
   efvector_ptr_push(gui->components, comp);
   return(0);

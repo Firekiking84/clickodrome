@@ -2,7 +2,7 @@
 
 void			efedit_timer_gui(t_gui				*gui,
 					  const char			*div_name,
-					  t_timer_settings const	*edit)
+					  t_timer_settings		*edit)
 {
   t_div			*target_div;
 

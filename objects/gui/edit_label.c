@@ -2,7 +2,7 @@
 
 void			efedit_label_gui(t_gui				*gui,
 					  const char			*div_name,
-					  t_label_settings const	*edit)
+					  t_label_settings		*edit)
 {
   t_div			*target_div;
 
