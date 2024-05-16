@@ -37,18 +37,79 @@ They will be free by the destruction of the elements by calling the function ```
 - **efdel_gui**(```t_gui *gui, const char *div_name, const char *object_name```) : delete the component with the given in parameter if this object is in the div with the name div_name
 - **efadd_[```object_name```]_gui**(```t_gui *gui, const char *div_name, t_[*object_name*]_settings const *add```) : Create a new component and put it in the div with the name div_name
 
+### Div
+
+je ne sais pas quoi metre !!!!
+
+### Settings:
+
+ - ```pos(t_bunny_position)``` : x ,y and z positions of the button.
+ - ```size(t_bunny_size)``` : x and y size of the button.
+ - ```lib(t_lib)``` : library.
+ - ```data(void *)``` : structure of user.
+ - ```init_func(t_vector_ptr *)``` : different components below.
+
 ## Sub Components and settings structs
+
+### Button
+
+Button is a text area that can only be edit by gui.
+
+#### Settings :
+ - ```pos(t_bunny_position)``` : x ,y and z positions of the button.
+ - ```size(t_bunny_size)``` : x and y size of the button.
+ - ```name(char *)``` : name to id it for by example edit it or delete it.
+ - ```text(char *)``` : text that will be display.
+ - ```font(t_bunny_pixelarray *)``` : pixelarray of the font use to print the text.
+ - ```font_size(t_bunny_size)``` : x and y size of the font use to print the text.
+ - ```font_color(t_bunny_color *)``` : color of the font.
+ - ```bg(t_bunny_color *)``` : background of the button. If null there is no background.
+ - ```hover_color(t_bunny_color)``` : teint of color to button. can dose't exist.
+ - ```function(t_vector_ptr *)``` : pointer storage function.
 
 ### Label
 
 Label is a text area that can only be edit by gui.
 
 #### Settings :
- - ```pos(t_bunny_position)``` : x and y positions of the label
- - ```size(t_bunny_size)``` : x and y size of the label
- - ```name(char *)``` : name to id it for by example edit it or delete it
- - ```text(char *)``` : text that will be display
- - ```font(t_bunny_pixelarray *)``` : pixelarray of the font use to print the text
- - ```font_size(t_bunny_size)``` : x and y size of the font use to print the text
- - ```font_color(t_bunny_color *)``` : color of the font
- - ```bg(t_bunny_color *)``` : background of the label. If null there is no background
+ - ```pos(t_bunny_position)``` : x and y positions of the label.
+ - ```size(t_bunny_size)``` : x and y size of the label.
+ - ```name(char *)``` : name to id it for by example edit it or delete it.
+ - ```text(char *)``` : text that will be display.
+ - ```font(t_bunny_pixelarray *)``` : pixelarray of the font use to print the text.
+ - ```font_size(t_bunny_size)``` : x and y size of the font use to print the text.
+ - ```font_color(t_bunny_color *)``` : color of the font.
+ - ```bg(t_bunny_color *)``` : background of the label. If null there is no background.
+
+### Text_Box
+
+Text_Box is a text area that can only be edit by gui.
+
+#### Settings :
+ - ```pos(t_bunny_position)``` : x and y positions of the Text_box.
+ - ```size(t_bunny_size)``` : x and y size of the text_box.
+ - ```name(char *)``` : name to id it for by example edit it or delete it.
+ - ```font(t_bunny_pixelarray *)``` : pixelarray of the font use to print the text.
+ - ```font_size(t_bunny_size)``` : x and y size of the font use to print the text.
+ - ```font_color(t_bunny_color *)``` : color of the font.
+ - ```bg(t_bunny_color *)``` : background of the text_box. If null there is no background.
+ - ```function(t_vector_ptr *)``` : pointer storage function.
+
+### Picture
+
+Picture is a text area that can only be edit by gui.
+
+#### Settings :
+ - ```pos(t_bunny_position)``` : x and y positions of the picture.
+ - ```size(t_bunny_size)``` : x and y size of the picture.
+ - ```name(char *)``` : name to id it for by example edit it or delete it.
+ - ```filename(char *)``` : name of file of the picture.
+
+### Timer
+
+Timer is a text area that can only be edit by gui.
+
+#### Settings :
+ - ```name(char *)``` : name to id it for by example edit it or delete it.
+ - ```delay(char *)``` : last use to timer,  into second.
+ - ```function(t_vector_ptr *)``` : : pointer storage function.
