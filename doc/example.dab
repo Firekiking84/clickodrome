@@ -2,7 +2,7 @@ screen = 500, 500 ' taille de la fenêtre
 [div1
   pos = 0, 0, 0 ' x, y, z
   size = 100, 100 ' width, height
-  lib = "send.so"
+  lib = "./send.so"
   data = "data_struct"
   init_func = "data_struct_init"
   {components

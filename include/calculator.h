@@ -35,7 +35,7 @@ typedef struct	s_calculator
   t_string	*string;
 }		t_calculator;
 
-t_calculator init_calculator(void);
+t_calculator *init_calculator		  (void);
 void update_string	(t_gui *gui, void *data);
 void push_0		(t_gui *gui ,void *data);
 void push_1		(t_gui *gui ,void *data);

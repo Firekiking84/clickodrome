@@ -4,5 +4,6 @@
 int main()
 {
   bunny_set_error_descriptor(2);
-  efnew_gui("../../doc/example.dab");
+  efnew_gui("example.dab");
+  return(1);
 }

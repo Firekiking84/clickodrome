@@ -14,6 +14,7 @@
 #include		"gui.h"
 
 #include		<string.h>
+#include		<stdio.h>
 
 static t_lib		*lib_already_load(const char		*divname,
 					  t_gui			*gui)
@@ -36,6 +37,7 @@ static void		*short_return(const char		*err_msg,
 				      t_lib			*lib,
 				      int			mode)
 {
+  puts(dlerror());
   if (mode == -1)
     return(lib);
   bunny_perror(err_msg);
@@ -67,6 +69,8 @@ static t_lib		*get_lib_cnf(t_bunny_configuration	*cnf,
     return(short_return("malloc lib name", lib, 1));
   strcpy(lib->name, tmp);
   lib->link = dlopen(lib->name, RTLD_LAZY);
+  if (!lib->link)
+    return(short_return("error dlopen", lib, 2));
   if (!bunny_configuration_getf(cnf, &tmp, "data"))
     {
       lib->data = NULL;

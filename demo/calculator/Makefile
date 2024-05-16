@@ -1,6 +1,6 @@
 NAME =			Clickodrome
 
-SRC =			*.c				\
+SRC =			$(wildcard ./*.c)		\
 			$(wildcard ../../objects/*/*.c)	\
 			$(wildcard ../../src/*/*.c)	\
 
