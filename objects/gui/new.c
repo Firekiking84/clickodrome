@@ -41,6 +41,7 @@ t_gui			*efnew_gui(const char	*file)
   gui->libs = efvector_ptr_new(0);
   gui->fonts = efvector_ptr_new(0);
   gui->is_end = false;
+  gui->index_focus = -1;
   efadd_div_cnf(cnf, gui);
   return(gui);
 }

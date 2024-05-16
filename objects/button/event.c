@@ -28,7 +28,7 @@ int		efevent_button(t_button					*button,
 
   size_t	count;
   void		(*func_ptr)(t_gui	*,
-			    void	*);
+			    void	*) = NULL;
 
   count = 0;
   if (event->type == BET_MOUSE_MOVED)

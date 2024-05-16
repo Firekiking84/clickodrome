@@ -33,7 +33,7 @@ structure de t_gui:
 	pos = une position // x , y et z //.
 	size = d'une taile // width et height //.
 	name = d'un nom qui lui est l'ID.
-----font =  je ne sais plus //.
+	font = le nom du fichier qui contient la font.
 	font_size = taille de l'image dans la quel nous allons mettre la couleur font_color.
 	fond_color = d'une couleur sur le composant // red, blue, green //.
 	bg = d'un fond // back groun //.
@@ -54,7 +54,7 @@ structure de t_gui:
    V Chaque composant TIMER comporte:
 
 	type = timer // le nom du composant //.
-----last_time = je ne sais plus
+	last_time = dernière utilisation de timer.
 	delay = le temps défini apres l'action.
 	name = d'un nom qui lui est l'ID.
 	functions = les differant fonction qui seront utiliser par le composant.

@@ -10,9 +10,9 @@
 ** * *** * * ***  ** * ** ** ** ** * * * *** * **  **************************
 */
 
-#include	"gui.h"
+#include		"gui.h"
 
-#include	<string.h>
+#include		<string.h>
 
 static int		init_timer_settings(t_bunny_configuration	*cnf,
 					    t_gui			*gui,

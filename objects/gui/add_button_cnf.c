@@ -41,8 +41,9 @@ static int		init_button_settings(t_bunny_configuration	*cnf,
 {
   const char		*tmp;
 
+  settings->gui = gui;
   settings->pos = efget_pos_cnf(cnf);
-  settings->size = efget_size_cnf(cnf);
+  settings->size = efget_size_cnf(cnf, "size");
   settings->order = gui->nb_input_components;
   gui->nb_input_components += 1;
   bunny_configuration_getf(cnf, &tmp, "name");
@@ -63,7 +64,8 @@ static int		init_button_settings(t_bunny_configuration	*cnf,
       bunny_free(settings->text);
       return(-1);
     }
-  settings->font_size = efget_size_cnf(cnf);
+  settings->font_size = efget_size_cnf(cnf, "font_size");
+  settings->click_color = efget_color_cnf(cnf, "click_color");
   settings->font_color = efget_color_cnf(cnf, "font_color");
   settings->bg = efget_color_cnf(cnf, "bg");
   settings->hover_color = efget_color_cnf(cnf, "hover_color");

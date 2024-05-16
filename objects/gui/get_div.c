@@ -38,6 +38,8 @@ static void		*short_return(const char		*err_msg,
 				      int			mode)
 {
   puts(dlerror());
+  if (mode == -1)
+    return(lib);
   bunny_perror(err_msg);
   if (mode >= 1)
     bunny_free(lib);
@@ -70,8 +72,11 @@ static t_lib		*get_lib_cnf(t_bunny_configuration	*cnf,
   if (!lib->link)
     return(short_return("error dlopen", lib, 2));
   if (!bunny_configuration_getf(cnf, &tmp, "data"))
-    return(short_return("cannot get data !", lib, 2));
-  lib->data = dlsym(lib->link, divname);
+    {
+      lib->data = NULL;
+      return(short_return("cannot get data !", lib, -1));
+    }
+  lib->data = dlsym(lib->link, tmp);
   if (!lib->data)
     return(short_return("cannot link data_struct", lib, 2));
   if (!bunny_configuration_getf(cnf, &tmp, "init_function"))
@@ -96,7 +101,7 @@ t_div			*efget_div_cnf(t_bunny_configuration	*cnf,
   pos = efget_pos_cnf(cnf);
   if (pos.x == -1)
     return(NULL);
-  size = efget_size_cnf(cnf);
+  size = efget_size_cnf(cnf, "size");
   lib = get_lib_cnf(cnf, gui, divname);
   tdiv = efnew_div(divname, pos, size, lib);
   return(tdiv);

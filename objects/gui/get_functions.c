@@ -28,12 +28,14 @@ t_vector_ptr		*efget_functions(t_bunny_configuration		*cnf,
     return(NULL);
   current_div = efvector_ptr_get(gui->divs, gui->divs->data_count - 1);
   lib = current_div->lib;
+  if (!lib)
+    return(NULL);
   i = 0;
   while (i < j)
     {
       bunny_configuration_getf(cnf, &func_name, "functions[%d]", i);
       func_ptr = dlsym(lib->link, func_name);
-      efvector_ptr_push(functions, &func_ptr);
+      efvector_ptr_push(functions, func_ptr);
       i++;
     }
   return(functions);
