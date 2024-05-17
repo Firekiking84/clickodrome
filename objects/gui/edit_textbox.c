@@ -2,7 +2,7 @@
 
 void			efedit_textbox_gui(t_gui			*gui,
 					  const char			*div_name,
-					  t_textbox_settings const	*edit)
+					  t_textbox_settings		*edit)
 {
   t_div			*target_div;
 

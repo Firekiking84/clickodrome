@@ -27,19 +27,15 @@ static int		init_textbox_settings(t_bunny_configuration	*cnf,
   if (!settings->name)
     return(-1);
   bunny_configuration_getf(cnf, &tmp, "font");
-  settings->font = efstrdup(tmp);
-  if (!settings->font)
-    {
-      bunny_free(settings->name);
-      return(-1);
-    }
+  settings->font_res = is_font_already_load(tmp, gui);
+  settings->font_name = NULL;
   settings->font_size = efget_size_cnf(cnf, "font_size");
   settings->font_color = efget_color_cnf(cnf, "font_color");
   settings->bg = efget_color_cnf(cnf, "bg");
   settings->functions = efget_functions(cnf, gui);
   if (!settings->functions)
     {
-      bunny_free(settings->font);
+      bunny_free(settings->font_name);
       bunny_free(settings->name);
       return(-1);
     }
@@ -57,7 +53,7 @@ int 			efadd_text_box_cnf(t_bunny_configuration	*cnf,
   comp = bunny_malloc(sizeof(t_component));
   if (!comp)
     return(-1);
-  comp->textbox = efadd_text_box_div(efvector_ptr_get(gui->divs, gui->divs->data_count - 1), &settings);
+  comp->textbox = efadd_textbox_div(efvector_ptr_get(gui->divs, gui->divs->data_count - 1), &settings);
   comp->type = TEXTBOX;
   efvector_ptr_push(gui->components, comp);
   return(0);

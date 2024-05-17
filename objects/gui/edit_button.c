@@ -2,7 +2,7 @@
 
 void			efedit_button_gui(t_gui				*gui,
 					  const char			*div_name,
-					  t_button_settings const	*edit)
+					  t_button_settings		*edit)
 {
   t_div			*target_div;
 

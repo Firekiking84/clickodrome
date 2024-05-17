@@ -47,9 +47,9 @@ void			draw_rectangle(t_bunny_pixelarray	*px,
 				       t_bunny_position		*posStart,
 				       t_bunny_position		*posEnd,
 				       t_bunny_color		*col);
-void			blit(t_bunny_pixelarray		*target,
+void			blit(t_bunny_pixelarray			*target,
 			     const t_bunny_pixelarray		*src,
-			     const t_bunny_position			*pos,
+			     const t_bunny_position		*pos,
 			     t_bunny_color			*forcedCol);
 double			get_ratio(int				a,
 				  int				b,
@@ -61,6 +61,5 @@ int			get_npos(int				width,
 				 t_bunny_position		pos);
 void			efletter(t_letter_settings		*set);
 void			eftext(t_text_settings			*set);
-
 
 #endif //		__DRAW_H__

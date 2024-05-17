@@ -10,36 +10,14 @@
 ** * *** * * ***  ** * ** ** ** ** * * * *** * **  **************************
 */
 
-#include		"gui.h"
-#include		"efstring.h"
+#include			"gui.h"
+#include			"efstring.h"
 
-static const char		*font_already_load(const char		*fontname,
-					  t_gui			*gui)
+static int			init_button_settings(t_bunny_configuration	*cnf,
+						     t_button_settings		*settings,
+						     t_gui			*gui)
 {
-  size_t		i;
-  const char*		font;
-
-  i = 0;
-  if (gui->divs->data_count == 1)
-    efvector_ptr_push(gui->fonts,fontname);
-  while (i < gui->divs->data_count)
-    {
-      font = efvector_ptr_get(gui->fonts, i);
-      if (strcmp(fontname, font) == 0)
-	{
-	  efvector_ptr_push(gui->fonts,fontname);
-	  return(font);
-	}
-      i += 1;
-    }
-  return(NULL);
-}
-
-static int		init_button_settings(t_bunny_configuration	*cnf,
-					     t_button_settings		*settings,
-					     t_gui			*gui)
-{
-  const char		*tmp;
+  const char			*tmp;
 
   settings->gui = gui;
   settings->pos = efget_pos_cnf(cnf);
@@ -56,14 +34,8 @@ static int		init_button_settings(t_bunny_configuration	*cnf,
       return(-1);
     }
   bunny_configuration_getf(cnf, &tmp, "font");
-  tmp = font_already_load(tmp,gui);
-  settings->font = efstrdup(tmp);
-  if (!settings->font)
-    {
-      bunny_free(settings->name);
-      bunny_free(settings->text);
-      return(-1);
-    }
+  settings->font_res = is_font_already_load(tmp, gui);
+  settings->font_name = NULL;
   settings->font_size = efget_size_cnf(cnf, "font_size");
   settings->click_color = efget_color_cnf(cnf, "click_color");
   settings->font_color = efget_color_cnf(cnf, "font_color");
@@ -71,18 +43,18 @@ static int		init_button_settings(t_bunny_configuration	*cnf,
   settings->hover_color = efget_color_cnf(cnf, "hover_color");
   if ((settings->functions = efget_functions(cnf, gui)) == NULL)
     {
-      bunny_free(settings->font);
+      bunny_free(settings->font_name);
       bunny_free(settings->name);
       bunny_free(settings->text);
       return(-1);
     }
   return(0);
 }
-int			efadd_button_cnf(t_bunny_configuration		*cnf,
-					 t_gui				*gui)
+int				efadd_button_cnf(t_bunny_configuration		*cnf,
+						 t_gui				*gui)
 {
-  t_component		*comp;
-  t_button_settings	settings;
+  t_component			*comp;
+  t_button_settings		settings;
 
   comp = bunny_malloc(sizeof(t_component));
   if (!comp)

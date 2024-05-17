@@ -46,9 +46,9 @@ void			efedit_label(t_label			*label,
 	bunny_free(label->text);
       label->text = edit->text;
     }
-    if (edit->font)
+  if (edit->font_name)
     {
-      new_font = bunny_load_pixelarray(edit->font);
+      new_font = bunny_load_pixelarray(edit->font_name);
       if (new_font)
 	{
 	  bunny_delete_clipable(label->font);

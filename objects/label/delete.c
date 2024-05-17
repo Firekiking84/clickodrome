@@ -18,5 +18,8 @@ void                    efdelete_label(t_label                  *label)
     return;
   bunny_free(label->name);
   bunny_free(label->text);
+  bunny_delete_clipable(&label->font->clipable);
+  bunny_free(label->font_color);
+  bunny_free(label->bg);
   bunny_free(label);
 }

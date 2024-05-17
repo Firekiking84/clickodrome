@@ -1,6 +1,6 @@
 #include		"div.h"
 
-t_div			*efnew_div(const char			*name,
+t_div			*efnew_div(char				*name,
 				   t_bunny_position  		pos,
 				   t_bunny_size			size,
 				   t_lib			*lib)

@@ -16,6 +16,7 @@ void            efdelete_timer(t_timer                          *timer)
 {
   if (timer == NULL)
     return ;
-  free(timer->name);
-  free(timer);
+  bunny_free(timer->name);
+  efvector_ptr_delete(timer->functions);
+  bunny_free(timer);
 }

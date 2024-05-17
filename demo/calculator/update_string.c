@@ -10,31 +10,33 @@
 ** * *** * * ***  ** * ** ** ** ** * * * *** * **  **************************
 */
 
-#include "calculator.h"
+#include	"calculator.h"
 
-static void swap(char *a,
-          char *b)
+static void	swap(char		*a,
+		     char		*b)
 {
-    char c;
+    char	c;
 
     c = *a;
     *a = *b;
     *b = c;
 }
 
-static char* reverse(char *word, int i, int j)
+static char*	reverse(char		*word,
+			int		i,
+			int		j)
 {
-    while (i < j)
-      {
-        swap(&word[i++], &word[j--]);
-      }
-    return word;
+  while (i < j)
+    swap(&word[i++], &word[j--]);
+  return word;
 }
 
-static char *efitoa (char * word ,int num)
+static char	*efitoa (char		*word,
+			 int		num)
 {
-  int tempnum;
-  int i;
+  int		tempnum;
+  int		i;
+
   i = 0;
   tempnum = abs(num);
   while(tempnum)
