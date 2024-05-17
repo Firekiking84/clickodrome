@@ -36,21 +36,53 @@ static char *efitoa (char * word ,int num)
   int tempnum;
   int i;
   i = 0;
-  tempnum = num;
+  tempnum = abs(num);
   while(tempnum)
     {
       word[i++] = (tempnum % 10) + 48;
       tempnum = tempnum / 10;
     }
+  if (num < 0)
+    word[i++] = '-';
   return (reverse(word,0,i - 1));
 }
 
-void update_string	(t_gui *gui, void *data)
+static char *efdtoa (char * word ,double num)
 {
-  t_calculator *calc;
-  char* buffer;
-  buffer = bunny_malloc(128);
-  calc = data;
-  string_clear(calc->string);
-  calc->string = string_new_str((const char*)efitoa(buffer,calc->res));
+  double dtempnum;
+  int tempnum;
+  int i;
+  i = 0;
+  tempnum = fabs(num);
+  dtempnum = fabs(num);
+  dtempnum -= tempnum;
+  while(tempnum)
+    {
+      word[i++] = (tempnum % 10) + 48;
+      tempnum = tempnum / 10;
+    }
+  if (num < 0)
+    word[i++] = '-';
+  word = reverse(word,0,i - 1);
+  word[i++] = ',';
+  printf("%f\n",dtempnum);
+  while(dtempnum > 0.000001)
+    {
+      printf("%f\n",dtempnum);
+      dtempnum *= 10;
+      tempnum = dtempnum;
+      word[i++] = (tempnum % 10) + 48;
+      dtempnum -= tempnum;
+    }
+  return (word);
+}
+
+void update_string	(t_calculator *cal)
+{
+  char buffer[128];
+
+  string_delete(calc->string);
+  if (cal->res  1 != 0)
+    cal->string = string_new_str((const char*)efitoa(buffer,cal->res));
+  cal->string = string_new_str((const char*)efdtoa(buffer,cal->res));
 }
