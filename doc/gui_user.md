@@ -17,7 +17,7 @@ You can find example of dabsic file in the demo or in the directory doc with the
 
 ## Warning
 
-All pointers of the settings structure need to be allocate with bunny_malloc. And you must not free them.
+All pointers of the settings structure need to be allocate with bunny_malloc. And you must not free them except name when you edit some objects.
 
 They will be free by the destruction of the elements by calling the function ```efdelete_gui```.
 
@@ -33,6 +33,7 @@ They will be free by the destruction of the elements by calling the function ```
 - **efdisplay_gui**(```t_gui *gui, t_bunny_pixelarray```) : display all composants in the pixelarray given in parameter
 
 ### Edition functions :
+
 - **efedit_[```object_name```]_gui**(```t_gui *gui, const char *div_name, t_[*object_name*]_settings const *edit) : Edit the settings of an object. All value equal to -1 or Null are not edit
 - **efdel_gui**(```t_gui *gui, const char *div_name, const char *object_name```) : delete the component with the given in parameter if this object is in the div with the name div_name
 - **efadd_[```object_name```]_gui**(```t_gui *gui, const char *div_name, t_[*object_name*]_settings const *add```) : Create a new component and put it in the div with the name div_name
