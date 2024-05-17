@@ -19,7 +19,7 @@ typedef struct	        s_label
 
 typedef struct		s_label_settings
 {
-  t_bunny_position	       	pos;
+  t_bunny_position	pos;
   t_bunny_size		size;
   char			*name;
   char			*text;

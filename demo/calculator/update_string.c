@@ -31,29 +31,19 @@ static char*	reverse(char		*word,
   return word;
 }
 
-static char	*efitoa (char		*word,
-			 int		num)
+static char	*efdtoa(char		*word,
+			double		num)
 {
+  double	dtempnum;
   int		tempnum;
   int		i;
 
-  i = 0;
-  tempnum = abs(num);
-  while(tempnum)
+  if (num == 0)
     {
-      word[i++] = (tempnum % 10) + 48;
-      tempnum = tempnum / 10;
+      word[0] = '0';
+      word[1] = '\0';
+      return(word);
     }
-  if (num < 0)
-    word[i++] = '-';
-  return (reverse(word,0,i - 1));
-}
-
-static char *efdtoa (char * word ,double num)
-{
-  double dtempnum;
-  int tempnum;
-  int i;
   i = 0;
   tempnum = fabs(num);
   dtempnum = fabs(num);
@@ -65,7 +55,12 @@ static char *efdtoa (char * word ,double num)
     }
   if (num < 0)
     word[i++] = '-';
-  word = reverse(word,0,i - 1);
+  word = reverse(word, 0, i - 1);
+  if (dtempnum == 0)
+    {
+      word[i] = '\0';
+      return(word);
+    }
   word[i++] = ',';
   printf("%f\n",dtempnum);
   while(dtempnum > 0.000001)
@@ -76,15 +71,14 @@ static char *efdtoa (char * word ,double num)
       word[i++] = (tempnum % 10) + 48;
       dtempnum -= tempnum;
     }
+  word[i] = '\0';
   return (word);
 }
 
-void update_string	(t_calculator *cal)
+void		update_string(t_calculator *cal)
 {
-  char buffer[128];
+  char		buffer[128];
 
-  string_delete(calc->string);
-  if (cal->res  1 != 0)
-    cal->string = string_new_str((const char*)efitoa(buffer,cal->res));
-  cal->string = string_new_str((const char*)efdtoa(buffer,cal->res));
+  string_delete(cal->string);
+  cal->string = string_new_str((const char*)efdtoa(buffer, cal->buffer));
 }

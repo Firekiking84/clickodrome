@@ -28,6 +28,7 @@ t_label			*efnew_label(t_label_settings	*settings)
   label->size = settings->size;
   label->name = settings->name;
   label->text = settings->text;
+  label->font_size = settings->font_size;
   if (!settings->font_name)
     label->font = settings->font_res;
   else

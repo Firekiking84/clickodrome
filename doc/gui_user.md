@@ -65,7 +65,7 @@ Button is a text area that can only be edit by gui.
  - ```font_color(t_bunny_color *)``` : color of the font.
  - ```bg(t_bunny_color *)``` : background of the button. If null there is no background.
  - ```hover_color(t_bunny_color)``` : teint of color to button. can dose't exist.
- - ```function(t_vector_ptr *)``` : pointer storage function.
+ - ```functions(t_vector_ptr *)``` : pointer storage function.
 
 ### Label
 
@@ -93,7 +93,7 @@ Text_Box is a text area that can only be edit by gui.
  - ```font_size(t_bunny_size)``` : x and y size of the font use to print the text.
  - ```font_color(t_bunny_color *)``` : color of the font.
  - ```bg(t_bunny_color *)``` : background of the text_box. If null there is no background.
- - ```function(t_vector_ptr *)``` : pointer storage function.
+ - ```functions(t_vector_ptr *)``` : pointer storage function.
 
 ### Picture
 
@@ -111,5 +111,5 @@ Timer is a text area that can only be edit by gui.
 
 #### Settings :
  - ```name(char *)``` : name to id it for by example edit it or delete it.
- - ```delay(char *)``` : last use to timer,  into second.
- - ```function(t_vector_ptr *)``` : : pointer storage function.
+ - ```delay(ssize_t)``` : last use to timer,  into second.
+ - ```functions(t_vector_ptr *)``` : : pointer storage function.

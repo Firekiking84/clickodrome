@@ -7,6 +7,7 @@ SRC =			main.c					\
 			$(wildcard ../../src/*/*.c)		\
 
 LIB_SRC =		add.c					\
+			calculate.c				\
 			clear.c					\
 			del.c					\
 			divide.c				\
@@ -14,6 +15,7 @@ LIB_SRC =		add.c					\
 			modulo.c				\
 			multiply.c				\
 			operation.c				\
+			push.c					\
 			push_0.c				\
 			push_1.c				\
 			push_2.c				\
@@ -39,11 +41,14 @@ CC =			bcc
 
 FLAGS =			-Wall -Wextra -g -ggdb
 
-LDFLAGS =		-L./
+LDFLAGS =		-L./ -rdynamic
 
 all:$(NAME) lib
 
 lib:$(LIB_NAME)
+
+lib_exe:
+			$(CC) $(LIB_OBJS) -O0 $(LDFLAGS)
 
 $(LIB_NAME):$(LIB_OBJS)
 			$(CC) --shared -o $(LIB_NAME) $(LIB_OBJS) -O0 $(LDFLAGS)

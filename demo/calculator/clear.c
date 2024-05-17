@@ -10,12 +10,16 @@
 ** * *** * * ***  ** * ** ** ** ** * * * *** * **  **************************
 */
 
-#include "calculator.h"
+#include	"calculator.h"
 
-void clear (t_gui *gui ,void *data)
+void		clear(t_gui	*gui,
+		      void	*data)
 {
   t_calculator *calc;
+
   calc = data;
   string_clear(calc->string);
   calc->res = 0;
+  calc->buffer = 0;
+  update_string(calc);
 }

@@ -26,7 +26,8 @@ static int		init_timer_settings(t_bunny_configuration	*cnf,
   settings->name = strdup(tmp);
   if (!settings->name)
     return(-1);
-  bunny_configuration_getf_int(cnf, &delay, "delay");
+  if (!bunny_configuration_getf_int(cnf, &delay, "delay"))
+    delay = 1;
   settings->delay = (size_t)delay;
   if (!settings->delay)
     {
