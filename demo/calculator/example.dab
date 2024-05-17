@@ -199,17 +199,92 @@ screen = 500, 500 ' taille de la fenêtre
     ,
     [
       type = "button"
-      pos = 0, 370, 0 ' x, y, z
+      pos = 0, 365, 0 ' x, y, z
       size = 50, 50 ' width, height
-      name = "clear" ' = id
-      text = "C"
+      name = "1" ' = id
+      text = "1"
       font = "font.png"
       font_size = 10, 14
       click_color = 0, 255, 0
       font_color = 0, 0, 0' red, blue, green
       bg = 255, 255, 255 ' can not exist
       hover_color = 181, 181, 181 ' can not exist
-      {functions "clear"}
+      {functions "push_1"}
+    ]
+    ,
+    [
+      type = "button"
+      pos = 50, 365, 0 ' x, y, z
+      size = 50, 50 ' width, height
+      name = "2" ' = id
+      text = "2"
+      font = "font.png"
+      font_size = 10, 14
+      click_color = 0, 255, 0
+      font_color = 0, 0, 0' red, blue, green
+      bg = 255, 255, 255 ' can not exist
+      hover_color = 181, 181, 181 ' can not exist
+      {functions "push_2"}
+    ]
+    ,
+    [
+      type = "button"
+      pos = 100, 365, 0 ' x, y, z
+      size = 50, 50 ' width, height
+      name = "3" ' = id
+      text = "3"
+      font = "font.png"
+      font_size = 10, 14
+      click_color = 0, 255, 0
+      font_color = 0, 0, 0' red, blue, green
+      bg = 255, 255, 255 ' can not exist
+      hover_color = 181, 181, 181 ' can not exist
+      {functions "push_3"}
+    ]
+    ,
+    [
+      type = "button"
+      pos = 150, 365, 0 ' x, y, z
+      size = 50, 50 ' width, height
+      name = "add" ' = id
+      text = "+"
+      font = "font.png"
+      font_size = 10, 14
+      click_color = 0, 255, 0
+      font_color = 0, 0, 0' red, blue, green
+      bg = 255, 255, 255 ' can not exist
+      hover_color = 181, 181, 181 ' can not exist
+      {functions "add"}
+    ]
+    ,
+    [
+      type = "button"
+      pos = 0, 420, 0 ' x, y, z
+      size = 50, 50 ' width, height
+      name = "0" ' = id
+      text = "0"
+      font = "font.png"
+      font_size = 10, 14
+      click_color = 0, 255, 0
+      font_color = 0, 0, 0' red, blue, green
+      bg = 255, 255, 255 ' can not exist
+      hover_color = 181, 181, 181 ' can not exist
+      {functions "push_0"}
+    ]
+    ,
+    [
+      type = "button"
+      pos = 55, 420, 0 ' x, y, z
+      size = 50, 50 ' width, height
+      name = "=" ' = id
+      text = "="
+      font = "font.png"
+      font_size = 10, 14
+      click_color = 0, 255, 0
+      font_color = 0, 0, 0' red, blue, green
+      bg = 255, 255, 255 ' can not exist
+      hover_color = 181, 181, 181 ' can not exist
+      {functions "calculate"}
     ]
   }
 ]
