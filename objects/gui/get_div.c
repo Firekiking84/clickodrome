@@ -38,12 +38,18 @@ static void		*short_return(const char		*err_msg,
 				      int			mode)
 {
   if (mode == -1)
-    return(lib);
+    {
+      lib->data = NULL;
+      return(lib);
+    }
   bunny_perror(err_msg);
   if (mode >= 1)
     bunny_free(lib);
   if (mode >= 2)
-    bunny_free(lib->name);
+    {
+      dprintf(2, dlerror());
+      bunny_free(lib->name);
+    }
   return(NULL);
 }
 
@@ -72,7 +78,7 @@ static t_lib		*get_lib_cnf(t_bunny_configuration	*cnf,
   if (!lib->link)
     return(short_return("error dlopen", lib, 2));
   if (!bunny_configuration_getf(cnf, &tmp, "init_func"))
-    return(short_return("cannot get init_struct", lib, 2));
+    return(short_return("cannot find init_struct", lib, -1));
   init_func = dlsym(lib->link, tmp);
   if (!init_func)
     return(short_return("cannot link init_func", lib, 2));

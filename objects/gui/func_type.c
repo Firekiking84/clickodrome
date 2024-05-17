@@ -21,6 +21,8 @@ void		eftype_func(t_bunny_configuration	*comp,
   if (bunny_configuration_getf(comp, &type, "type")== false)
     write(1, "type manquant dans le .dab\n", 28);
   tenum = efcomp_type(type);
+  if (tenum == -1)
+    return;
   if(tenum == BUTTON)
     efadd_button_cnf(comp, gui);
   if(tenum == LABEL)

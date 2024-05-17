@@ -284,7 +284,7 @@ screen = 500, 500 ' taille de la fenêtre
       font_color = 0, 0, 0' red, blue, green
       bg = 255, 255, 255 ' can not exist
       hover_color = 181, 181, 181 ' can not exist
-      {functions "calculate"}
+      {functions "operation"}
     ]
   }
 ]

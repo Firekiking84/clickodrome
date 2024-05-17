@@ -10,11 +10,14 @@
 ** * *** * * ***  ** * ** ** ** ** * * * *** * **  **************************
 */
 
-#include "calculator.h"
+#include	"calculator.h"
 
-void multiply		(t_gui *gui ,void *data)
+void		multiply(t_gui	*gui,
+			 void	*data)
 {
   t_calculator *calc;
+
   calc = data;
+  calculate(calc);
   calc->operator = MULTIPLY;
 }

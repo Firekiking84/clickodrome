@@ -21,11 +21,16 @@ t_type		efcomp_type(const char*		str)
     type = BUTTON;
   else if (strcmp(str,"label") == 0)
     type = LABEL;
-  else if (strcmp(str,"text_box") == 0)
+  else if (strcmp(str,"text_box") == 0 || (strcmp(str, "textbox") == 0))
     type = TEXTBOX;
   else if (strcmp(str,"picture") == 0)
     type = PICTURE;
   else if (strcmp(str,"timer") == 0)
     type = TIMER;
+  else
+    {
+      dprintf(2, "Component %s unknow !", str);
+      type = -1;
+    }
   return(type);
 }

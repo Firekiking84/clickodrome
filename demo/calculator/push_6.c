@@ -10,24 +10,10 @@
 ** * *** * * ***  ** * ** ** ** ** * * * *** * **  **************************
 */
 
-#include "calculator.h"
+#include	"calculator.h"
 
-void push_6	(t_gui *gui ,void *data)
+void		push_6(t_gui	*gui,
+		       void	*data)
 {
-  t_calculator *calc;
-  calc = data;
-  calc->buffer = 6;
-  if (calc->operator == NONE)
-    {
-      if (calc->res != 0)
-	{
-	  calc->res = calc->res * 10;
-	  calc->res += calc->buffer;
-	}
-      string_push_back(calc->string,'6');
-    }
-  if (calc->operator != NONE)
-    {
-      operation(gui,data);
-    }
+  push(gui, data, 6);
 }

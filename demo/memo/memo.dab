@@ -1,0 +1,56 @@
+screen = 500, 500
+[clock
+  pos = 0, 0
+  size = 100, 100
+  lib = "./refresh_time.so"
+  {components
+    [
+      type = "label"
+      pos = 0, 0
+      size = 60, 15
+      name = "clock"
+      text = "wait"
+      font = "font.png"
+      font_size = 10, 14
+      font_color = 255, 255, 255
+      bg = 0, 0, 0
+    ]
+    ,
+    [
+      type = "timer"
+      name = "refresh_clock"
+      delay = 60
+      {functions "refresh_time"}
+    ]
+  }
+]
+[memo
+  pos = 50, 50
+  size = 400, 450
+  lib = "./edit_note.so"
+  {components
+    [
+      type = "label"
+      pos = 50, 50
+      size = 400, 300
+      name = "memo"
+      text = "Enter a memo !"
+      font = "font.png"
+      font_size = 10, 14
+      font_color = 0, 0, 0
+      bg = 255, 255, 255
+    ]
+    ,
+    [
+      type = "textbox"
+      pos = 50, 355
+      size = 400, 90
+      name = "input_memo"
+      font = "font.png"
+      font_size = 10, 14
+      font_color = 0, 0, 0
+      bg = 255, 255, 255
+      {functions "edit_note"}
+    ]
+  }
+]

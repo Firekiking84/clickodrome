@@ -15,7 +15,7 @@ static t_label		*get_label_by_name(t_vector_ptr			*labels,
       target = efvector_ptr_get(labels, i);
       i += 1;
     }
-  if (i == labels->data_count)
+  if (i == labels->data_count && target && strcmp(name, target->name) != 0)
     return(NULL);
   return(target);
 }

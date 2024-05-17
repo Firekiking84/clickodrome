@@ -26,6 +26,7 @@ void                    efdisplay_label(t_label                 *label,
     }
   set.pix = px;
   set.font = label->font;
+  set.font_size = label->font_size;
   set.pos = label->pos;
   set.pos_end = label->pos_end;
   set.txt = label->text;

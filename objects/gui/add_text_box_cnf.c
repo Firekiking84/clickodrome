@@ -21,6 +21,7 @@ static int		init_textbox_settings(t_bunny_configuration	*cnf,
   settings->pos = efget_pos_cnf(cnf);
   settings->size = efget_size_cnf(cnf, "size");
   settings->order = gui->nb_input_components;
+  settings->gui = gui;
   gui->nb_input_components += 1;
   bunny_configuration_getf(cnf, &tmp, "name");
   settings->name = efstrdup(tmp);

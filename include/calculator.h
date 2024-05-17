@@ -35,26 +35,49 @@ typedef struct	s_calculator
   t_string	*string;
 }		t_calculator;
 
-t_calculator *init_calculator		  (void);
-void update_string	(t_gui *gui, void *data);
-void push_0		(t_gui *gui ,void *data);
-void push_1		(t_gui *gui ,void *data);
-void push_2		(t_gui *gui ,void *data);
-void push_3		(t_gui *gui ,void *data);
-void push_4		(t_gui *gui ,void *data);
-void push_5		(t_gui *gui ,void *data);
-void push_6		(t_gui *gui ,void *data);
-void push_7		(t_gui *gui ,void *data);
-void push_8		(t_gui *gui ,void *data);
-void push_9		(t_gui *gui ,void *data);
-void add		(t_gui *gui ,void *data);
-void subtract		(t_gui *gui ,void *data);
-void divide		(t_gui *gui ,void *data);
-void multiply		(t_gui *gui ,void *data);
-void modulo		(t_gui *gui ,void *data);
-void result		(t_gui *gui ,void *data);
-void operation		(t_gui *gui ,void *data);
-void del		(t_gui *gui ,void *data);
-void clear 		(t_gui *gui ,void *data);
+t_calculator	*init_calculator(void);
+void		update_string(t_calculator	*cal);
+void		push(t_gui			*gui,
+		     t_calculator		*cal,
+		     int			value);
+void		push_0(t_gui			*gui,
+		       void			*data);
+void		push_1(t_gui			*gui,
+		       void			*data);
+void		push_2(t_gui			*gui,
+		       void			*data);
+void		push_3(t_gui			*gui,
+		       void			*data);
+void		push_4(t_gui			*gui,
+		       void			*data);
+void		push_5(t_gui			*gui,
+		       void			*data);
+void		push_6(t_gui			*gui,
+		       void			*data);
+void		push_7(t_gui			*gui,
+		       void			*data);
+void		push_8(t_gui			*gui,
+		       void			*data);
+void		push_9(t_gui			*gui,
+		       void			*data);
+void		add(t_gui			*gui,
+		    void			*data);
+void		substract(t_gui			*gui,
+			  void			*data);
+void		divide(t_gui			*gui,
+		       void			*data);
+void		multiply(t_gui			*gui,
+			 void			*data);
+void		modulo(t_gui			*gui,
+		       void			*data);
+void		result(t_gui			*gui,
+		       void			*data);
+void		operation(t_gui			*gui,
+			  void			*data);
+void		del(t_gui			*gui,
+		    void		       	*data);
+void		clear(t_gui			*gui,
+		      void			*data);
+void		calculate(t_calculator		*cal);
 
 #endif //		__CALCULATOR_H__

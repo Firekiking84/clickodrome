@@ -10,14 +10,14 @@
 ** * *** * * ***  ** * ** ** ** ** * * * *** * **  **************************
 */
 
-#include "calculator.h"
+#include	"calculator.h"
 
-void del (t_gui *gui ,void *data)
+void		del(t_gui	*gui,
+		    void	*data)
 {
-  t_calculator *calc;
+  t_calculator	*calc;
+
   calc = data;
-  int temp;
   string_pop_back(calc->string);
-  temp = calc->res / 10;
-  calc->res = temp;
+  calc->res = calc->res / 10;
 }
